@@ -1,0 +1,57 @@
+SI NOTA, ALLA FINE, CHE ANCHE I SEARCHER DEVONO CONTROLLARE NELL'EPILOGO SE CI SONO SEARCHER BLOCCATI, PERCHE' PUO' AVVENIRE CHE UN DELETER BLOCCHI UN SEARCHER, FINISCA, PARTE UN SEARCHER E QUELLO BLOCCATO RIMANE IN DEADLOCK!!!
+tommasolabieni@tlab:~/PSO/tesina/es4$ ./search_insert_delete 10
+SONO IL MAIN e ho creato il Pthread 0-esimo (searcher) con id=139996272514816
+SONO IL MAIN e ho creato il Pthread 1-esimo (deleter) con id=139996264122112
+Thread Searcher di indice 0 partito: Ho come identificatore 139996272514816
+Il thread Searcher di indice 0 con identificatore 139996272514816 e' nella sua sezione critica
+Il thread Searcher di indice 0 con identificatore 139996272514816 terminato. 0 rimanenti
+Thread Deleter di indice 1 partito: Ho come identificatore 139996264122112
+Il thread Deleter di indice 1 con identificatore 139996264122112 e' nella sua sezione critica
+Il thread Deleter di indice 1 con identificatore 139996264122112 terminato. -1 rimanenti
+SONO IL MAIN e ho creato il Pthread 2-esimo (searcher) con id=139996255729408
+Thread Searcher di indice 2 partito: Ho come identificatore 139996255729408
+Il thread Searcher di indice 2 con identificatore 139996255729408 e' nella sua sezione critica
+Il thread Searcher di indice 2 con identificatore 139996255729408 terminato. 0 rimanenti
+SONO IL MAIN e ho creato il Pthread 3-esimo (inserter) con id=139996247336704
+Thread Inserter di indice 3 partito: Ho come identificatore 139996247336704
+Il thread Inserter di indice 3 con identificatore 139996247336704 e' nella sua sezione critica
+Thread Inserter con indice 3 ha aggiunto l'elemento 485
+Il thread Inserter di indice 3 con identificatore 139996247336704 terminato. -1 rimanenti
+Thread Searcher di indice 4 partito: Ho come identificatore 139996236748544
+Il thread Searcher di indice 4 con identificatore 139996236748544 e' nella sua sezione critica
+Thread Searcher con indice 4 ha letto l'elemento 485
+Il thread Searcher di indice 4 con identificatore 139996236748544 terminato. 0 rimanenti
+SONO IL MAIN e ho creato il Pthread 4-esimo (searcher) con id=139996236748544
+SONO IL MAIN e ho creato il Pthread 5-esimo (deleter) con id=139996228355840
+SONO IL MAIN e ho creato il Pthread 6-esimo (deleter) con id=139996219963136
+SONO IL MAIN e ho creato il Pthread 7-esimo (searcher) con id=139995868296960
+Thread Deleter di indice 6 partito: Ho come identificatore 139996219963136
+Il thread Deleter di indice 6 con identificatore 139996219963136 e' nella sua sezione critica
+Thread Searcher di indice 7 partito: Ho come identificatore 139995868296960
+Il thread Inserter di indice 7 con identificatore 139995868296960 e' bloccato a causa di del attivo
+Thread Searcher di indice 8 partito: Ho come identificatore 139995859904256
+Thread Deleter con indice 6 ha eliminato l'elemento di indice 1 con valore 485
+Thread Deleter di indice 5 partito: Ho come identificatore 139996228355840
+Il thread Searcher di indice 8 con identificatore 139995859904256 e' bloccato a causa di del attivo
+SONO IL MAIN e ho creato il Pthread 8-esimo (searcher) con id=139995859904256
+Il thread Deleter di indice 6 con identificatore 139996219963136 terminato. 0 rimanenti
+Il thread Searcher di indice 7 con identificatore 139995868296960 e' nella sua sezione critica
+Il thread Searcher di indice 7 con identificatore 139995868296960 terminato. 0 rimanenti
+Il thread Deleter di indice 5 con identificatore 139996228355840 e' bloccato a causa di search att
+SONO IL MAIN e ho creato il Pthread 9-esimo (searcher) con id=139995851511552
+Thread Searcher di indice 9 partito: Ho come identificatore 139995851511552
+Il thread Deleter di indice 5 con identificatore 139996228355840 e' nella sua sezione critica
+Pthread 0-esimo restituisce 0
+Pthread 1-esimo restituisce 1
+Pthread 2-esimo restituisce 2
+Pthread 3-esimo restituisce 3
+Il thread Inserter di indice 9 con identificatore 139995851511552 e' bloccato a causa di del attivo
+Il thread Deleter di indice 5 con identificatore 139996228355840 terminato. 0 rimanenti
+Il thread Searcher di indice 8 con identificatore 139995859904256 e' nella sua sezione critica
+Il thread Searcher di indice 8 con identificatore 139995859904256 terminato. 0 rimanenti
+Pthread 4-esimo restituisce 4
+Pthread 5-esimo restituisce 5
+Pthread 6-esimo restituisce 6
+Pthread 7-esimo restituisce 7
+Pthread 8-esimo restituisce 8
+

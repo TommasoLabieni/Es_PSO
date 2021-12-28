@@ -1,0 +1,246 @@
+SONO IL MAIN e ho creato il Pthread 0-esimo (searcher) con id=140008352073472
+SONO IL MAIN e ho creato il Pthread 1-esimo (inserter) con id=140008343680768
+Thread Searcher di indice 0 partito: Ho come identificatore 140008352073472
+Il thread Searcher di indice 0 con identificatore 140008352073472 e' nella sua sezione critica
+Il thread Searcher di indice 0 con identificatore 140008352073472 terminato. 0 rimanenti
+Thread Inserter di indice 1 partito: Ho come identificatore 140008343680768
+Il thread Inserter di indice 1 con identificatore 140008343680768 e' nella sua sezione critica
+SONO IL MAIN e ho creato il Pthread 2-esimo (searcher) con id=140008335288064
+Thread Inserter con indice 1 ha aggiunto l'elemento 72
+Il thread Inserter di indice 1 con identificatore 140008343680768 terminato.
+SONO IL MAIN e ho creato il Pthread 3-esimo (inserter) con id=140008326895360
+Thread Searcher di indice 2 partito: Ho come identificatore 140008335288064
+Il thread Searcher di indice 2 con identificatore 140008335288064 e' nella sua sezione critica
+Thread Searcher con indice 2 ha letto l'elemento 72
+Il thread Searcher di indice 2 con identificatore 140008335288064 terminato. 0 rimanenti
+Thread Inserter di indice 3 partito: Ho come identificatore 140008326895360
+Il thread Inserter di indice 3 con identificatore 140008326895360 e' nella sua sezione critica
+Thread Inserter con indice 3 ha aggiunto l'elemento 614
+Il thread Inserter di indice 3 con identificatore 140008326895360 terminato.
+SONO IL MAIN e ho creato il Pthread 4-esimo (deleter) con id=140008318502656
+Thread Deleter di indice 4 partito: Ho come identificatore 140008318502656
+Il thread Deleter di indice 4 con identificatore 140008318502656 e' nella sua sezione critica
+Il thread Deleter di indice 4 con identificatore 140008318502656 terminato.
+SONO IL MAIN e ho creato il Pthread 5-esimo (deleter) con id=140008307914496
+Thread Deleter di indice 5 partito: Ho come identificatore 140008307914496
+Il thread Deleter di indice 5 con identificatore 140008307914496 e' nella sua sezione critica
+Il thread Deleter di indice 5 con identificatore 140008307914496 terminato.
+SONO IL MAIN e ho creato il Pthread 6-esimo (inserter) con id=140008299521792
+Thread Inserter di indice 6 partito: Ho come identificatore 140008299521792
+Il thread Inserter di indice 6 con identificatore 140008299521792 e' nella sua sezione critica
+Thread Inserter con indice 6 ha aggiunto l'elemento 670
+Il thread Inserter di indice 6 con identificatore 140008299521792 terminato.
+SONO IL MAIN e ho creato il Pthread 7-esimo (inserter) con id=140007947892480
+Thread Inserter di indice 7 partito: Ho come identificatore 140007947892480
+Il thread Inserter di indice 7 con identificatore 140007947892480 e' nella sua sezione critica
+SONO IL MAIN e ho creato il Pthread 8-esimo (deleter) con id=140007939499776
+Thread Inserter con indice 7 ha aggiunto l'elemento 716
+Il thread Inserter di indice 7 con identificatore 140007947892480 terminato.
+SONO IL MAIN e ho creato il Pthread 9-esimo (deleter) con id=140007931107072
+SONO IL MAIN e ho creato il Pthread 10-esimo (deleter) con id=140007922714368
+Thread Deleter di indice 8 partito: Ho come identificatore 140007939499776
+Il thread Deleter di indice 8 con identificatore 140007939499776 e' nella sua sezione critica
+Il thread Deleter di indice 8 con identificatore 140007939499776 terminato.
+SONO IL MAIN e ho creato il Pthread 11-esimo (searcher) con id=140007914321664
+Thread Deleter di indice 10 partito: Ho come identificatore 140007922714368
+Il thread Deleter di indice 10 con identificatore 140007922714368 e' nella sua sezione critica
+Il thread Deleter di indice 10 con identificatore 140007922714368 terminato.
+Thread Deleter di indice 9 partito: Ho come identificatore 140007931107072
+Il thread Deleter di indice 9 con identificatore 140007931107072 e' nella sua sezione critica
+Il thread Deleter di indice 9 con identificatore 140007931107072 terminato.
+SONO IL MAIN e ho creato il Pthread 12-esimo (inserter) con id=140007905928960
+Thread Searcher di indice 11 partito: Ho come identificatore 140007914321664
+Il thread Searcher di indice 11 con identificatore 140007914321664 e' nella sua sezione critica
+Il thread Searcher di indice 11 con identificatore 140007914321664 terminato. 0 rimanenti
+SONO IL MAIN e ho creato il Pthread 13-esimo (inserter) con id=140007897536256
+Thread Inserter di indice 13 partito: Ho come identificatore 140007897536256
+Il thread Inserter di indice 13 con identificatore 140007897536256 e' nella sua sezione critica
+Thread Inserter con indice 13 ha aggiunto l'elemento 116
+Il thread Inserter di indice 13 con identificatore 140007897536256 terminato.
+Thread Inserter di indice 12 partito: Ho come identificatore 140007905928960
+Il thread Inserter di indice 12 con identificatore 140007905928960 e' nella sua sezione critica
+Thread Inserter con indice 12 ha aggiunto l'elemento 948
+Il thread Inserter di indice 12 con identificatore 140007905928960 terminato.
+SONO IL MAIN e ho creato il Pthread 14-esimo (inserter) con id=140007612348160
+Thread Inserter di indice 14 partito: Ho come identificatore 140007612348160
+Il thread Inserter di indice 14 con identificatore 140007612348160 e' nella sua sezione critica
+Thread Inserter con indice 14 ha aggiunto l'elemento 833
+Il thread Inserter di indice 14 con identificatore 140007612348160 terminato.
+SONO IL MAIN e ho creato il Pthread 15-esimo (inserter) con id=140007603955456
+Thread Inserter di indice 15 partito: Ho come identificatore 140007603955456
+Il thread Inserter di indice 15 con identificatore 140007603955456 e' nella sua sezione critica
+Thread Inserter con indice 15 ha aggiunto l'elemento 103
+Il thread Inserter di indice 15 con identificatore 140007603955456 terminato.
+SONO IL MAIN e ho creato il Pthread 16-esimo (deleter) con id=140007595562752
+Thread Deleter di indice 16 partito: Ho come identificatore 140007595562752
+Il thread Deleter di indice 16 con identificatore 140007595562752 e' nella sua sezione critica
+Il thread Deleter di indice 16 con identificatore 140007595562752 terminato.
+SONO IL MAIN e ho creato il Pthread 17-esimo (searcher) con id=140007587170048
+Thread Searcher di indice 17 partito: Ho come identificatore 140007587170048
+Il thread Searcher di indice 17 con identificatore 140007587170048 e' nella sua sezione critica
+Thread Searcher con indice 17 ha letto l'elemento 116
+Thread Searcher con indice 17 ha letto l'elemento 833
+Thread Searcher con indice 17 ha letto l'elemento 103
+Il thread Searcher di indice 17 con identificatore 140007587170048 terminato. 0 rimanenti
+SONO IL MAIN e ho creato il Pthread 18-esimo (inserter) con id=140007578777344
+Thread Inserter di indice 18 partito: Ho come identificatore 140007578777344
+Il thread Inserter di indice 18 con identificatore 140007578777344 e' nella sua sezione critica
+Thread Inserter con indice 18 ha aggiunto l'elemento 932
+Il thread Inserter di indice 18 con identificatore 140007578777344 terminato.
+SONO IL MAIN e ho creato il Pthread 19-esimo (inserter) con id=140007570384640
+Thread Inserter di indice 19 partito: Ho come identificatore 140007570384640
+Il thread Inserter di indice 19 con identificatore 140007570384640 e' nella sua sezione critica
+Thread Inserter con indice 19 ha aggiunto l'elemento 942
+Il thread Inserter di indice 19 con identificatore 140007570384640 terminato.
+SONO IL MAIN e ho creato il Pthread 20-esimo (inserter) con id=140007561991936
+Thread Inserter di indice 20 partito: Ho come identificatore 140007561991936
+Il thread Inserter di indice 20 con identificatore 140007561991936 e' nella sua sezione critica
+Thread Inserter con indice 20 ha aggiunto l'elemento 133
+Il thread Inserter di indice 20 con identificatore 140007561991936 terminato.
+SONO IL MAIN e ho creato il Pthread 21-esimo (deleter) con id=140007553599232
+Thread Deleter di indice 21 partito: Ho come identificatore 140007553599232
+Il thread Deleter di indice 21 con identificatore 140007553599232 e' nella sua sezione critica
+Il thread Deleter di indice 21 con identificatore 140007553599232 terminato.
+SONO IL MAIN e ho creato il Pthread 22-esimo (deleter) con id=140007545206528
+Thread Deleter di indice 22 partito: Ho come identificatore 140007545206528
+Il thread Deleter di indice 22 con identificatore 140007545206528 e' nella sua sezione critica
+Il thread Deleter di indice 22 con identificatore 140007545206528 terminato.
+SONO IL MAIN e ho creato il Pthread 23-esimo (deleter) con id=140007536813824
+Thread Deleter di indice 23 partito: Ho come identificatore 140007536813824
+Il thread Deleter di indice 23 con identificatore 140007536813824 e' nella sua sezione critica
+Il thread Deleter di indice 23 con identificatore 140007536813824 terminato.
+SONO IL MAIN e ho creato il Pthread 24-esimo (inserter) con id=140007528421120
+Thread Inserter di indice 24 partito: Ho come identificatore 140007528421120
+Il thread Inserter di indice 24 con identificatore 140007528421120 e' nella sua sezione critica
+Thread Inserter con indice 24 ha aggiunto l'elemento 542
+Il thread Inserter di indice 24 con identificatore 140007528421120 terminato.
+SONO IL MAIN e ho creato il Pthread 25-esimo (inserter) con id=140007520028416
+Thread Inserter di indice 25 partito: Ho come identificatore 140007520028416
+Il thread Inserter di indice 25 con identificatore 140007520028416 e' nella sua sezione critica
+Thread Inserter con indice 25 ha aggiunto l'elemento 155
+Il thread Inserter di indice 25 con identificatore 140007520028416 terminato.
+SONO IL MAIN e ho creato il Pthread 26-esimo (inserter) con id=140007511635712
+Thread Inserter di indice 26 partito: Ho come identificatore 140007511635712
+Il thread Inserter di indice 26 con identificatore 140007511635712 e' nella sua sezione critica
+Thread Inserter con indice 26 ha aggiunto l'elemento 574
+Il thread Inserter di indice 26 con identificatore 140007511635712 terminato.
+SONO IL MAIN e ho creato il Pthread 27-esimo (deleter) con id=140007503243008
+Thread Deleter di indice 27 partito: Ho come identificatore 140007503243008
+Il thread Deleter di indice 27 con identificatore 140007503243008 e' nella sua sezione critica
+Il thread Deleter di indice 27 con identificatore 140007503243008 terminato.
+SONO IL MAIN e ho creato il Pthread 28-esimo (searcher) con id=140007494850304
+Thread Searcher di indice 28 partito: Ho come identificatore 140007494850304
+Il thread Searcher di indice 28 con identificatore 140007494850304 e' nella sua sezione critica
+Thread Searcher con indice 28 ha letto l'elemento 116
+Thread Searcher con indice 28 ha letto l'elemento 833
+Thread Searcher con indice 28 ha letto l'elemento 103
+Thread Searcher con indice 28 ha letto l'elemento 542
+Thread Searcher con indice 28 ha letto l'elemento 574
+Il thread Searcher di indice 28 con identificatore 140007494850304 terminato. 0 rimanenti
+SONO IL MAIN e ho creato il Pthread 29-esimo (inserter) con id=140007486457600
+Thread Inserter di indice 29 partito: Ho come identificatore 140007486457600
+Il thread Inserter di indice 29 con identificatore 140007486457600 e' nella sua sezione critica
+Thread Inserter con indice 29 ha aggiunto l'elemento 982
+Il thread Inserter di indice 29 con identificatore 140007486457600 terminato.
+SONO IL MAIN e ho creato il Pthread 30-esimo (inserter) con id=140007478064896
+Thread Inserter di indice 30 partito: Ho come identificatore 140007478064896
+Il thread Inserter di indice 30 con identificatore 140007478064896 e' nella sua sezione critica
+Thread Inserter con indice 30 ha aggiunto l'elemento 235
+Il thread Inserter di indice 30 con identificatore 140007478064896 terminato.
+SONO IL MAIN e ho creato il Pthread 31-esimo (deleter) con id=140007469672192
+Thread Deleter di indice 31 partito: Ho come identificatore 140007469672192
+Il thread Deleter di indice 31 con identificatore 140007469672192 e' nella sua sezione critica
+Il thread Deleter di indice 31 con identificatore 140007469672192 terminato.
+SONO IL MAIN e ho creato il Pthread 32-esimo (inserter) con id=140007461279488
+Thread Inserter di indice 32 partito: Ho come identificatore 140007461279488
+Il thread Inserter di indice 32 con identificatore 140007461279488 e' nella sua sezione critica
+Thread Inserter con indice 32 ha aggiunto l'elemento 819
+Il thread Inserter di indice 32 con identificatore 140007461279488 terminato.
+SONO IL MAIN e ho creato il Pthread 33-esimo (inserter) con id=140007452886784
+Thread Inserter di indice 33 partito: Ho come identificatore 140007452886784
+Il thread Inserter di indice 33 con identificatore 140007452886784 e' nella sua sezione critica
+Thread Inserter con indice 33 ha aggiunto l'elemento 432
+Il thread Inserter di indice 33 con identificatore 140007452886784 terminato.
+SONO IL MAIN e ho creato il Pthread 34-esimo (inserter) con id=140007444494080
+Thread Inserter di indice 34 partito: Ho come identificatore 140007444494080
+Il thread Inserter di indice 34 con identificatore 140007444494080 e' nella sua sezione critica
+Thread Inserter con indice 34 ha aggiunto l'elemento 420
+Il thread Inserter di indice 34 con identificatore 140007444494080 terminato.
+SONO IL MAIN e ho creato il Pthread 35-esimo (searcher) con id=140007436101376
+Thread Searcher di indice 35 partito: Ho come identificatore 140007436101376
+Il thread Searcher di indice 35 con identificatore 140007436101376 e' nella sua sezione critica
+Thread Searcher con indice 35 ha letto l'elemento 116
+Thread Searcher con indice 35 ha letto l'elemento 833
+Thread Searcher con indice 35 ha letto l'elemento 542
+Thread Searcher con indice 35 ha letto l'elemento 574
+Thread Searcher con indice 35 ha letto l'elemento 982
+Thread Searcher con indice 35 ha letto l'elemento 235
+Thread Searcher con indice 35 ha letto l'elemento 819
+Thread Searcher con indice 35 ha letto l'elemento 432
+Thread Searcher con indice 35 ha letto l'elemento 420
+Il thread Searcher di indice 35 con identificatore 140007436101376 terminato. 0 rimanenti
+SONO IL MAIN e ho creato il Pthread 36-esimo (inserter) con id=140007427708672
+Thread Inserter di indice 36 partito: Ho come identificatore 140007427708672
+Il thread Inserter di indice 36 con identificatore 140007427708672 e' nella sua sezione critica
+Thread Inserter con indice 36 ha aggiunto l'elemento 36
+Il thread Inserter di indice 36 con identificatore 140007427708672 terminato.
+SONO IL MAIN e ho creato il Pthread 37-esimo (deleter) con id=140007419315968
+Thread Deleter di indice 37 partito: Ho come identificatore 140007419315968
+Il thread Deleter di indice 37 con identificatore 140007419315968 e' nella sua sezione critica
+Il thread Deleter di indice 37 con identificatore 140007419315968 terminato.
+SONO IL MAIN e ho creato il Pthread 38-esimo (deleter) con id=140007410923264
+Thread Deleter di indice 38 partito: Ho come identificatore 140007410923264
+Il thread Deleter di indice 38 con identificatore 140007410923264 e' nella sua sezione critica
+Il thread Deleter di indice 38 con identificatore 140007410923264 terminato.
+SONO IL MAIN e ho creato il Pthread 39-esimo (searcher) con id=140007402530560
+Pthread 0-esimo restituisce 0
+Pthread 1-esimo restituisce 1
+Pthread 2-esimo restituisce 2
+Thread Searcher di indice 39 partito: Ho come identificatore 140007402530560
+Pthread 3-esimo restituisce 3
+Il thread Searcher di indice 39 con identificatore 140007402530560 e' nella sua sezione critica
+Thread Searcher con indice 39 ha letto l'elemento 833
+Thread Searcher con indice 39 ha letto l'elemento 542
+Thread Searcher con indice 39 ha letto l'elemento 574
+Thread Searcher con indice 39 ha letto l'elemento 982
+Thread Searcher con indice 39 ha letto l'elemento 235
+Thread Searcher con indice 39 ha letto l'elemento 819
+Thread Searcher con indice 39 ha letto l'elemento 432
+Thread Searcher con indice 39 ha letto l'elemento 36
+Il thread Searcher di indice 39 con identificatore 140007402530560 terminato. 0 rimanenti
+Pthread 4-esimo restituisce 4
+Pthread 5-esimo restituisce 5
+Pthread 6-esimo restituisce 6
+Pthread 7-esimo restituisce 7
+Pthread 8-esimo restituisce 8
+Pthread 9-esimo restituisce 9
+Pthread 10-esimo restituisce 10
+Pthread 11-esimo restituisce 11
+Pthread 12-esimo restituisce 12
+Pthread 13-esimo restituisce 13
+Pthread 14-esimo restituisce 14
+Pthread 15-esimo restituisce 15
+Pthread 16-esimo restituisce 16
+Pthread 17-esimo restituisce 17
+Pthread 18-esimo restituisce 18
+Pthread 19-esimo restituisce 19
+Pthread 20-esimo restituisce 20
+Pthread 21-esimo restituisce 21
+Pthread 22-esimo restituisce 22
+Pthread 23-esimo restituisce 23
+Pthread 24-esimo restituisce 24
+Pthread 25-esimo restituisce 25
+Pthread 26-esimo restituisce 26
+Pthread 27-esimo restituisce 27
+Pthread 28-esimo restituisce 28
+Pthread 29-esimo restituisce 29
+Pthread 30-esimo restituisce 30
+Pthread 31-esimo restituisce 31
+Pthread 32-esimo restituisce 32
+Pthread 33-esimo restituisce 33
+Pthread 34-esimo restituisce 34
+Pthread 35-esimo restituisce 35
+Pthread 36-esimo restituisce 36
+Pthread 37-esimo restituisce 37
+Pthread 38-esimo restituisce 38
+Pthread 39-esimo restituisce 39
