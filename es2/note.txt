@@ -11,3 +11,7 @@ Dettagli:
 	Dal momento che le auto NON possono sorpassarsi l'un l'altra, esse devono effettuare l'unload NELLO STESSO IDENTICO ORDINE CON CUI HANNO EFFETTUATO IL BOARDING
 	Tutti i thread dei passeggeri all'interno di un auto devono uscire PRIMA di un qualsiasi altro passeggero all'interno di un'altra auto
 	I passeggeri non possono scendere dalla macchina fino a che l'auto non ha invocato il metodo "unload"
+
+Note:
+
+	E' sufficiente una sola var num_passeggeri in quanto puo' caricare una sola auto per volta, e dunque il valore che contiene questa variabile non e' altro che il numero dei passeggeri che contiene in quell'istante l'auto corrente !!!
