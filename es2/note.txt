@@ -1,0 +1,13 @@
+PROBLEMA: Si suppone di aver n passeggeri e MOLTEPLICI macchine. I passeggeri aspettano di fare un giro in una delle auto, ognuna delle quali può trasportare C passeggeri (con C < n). Una qualsiasi macchina può partire SOLTANTO SE PIENA.
+
+Dettagli:
+
+	I thread dei passeggeri invocano i metodi "board" e "unboard"
+	I thread delle macchine invocano i metodi "load" "run" e "unload"
+	Soltanto una macchina per volta può caricare passeggeri	
+	I passeggeri non possono salire a bordo di un auto fino a che tale auto non ha invocato il metodo "load"
+	Un auto non può partire fino a che non ci sono ESATTAMENTE C passeggeri al suo interno
+	Vi possono essere molteplici macchine che girano nel tracciato concorrentemente
+	Dal momento che le auto NON possono sorpassarsi l'un l'altra, esse devono effettuare l'unload NELLO STESSO IDENTICO ORDINE CON CUI HANNO EFFETTUATO IL BOARDING
+	Tutti i thread dei passeggeri all'interno di un auto devono uscire PRIMA di un qualsiasi altro passeggero all'interno di un'altra auto
+	I passeggeri non possono scendere dalla macchina fino a che l'auto non ha invocato il metodo "unload"
