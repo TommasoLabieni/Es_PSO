@@ -1,0 +1,219 @@
+LOG IMPORTANTE CHE MOSTRA COSA SUCCEDE QUANDO CI SONO POCHI PASSEGGERI E TANTE AUTO
+tommasolabieni@tlab:~/PSO/PSO_Excercises/es2$ ./multi-car-RollerCoaster 4 2 10
+Sto per creare il thread 0-esimo (passeggero)
+SONO IL MAIN e ho creato il Pthread 0-esimo (passeggero) con id=140117303092992
+Sto per creare il thread 1-esimo (passeggero)
+Thread 0 PASSEGGERO partito: Ho come identificatore 140117303092992
+SONO IL MAIN e ho creato il Pthread 1-esimo (passeggero) con id=140117201123072
+Sto per creare il thread 2-esimo (passeggero)
+Thread 1 PASSEGGERO partito: Ho come identificatore 140117201123072
+SONO IL MAIN e ho creato il Pthread 2-esimo (passeggero) con id=140117294700288
+Sto per creare il thread 3-esimo (passeggero)
+Thread 2 PASSEGGERO partito: Ho come identificatore 140117294700288
+SONO IL MAIN e ho creato il Pthread 3-esimo (passeggero) con id=140117286307584
+Sto per creare il thread 4-esimo (auto)
+Thread 3 PASSEGGERO partito: Ho come identificatore 140117286307584
+SONO IL MAIN e ho creato il Pthread 4-esimo (auto) con id=140117277914880
+Sto per creare il thread 5-esimo (auto)
+Thread 4 AUTO partito: Ho come identificatore 140117277914880
+Thread AUTO di indice 4 con identificatore 140117277914880 inizia a far salire i passeggeri
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' salito nell'auto di indice 4.
+Thread 5 AUTO partito: Ho come identificatore 140117192730368
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' salito nell'auto di indice 4.
+SONO IL MAIN e ho creato il Pthread 5-esimo (auto) con id=140117192730368
+Sto per creare il thread 6-esimo (auto)
+Thread AUTO di indice 4 con identificatore 140117277914880 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 4 con identificatore 140117277914880 sta girando nel tracciato
+SONO IL MAIN e ho creato il Pthread 6-esimo (auto) con id=140117184337664
+Sto per creare il thread 7-esimo (auto)
+Thread 6 AUTO partito: Ho come identificatore 140117184337664
+SONO IL MAIN e ho creato il Pthread 7-esimo (auto) con id=140117175944960
+Sto per creare il thread 8-esimo (auto)
+Thread 7 AUTO partito: Ho come identificatore 140117175944960
+SONO IL MAIN e ho creato il Pthread 8-esimo (auto) con id=140117167552256
+Sto per creare il thread 9-esimo (auto)
+SONO IL MAIN e ho creato il Pthread 9-esimo (auto) con id=140117159159552
+Sto per creare il thread 10-esimo (auto)
+Thread 8 AUTO partito: Ho come identificatore 140117167552256
+Thread 9 AUTO partito: Ho come identificatore 140117159159552
+SONO IL MAIN e ho creato il Pthread 10-esimo (auto) con id=140117150766848
+Sto per creare il thread 11-esimo (auto)
+Thread 10 AUTO partito: Ho come identificatore 140117150766848
+SONO IL MAIN e ho creato il Pthread 11-esimo (auto) con id=140116530034432
+Sto per creare il thread 12-esimo (auto)
+Thread 11 AUTO partito: Ho come identificatore 140116530034432
+SONO IL MAIN e ho creato il Pthread 12-esimo (auto) con id=140116521641728
+Sto per creare il thread 13-esimo (auto)
+Thread 12 AUTO partito: Ho come identificatore 140116521641728
+SONO IL MAIN e ho creato il Pthread 13-esimo (auto) con id=140116513249024
+Thread 13 AUTO partito: Ho come identificatore 140116513249024
+Thread AUTO di indice 5 con identificatore 140117192730368 inizia a far salire i passeggeri
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' salito nell'auto di indice 5.
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' salito nell'auto di indice 5.
+Thread AUTO di indice 5 con identificatore 140117192730368 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 5 con identificatore 140117192730368 sta girando nel tracciato
+Thread AUTO di indice 6 con identificatore 140117184337664 inizia a far salire i passeggeri
+Thread AUTO di indice 4 con identificatore 140117277914880 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' sceso dall'auto di indice 4.
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' sceso dall'auto di indice 4.
+Thread AUTO di indice 4 con identificatore 140117277914880 ha fatto scendere tutti i 2 passeggeri
+Thread AUTO di indice 5 con identificatore 140117192730368 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' sceso dall'auto di indice 5.
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' salito nell'auto di indice 6.
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' sceso dall'auto di indice 5.
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' salito nell'auto di indice 6.
+Thread AUTO di indice 5 con identificatore 140117192730368 ha fatto scendere tutti i 2 passeggeri
+Thread AUTO di indice 6 con identificatore 140117184337664 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 6 con identificatore 140117184337664 sta girando nel tracciato
+Thread AUTO di indice 7 con identificatore 140117175944960 inizia a far salire i passeggeri
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' salito nell'auto di indice 7.
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' salito nell'auto di indice 7.
+Thread AUTO di indice 7 con identificatore 140117175944960 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 7 con identificatore 140117175944960 sta girando nel tracciato
+Thread AUTO di indice 8 con identificatore 140117167552256 inizia a far salire i passeggeri
+Thread AUTO di indice 6 con identificatore 140117184337664 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' sceso dall'auto di indice 6.
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' sceso dall'auto di indice 6.
+Thread AUTO di indice 6 con identificatore 140117184337664 ha fatto scendere tutti i 2 passeggeri
+Thread AUTO di indice 7 con identificatore 140117175944960 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' salito nell'auto di indice 8.
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' sceso dall'auto di indice 7.
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' salito nell'auto di indice 8.
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' sceso dall'auto di indice 7.
+Thread AUTO di indice 8 con identificatore 140117167552256 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 8 con identificatore 140117167552256 sta girando nel tracciato
+Thread AUTO di indice 7 con identificatore 140117175944960 ha fatto scendere tutti i 2 passeggeri
+Thread AUTO di indice 9 con identificatore 140117159159552 inizia a far salire i passeggeri
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' salito nell'auto di indice 9.
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' salito nell'auto di indice 9.
+Thread AUTO di indice 9 con identificatore 140117159159552 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 9 con identificatore 140117159159552 sta girando nel tracciato
+Thread AUTO di indice 10 con identificatore 140117150766848 inizia a far salire i passeggeri
+Thread AUTO di indice 8 con identificatore 140117167552256 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' sceso dall'auto di indice 8.
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' sceso dall'auto di indice 8.
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' salito nell'auto di indice 10.
+Thread AUTO di indice 8 con identificatore 140117167552256 ha fatto scendere tutti i 2 passeggeri
+Thread AUTO di indice 9 con identificatore 140117159159552 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' salito nell'auto di indice 10.
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' sceso dall'auto di indice 9.
+Thread AUTO di indice 10 con identificatore 140117150766848 ha caricato tutti i 2 passeggeri
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' sceso dall'auto di indice 9.
+Thread AUTO di indice 11 con identificatore 140116530034432 inizia a far salire i passeggeri
+Thread AUTO di indice 9 con identificatore 140117159159552 ha fatto scendere tutti i 2 passeggeri
+Thread AUTO di indice 10 con identificatore 140117150766848 sta girando nel tracciato
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' salito nell'auto di indice 11.
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' salito nell'auto di indice 11.
+Thread AUTO di indice 11 con identificatore 140116530034432 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 11 con identificatore 140116530034432 sta girando nel tracciato
+Thread AUTO di indice 12 con identificatore 140116521641728 inizia a far salire i passeggeri
+Thread AUTO di indice 10 con identificatore 140117150766848 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' sceso dall'auto di indice 10.
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' sceso dall'auto di indice 10.
+Thread AUTO di indice 10 con identificatore 140117150766848 ha fatto scendere tutti i 2 passeggeri
+Thread AUTO di indice 11 con identificatore 140116530034432 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' sceso dall'auto di indice 11.
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' sceso dall'auto di indice 11.
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' salito nell'auto di indice 12.
+Thread AUTO di indice 11 con identificatore 140116530034432 ha fatto scendere tutti i 2 passeggeri
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' salito nell'auto di indice 12.
+Thread AUTO di indice 12 con identificatore 140116521641728 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 12 con identificatore 140116521641728 sta girando nel tracciato
+Thread AUTO di indice 13 con identificatore 140116513249024 inizia a far salire i passeggeri
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' salito nell'auto di indice 13.
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' salito nell'auto di indice 13.
+Thread AUTO di indice 13 con identificatore 140116513249024 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 13 con identificatore 140116513249024 sta girando nel tracciato
+Thread AUTO di indice 4 con identificatore 140117277914880 inizia a far salire i passeggeri
+Thread AUTO di indice 12 con identificatore 140116521641728 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' sceso dall'auto di indice 12.
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' sceso dall'auto di indice 12.
+Thread AUTO di indice 12 con identificatore 140116521641728 ha fatto scendere tutti i 2 passeggeri
+Thread AUTO di indice 13 con identificatore 140116513249024 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' salito nell'auto di indice 4.
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' sceso dall'auto di indice 13.
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' salito nell'auto di indice 4.
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' sceso dall'auto di indice 13.
+Thread AUTO di indice 4 con identificatore 140117277914880 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 4 con identificatore 140117277914880 sta girando nel tracciato
+Thread AUTO di indice 5 con identificatore 140117192730368 inizia a far salire i passeggeri
+Thread AUTO di indice 13 con identificatore 140116513249024 ha fatto scendere tutti i 2 passeggeri
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' salito nell'auto di indice 5.
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' salito nell'auto di indice 5.
+Thread AUTO di indice 5 con identificatore 140117192730368 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 5 con identificatore 140117192730368 sta girando nel tracciato
+Thread AUTO di indice 6 con identificatore 140117184337664 inizia a far salire i passeggeri
+Thread AUTO di indice 4 con identificatore 140117277914880 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' sceso dall'auto di indice 4.
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' sceso dall'auto di indice 4.
+Thread AUTO di indice 4 con identificatore 140117277914880 ha fatto scendere tutti i 2 passeggeri
+Thread AUTO di indice 5 con identificatore 140117192730368 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' salito nell'auto di indice 6.
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' sceso dall'auto di indice 5.
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' salito nell'auto di indice 6.
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' sceso dall'auto di indice 5.
+Thread AUTO di indice 5 con identificatore 140117192730368 ha fatto scendere tutti i 2 passeggeri
+Thread AUTO di indice 6 con identificatore 140117184337664 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 6 con identificatore 140117184337664 sta girando nel tracciato
+Thread AUTO di indice 7 con identificatore 140117175944960 inizia a far salire i passeggeri
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' salito nell'auto di indice 7.
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' salito nell'auto di indice 7.
+Thread AUTO di indice 7 con identificatore 140117175944960 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 7 con identificatore 140117175944960 sta girando nel tracciato
+Thread AUTO di indice 8 con identificatore 140117167552256 inizia a far salire i passeggeri
+Thread AUTO di indice 6 con identificatore 140117184337664 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' sceso dall'auto di indice 6.
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' sceso dall'auto di indice 6.
+Thread AUTO di indice 6 con identificatore 140117184337664 ha fatto scendere tutti i 2 passeggeri
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' salito nell'auto di indice 8.
+Thread AUTO di indice 7 con identificatore 140117175944960 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' salito nell'auto di indice 8.
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' sceso dall'auto di indice 7.
+Thread AUTO di indice 8 con identificatore 140117167552256 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 8 con identificatore 140117167552256 sta girando nel tracciato
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' sceso dall'auto di indice 7.
+Thread AUTO di indice 9 con identificatore 140117159159552 inizia a far salire i passeggeri
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' salito nell'auto di indice 9.
+Thread AUTO di indice 7 con identificatore 140117175944960 ha fatto scendere tutti i 2 passeggeri
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' salito nell'auto di indice 9.
+Thread AUTO di indice 9 con identificatore 140117159159552 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 9 con identificatore 140117159159552 sta girando nel tracciato
+Thread AUTO di indice 10 con identificatore 140117150766848 inizia a far salire i passeggeri
+Thread AUTO di indice 8 con identificatore 140117167552256 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' sceso dall'auto di indice 8.
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' sceso dall'auto di indice 8.
+Thread AUTO di indice 8 con identificatore 140117167552256 ha fatto scendere tutti i 2 passeggeri
+Thread AUTO di indice 9 con identificatore 140117159159552 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' sceso dall'auto di indice 9.
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' salito nell'auto di indice 10.
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' sceso dall'auto di indice 9.
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' salito nell'auto di indice 10.
+Thread AUTO di indice 9 con identificatore 140117159159552 ha fatto scendere tutti i 2 passeggeri
+Thread AUTO di indice 10 con identificatore 140117150766848 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 10 con identificatore 140117150766848 sta girando nel tracciato
+Thread AUTO di indice 11 con identificatore 140116530034432 inizia a far salire i passeggeri
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' salito nell'auto di indice 11.
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' salito nell'auto di indice 11.
+Thread AUTO di indice 11 con identificatore 140116530034432 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 11 con identificatore 140116530034432 sta girando nel tracciato
+Thread AUTO di indice 12 con identificatore 140116521641728 inizia a far salire i passeggeri
+Thread AUTO di indice 10 con identificatore 140117150766848 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' sceso dall'auto di indice 10.
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' sceso dall'auto di indice 10.
+Thread AUTO di indice 10 con identificatore 140117150766848 ha fatto scendere tutti i 2 passeggeri
+Thread AUTO di indice 11 con identificatore 140116530034432 inizia a far scendere i passeggeri
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' sceso dall'auto di indice 11.
+Il Thread PASSEGGERO di indice 1 con identificatore 140117201123072 e' salito nell'auto di indice 12.
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' sceso dall'auto di indice 11.
+Il Thread PASSEGGERO di indice 0 con identificatore 140117303092992 e' salito nell'auto di indice 12.
+Thread AUTO di indice 11 con identificatore 140116530034432 ha fatto scendere tutti i 2 passeggeri
+Thread AUTO di indice 12 con identificatore 140116521641728 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 12 con identificatore 140116521641728 sta girando nel tracciato
+Thread AUTO di indice 13 con identificatore 140116513249024 inizia a far salire i passeggeri
+Il Thread PASSEGGERO di indice 3 con identificatore 140117286307584 e' salito nell'auto di indice 13.
+Il Thread PASSEGGERO di indice 2 con identificatore 140117294700288 e' salito nell'auto di indice 13.
+Thread AUTO di indice 13 con identificatore 140116513249024 ha caricato tutti i 2 passeggeri
+Thread AUTO di indice 13 con identificatore 140116513249024 sta girando nel tracciato
+Thread AUTO di indice 4 con identificatore 140117277914880 inizia a far salire i passeggeri
+^C
+
