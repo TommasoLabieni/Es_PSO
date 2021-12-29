@@ -1,0 +1,28 @@
+tommasolabieni@tlab:~/PSO/tesina/es4$ ./search_insert_delete 5
+SONO IL MAIN e ho creato il Pthread 0-esimo (inserter) con id=139889876821760
+SONO IL MAIN e ho creato il Pthread 1-esimo (inserter) con id=139889868429056
+Thread Inserter di indice 0 partito: Ho come identificatore 139889876821760
+Il thread Inserter di indice 0 con identificatore 139889876821760 e' nella sua sezione critica
+Thread Inserter con indice 0 ha aggiunto l'elemento 352
+Thread Inserter di indice 1 partito: Ho come identificatore 139889868429056
+Il thread Inserter di indice 1 con identificatore 139889868429056 e' nella sua sezione critica
+Thread Inserter con indice 1 ha aggiunto l'elemento 690
+SONO IL MAIN e ho creato il Pthread 2-esimo (deleter) con id=139889860036352
+Thread Deleter di indice 2 partito: Ho come identificatore 139889860036352
+Il thread Deleter di indice 2 con identificatore 139889860036352 e' nella sua sezione critica
+Thread Deleter con indice 2 ha eliminato l'elemento di indice 2 con valore 690
+SONO IL MAIN e ho creato il Pthread 3-esimo (inserter) con id=139889851643648
+Thread Inserter di indice 3 partito: Ho come identificatore 139889851643648
+Il thread Inserter di indice 3 con identificatore 139889851643648 e' nella sua sezione critica
+Thread Inserter con indice 3 ha aggiunto l'elemento 992
+SONO IL MAIN e ho creato il Pthread 4-esimo (searcher) con id=139889634965248
+Thread Searcher di indice 4 partito: Ho come identificatore 139889634965248
+Il thread Searcher di indice 4 con identificatore 139889634965248 e' nella sua sezione critica
+Thread Searcher con indice 4 ha letto l'elemento 352
+Thread Searcher con indice 4 ha letto l'elemento 992
+Pthread 0-esimo restituisce 0
+Pthread 1-esimo restituisce 1
+Pthread 2-esimo restituisce 2
+Pthread 3-esimo restituisce 3
+Pthread 4-esimo restituisce 4
+
