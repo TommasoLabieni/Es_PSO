@@ -1,0 +1,160 @@
+QUESTO LOG MOSTRA COSA SUCCEDE SE ARRIVA UN RIDER IN RITARDO
+tommasolabieni@tlab:~/PSO/PSO_Excercises/es4$ ./senate_bus 30
+Sto per creare il thread 0-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 0-esimo con id=139676405991168 (rider)
+Sto per creare il thread 1-esimo (rider)
+Thread RIDER di indice 0 partito: Ho come identificatore 139676405991168
+SONO IL MAIN e ho creato il Pthread 1-esimo con id=139676263380736 (rider)
+Sto per creare il thread 2-esimo (rider)
+Thread RIDER di indice 1 partito: Ho come identificatore 139676263380736
+SONO IL MAIN e ho creato il Pthread 2-esimo con id=139676397598464 (rider)
+Sto per creare il thread 3-esimo (rider)
+Thread RIDER di indice 2 partito: Ho come identificatore 139676397598464
+SONO IL MAIN e ho creato il Pthread 3-esimo con id=139676389205760 (rider)
+Sto per creare il thread 4-esimo (rider)
+Thread RIDER di indice 3 partito: Ho come identificatore 139676389205760
+SONO IL MAIN e ho creato il Pthread 4-esimo con id=139676380813056 (rider)
+Sto per creare il thread 5-esimo (rider)
+Thread RIDER di indice 4 partito: Ho come identificatore 139676380813056
+SONO IL MAIN e ho creato il Pthread 5-esimo con id=139676372420352 (rider)
+Sto per creare il thread 6-esimo (rider)
+Thread RIDER di indice 5 partito: Ho come identificatore 139676372420352
+SONO IL MAIN e ho creato il Pthread 6-esimo con id=139676295886592 (rider)
+Sto per creare il thread 7-esimo (rider)
+Thread RIDER di indice 6 partito: Ho come identificatore 139676295886592
+SONO IL MAIN e ho creato il Pthread 7-esimo con id=139676287493888 (rider)
+Sto per creare il thread 8-esimo (rider)
+Thread RIDER di indice 7 partito: Ho come identificatore 139676287493888
+SONO IL MAIN e ho creato il Pthread 8-esimo con id=139676279101184 (rider)
+Sto per creare il thread 9-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 9-esimo con id=139676254988032 (rider)
+Sto per creare il thread 10-esimo (rider)
+Thread RIDER di indice 8 partito: Ho come identificatore 139676279101184
+SONO IL MAIN e ho creato il Pthread 10-esimo con id=139676246595328 (rider)
+Sto per creare il thread 11-esimo (rider)
+Thread RIDER di indice 10 partito: Ho come identificatore 139676246595328
+SONO IL MAIN e ho creato il Pthread 11-esimo con id=139676238202624 (rider)
+Sto per creare il thread 12-esimo (rider)
+Thread RIDER di indice 11 partito: Ho come identificatore 139676238202624
+SONO IL MAIN e ho creato il Pthread 12-esimo con id=139675624797952 (rider)
+Sto per creare il thread 13-esimo (rider)
+Thread RIDER di indice 12 partito: Ho come identificatore 139675624797952
+SONO IL MAIN e ho creato il Pthread 13-esimo con id=139675616405248 (rider)
+Sto per creare il thread 14-esimo (rider)
+Thread RIDER di indice 13 partito: Ho come identificatore 139675616405248
+SONO IL MAIN e ho creato il Pthread 14-esimo con id=139675608012544 (rider)
+Sto per creare il thread 15-esimo (rider)
+Thread RIDER di indice 14 partito: Ho come identificatore 139675608012544
+SONO IL MAIN e ho creato il Pthread 15-esimo con id=139675599619840 (rider)
+Sto per creare il thread 16-esimo (rider)
+Thread RIDER di indice 15 partito: Ho come identificatore 139675599619840
+SONO IL MAIN e ho creato il Pthread 16-esimo con id=139675591227136 (rider)
+Sto per creare il thread 17-esimo (rider)
+Thread RIDER di indice 16 partito: Ho come identificatore 139675591227136
+SONO IL MAIN e ho creato il Pthread 17-esimo con id=139675582834432 (rider)
+Sto per creare il thread 18-esimo (rider)
+Thread RIDER di indice 17 partito: Ho come identificatore 139675582834432
+SONO IL MAIN e ho creato il Pthread 18-esimo con id=139675574441728 (rider)
+Sto per creare il thread 19-esimo (rider)
+Thread RIDER di indice 18 partito: Ho come identificatore 139675574441728
+SONO IL MAIN e ho creato il Pthread 19-esimo con id=139675020818176 (rider)
+Sto per creare il thread 20-esimo (rider)
+Thread RIDER di indice 19 partito: Ho come identificatore 139675020818176
+SONO IL MAIN e ho creato il Pthread 20-esimo con id=139675012425472 (rider)
+Sto per creare il thread 21-esimo (rider)
+Thread RIDER di indice 20 partito: Ho come identificatore 139675012425472
+SONO IL MAIN e ho creato il Pthread 21-esimo con id=139675004032768 (rider)
+Sto per creare il thread 22-esimo (rider)
+Thread RIDER di indice 21 partito: Ho come identificatore 139675004032768
+SONO IL MAIN e ho creato il Pthread 22-esimo con id=139674995640064 (rider)
+Sto per creare il thread 23-esimo (rider)
+Thread RIDER di indice 22 partito: Ho come identificatore 139674995640064
+SONO IL MAIN e ho creato il Pthread 23-esimo con id=139674987247360 (rider)
+Sto per creare il thread 24-esimo (rider)
+Thread RIDER di indice 23 partito: Ho come identificatore 139674987247360
+SONO IL MAIN e ho creato il Pthread 24-esimo con id=139674978854656 (rider)
+Sto per creare il thread 25-esimo (rider)
+Thread RIDER di indice 24 partito: Ho come identificatore 139674978854656
+SONO IL MAIN e ho creato il Pthread 25-esimo con id=139674970461952 (rider)
+Sto per creare il thread 26-esimo (rider)
+Thread RIDER di indice 25 partito: Ho come identificatore 139674970461952
+SONO IL MAIN e ho creato il Pthread 26-esimo con id=139674483947264 (rider)
+Sto per creare il thread 27-esimo (rider)
+Thread RIDER di indice 26 partito: Ho come identificatore 139674483947264
+SONO IL MAIN e ho creato il Pthread 27-esimo con id=139674475554560 (rider)
+Sto per creare il thread 28-esimo (rider)
+Thread RIDER di indice 27 partito: Ho come identificatore 139674475554560
+SONO IL MAIN e ho creato il Pthread 28-esimo con id=139674467161856 (rider)
+Sto per creare il thread 29-esimo (rider)
+Thread RIDER di indice 28 partito: Ho come identificatore 139674467161856
+SONO IL MAIN e ho creato il Pthread 29-esimo con id=139674458769152 (rider)
+Sto per creare il thread 30-esimo (bus)
+Thread RIDER di indice 29 partito: Ho come identificatore 139674458769152
+SONO IL MAIN e ho creato il Pthread 30-esimo con id=139674450376448 (bus)
+Thread BUS di indice 30 partito: Ho come identificatore 139674450376448
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+Il thread RIDER di indice 0 con identificatore 139676405991168 e' salito sul bus.
+Thread RIDER di indice 9 partito: Ho come identificatore 139676254988032
+Il thread RIDER di indice 1 con identificatore 139676263380736 e' salito sul bus.
+Il thread RIDER di indice 2 con identificatore 139676397598464 e' salito sul bus.
+Il thread RIDER di indice 3 con identificatore 139676389205760 e' salito sul bus.
+Il thread RIDER di indice 4 con identificatore 139676380813056 e' salito sul bus.
+Il thread RIDER di indice 5 con identificatore 139676372420352 e' salito sul bus.
+Il thread RIDER di indice 6 con identificatore 139676295886592 e' salito sul bus.
+Il thread RIDER di indice 7 con identificatore 139676287493888 e' salito sul bus.
+Il thread RIDER di indice 8 con identificatore 139676279101184 e' salito sul bus.
+Il thread RIDER di indice 10 con identificatore 139676246595328 e' salito sul bus.
+Il thread RIDER di indice 11 con identificatore 139676238202624 e' salito sul bus.
+Il thread RIDER di indice 12 con identificatore 139675624797952 e' salito sul bus.
+Il thread RIDER di indice 13 con identificatore 139675616405248 e' salito sul bus.
+Il thread RIDER di indice 14 con identificatore 139675608012544 e' salito sul bus.
+Il thread RIDER di indice 15 con identificatore 139675599619840 e' salito sul bus.
+Pthread 0-esimo restituisce 0
+Pthread 1-esimo restituisce 1
+Pthread 2-esimo restituisce 2
+Il thread RIDER di indice 16 con identificatore 139675591227136 e' salito sul bus.
+Pthread 3-esimo restituisce 3
+Il thread RIDER di indice 17 con identificatore 139675582834432 e' salito sul bus.
+Pthread 4-esimo restituisce 4
+Pthread 5-esimo restituisce 5
+Il thread RIDER di indice 18 con identificatore 139675574441728 e' salito sul bus.
+Pthread 6-esimo restituisce 6
+Pthread 7-esimo restituisce 7
+Il thread RIDER di indice 19 con identificatore 139675020818176 e' salito sul bus.
+Pthread 8-esimo restituisce 8
+Il thread RIDER di indice 20 con identificatore 139675012425472 e' salito sul bus.
+Il thread RIDER di indice 21 con identificatore 139675004032768 e' salito sul bus.
+Il thread RIDER di indice 22 con identificatore 139674995640064 e' salito sul bus.
+Il thread RIDER di indice 23 con identificatore 139674987247360 e' salito sul bus.
+Il thread RIDER di indice 24 con identificatore 139674978854656 e' salito sul bus.
+Il thread RIDER di indice 25 con identificatore 139674970461952 e' salito sul bus.
+Il thread RIDER di indice 26 con identificatore 139674483947264 e' salito sul bus.
+Il thread RIDER di indice 27 con identificatore 139674475554560 e' salito sul bus.
+Il thread RIDER di indice 28 con identificatore 139674467161856 e' salito sul bus.
+Il thread RIDER di indice 29 con identificatore 139674458769152 e' salito sul bus.
+Il thread BUS di indice 30 con identificatore 139674450376448 e' partito
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+Il thread BUS di indice 30 con identificatore 139674450376448 e' partito
+Il thread RIDER di indice 9 con identificatore 139676254988032 e' salito sul bus.
+Pthread 9-esimo restituisce 9
+Pthread 10-esimo restituisce 10
+Pthread 11-esimo restituisce 11
+Pthread 12-esimo restituisce 12
+Pthread 13-esimo restituisce 13
+Pthread 14-esimo restituisce 14
+Pthread 15-esimo restituisce 15
+Pthread 16-esimo restituisce 16
+Pthread 17-esimo restituisce 17
+Pthread 18-esimo restituisce 18
+Pthread 19-esimo restituisce 19
+Pthread 20-esimo restituisce 20
+Pthread 21-esimo restituisce 21
+Pthread 22-esimo restituisce 22
+Pthread 23-esimo restituisce 23
+Pthread 24-esimo restituisce 24
+Pthread 25-esimo restituisce 25
+Pthread 26-esimo restituisce 26
+Pthread 27-esimo restituisce 27
+Pthread 28-esimo restituisce 28
+Pthread 29-esimo restituisce 29
+
