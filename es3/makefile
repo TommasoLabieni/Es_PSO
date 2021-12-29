@@ -10,7 +10,7 @@ all: $(TARGET)
 list.o:		$(IDIR)list.c
 				$(CC) -c $< 
 
-$(TARGET):	search_insert_delete.c list.o
+$(TARGET):	$(TARGET).c list.o
 				$(CC) $(CFLAGS) $@ $^ -lpthread
 
 clean:
