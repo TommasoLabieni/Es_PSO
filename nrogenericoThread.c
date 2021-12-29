@@ -1,7 +1,6 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/resource.h>
 
 void *PrintHello(void *id)
 {
