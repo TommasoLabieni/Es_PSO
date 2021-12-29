@@ -42,26 +42,30 @@ void elimina_elemento(Lista* L, int el, int id) {
 		/* In tal caso non faccio nulla */
 		return;
 
+
    /* Controllo se devo eliminare la testa */
    if (el == 0) {
-       *L = temp->next; /* Sposto di un elemento la testa della lista */
-       free(temp); /* Libero la memoria allocata per l'elemento da eliminare */
-       return;
+      *L = temp->next; /* Sposto di un elemento la testa della lista */
+		printf("Thread Deleter con indice %d ha rimosso l'elemento %d\n", id, temp->element);
+      free(temp); /* Libero la memoria allocata per l'elemento da eliminare */
+      return;
     }
  
     /* Se non devo eliminare la testa allora mi sposto fino all'elemento precedente di quello da eliminare */
-    for (int i = 0; temp != NULL && i < (el - 1); i++)
-        temp = temp->next;
+   for (int i = 0; temp != NULL && i < (el - 1); i++)
+   	temp = temp->next;
  
-    /* A questo punto il nodo temp->next e' l'elemento da eliminare */
-    /* Creo una variabile che memorizza l'elemento SUCCESSIVO a quello da eliminare (per evitare di perdere
-	  * tutti gli elementi successivi a quello da eliminare).
-	 */
-    Lista next = temp->next->next;
+   /* A questo punto il nodo temp->next e' l'elemento da eliminare */
+   
+	/* Creo una variabile che memorizza l'elemento SUCCESSIVO a quello da eliminare (per evitare di perdere
+	 * tutti gli elementi successivi a quello da eliminare).
+	*/
+   Lista next = temp->next->next;
  
-    /* Dealloco memoria per l'elemento da eliminare */
-    free(temp->next);
+	printf("Thread Deleter con indice %d ha rimosso l'elemento %d\n", id, temp->element);
+   /* Dealloco memoria per l'elemento da eliminare */
+   free(temp->next);
  
-	 /* E per ultimo recupero la parte della lista precedentemente memorizzata */
-    temp->next = next; 
+	/* E per ultimo recupero la parte della lista precedentemente memorizzata */
+   temp->next = next; 
 }
