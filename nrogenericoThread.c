@@ -16,7 +16,7 @@ void *PrintHello(void *id)
    }
    *ptr = *pi;
 
-   printf("Thread%d partito: Hello World! Ho come identificatore %lu\n", *pi, pthread_self());
+   printf("Thread %d partito: Ho come identificatore %lu\n", *pi, pthread_self());
    pthread_exit((void *) ptr);
 }
 
