@@ -95,6 +95,7 @@ void *eseguiPasseggero(void *id)
 		sem_wait(&S_CAR_UNLOAD);
 		/* il passeggero scende dall'auto */
 		unboard(*ptr);
+		/* Fermo il thread per un breve periodo di tempo per evitare delle stampe sovrapposte. Nel file log_imp_2.txt vi e' mostrato il comportamento del programma senza questa sleep */
 		sleep(0.5);
 	}
    pthread_exit((void *) ptr);
