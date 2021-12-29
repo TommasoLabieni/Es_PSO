@@ -1,4 +1,4 @@
-Questo log fa capire l'importanza della sleep(0.5) dei passeggeri, senza questa piccola attesa si avrebbe una sovrapposizione degli output (molto curiosa quanto fastidiosa come cosa).
+Questo log fa capire l'importanza della sleep(1) dei passeggeri, senza questa piccola attesa si avrebbe una sovrapposizione degli output (molto curiosa quanto fastidiosa come cosa).
 Il Thread PASSEGGERO di indice 2 con identificatore 140550677186304 e' sceso dall'auto di indice 11.
 Il Thread PASSEGGERO di indice 2 con identificatore 140550677186304 e' salito nell'auto di indice 13.
 Il Thread PASSEGGERO di indice 2 con identificatore 140550677186304 e' sceso dall'auto di indice 11.
