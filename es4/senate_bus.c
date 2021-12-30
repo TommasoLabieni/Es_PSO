@@ -1,16 +1,18 @@
-//TODO: effettuare la sem post sul semaforo S_BUS_CAPACITY per consentire il funzionamento del programma nel caso in cui il numero di passeggeria sia superiore della capacita' C del bus eventualmente aggiungi anche una stampa nel caso in cui il bus parta senza alcun rider al suo interno
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <semaphore.h>
 #include <unistd.h>
+#include <time.h>
 
 /* Costante per indicare la capacita' del bus */
 #define C 50
 
 /* Variabile intera per memorizzare il numero dei rider in attesa */
 int num_rider_attesa = 0;
+/* Variabile intera per memorizzare il numero dei rider saliti sul bus (utilizzata solo e unicamente per debug, NON A SCOPO DI FUNZIONAMENTO DEL PROGRAMMA!) */
+int num_rider_saliti = 0;
 /* Variabile boolean che indica se l'autobus e' arrivato e sta facendo salire i passeggeri (utilizzata per bloccare i passeggeri che arrivano in ritardo */
 bool bus_pronto = false;
 /* Variabile booleana che indica se l'ultimo rider in attesa e' salito sul bus */
@@ -71,9 +73,13 @@ void *eseguiRider(void *id)
 	}
 	/* Se il bus non e' ancora arrivato incremento il numero di rider in attesa */
 	num_rider_attesa++;
+	/* Incremento il numero dei rider saliti sul bus */
+	num_rider_saliti++;
 	pthread_mutex_unlock(&mutex);
 	/* Se la capacita' non e' stata colmata, allora il rider aspetta l'arrivo del bus */
 	sem_wait(&S_BUS);
+	/* Si risvegliano i thread bloccati sul semaforo che tiene conto della capacita' dell'autobus */
+	sem_post(&S_BUS_CAPACITY);
 	/* A questo punto il rider sale sul bus */
 	boardBus(*ptr);
 	
@@ -83,14 +89,18 @@ void *eseguiRider(void *id)
 /* Funzione depart del bus che inizia il viaggio */
 void depart(int indice) {
 	pthread_mutex_lock(&mutex);
-	printf("Il thread BUS di indice %d con identificatore %lu e' partito\n", indice, pthread_self());
+	printf("Il thread BUS di indice %d con identificatore %lu e' partito.\n", indice, pthread_self()); 
+	printf("Il numero dei rider saliti e': %d\n", num_rider_saliti);
+	num_rider_saliti = 0;
 	/* Si resetta la variabile che blocca i rider che sono arrivati in ritardo */
 	bus_pronto = false;
-	/* Si risvegliano tutti i rider bloccati */
+	/* Si resetta la variabile che blocca il bus in attesa che salga l'ultimo passeggero */
+	ultimo_rider_salito = false;
+	/* Si risvegliano tutti i rider arrivati in ritardo bloccati */
 	pthread_cond_broadcast(&C_LATE_RIDER);
 	pthread_mutex_unlock(&mutex);
 	/* Si simula il viaggio del bus con una sleep */
-	sleep(4);
+	sleep(0.2);
 }
 
 void *eseguiBus(void *id)
@@ -122,6 +132,8 @@ void *eseguiBus(void *id)
 			while(!ultimo_rider_salito) {
 				pthread_cond_wait(&C_LAST_RIDER_ON, &mutex);
 			}
+		} else {
+			printf("L'autous fa una corsa senza passeggeri\n");
 		}
 		pthread_mutex_unlock(&mutex);
 		/* Infine si procede a partire */
@@ -135,6 +147,7 @@ int main (int argc, char **argv)
    pthread_t *thread;
    int *taskids;
    int i;
+	int bus_i;
    int *p;
    int NUM_THREADS;
    char error[250];
@@ -155,6 +168,9 @@ int main (int argc, char **argv)
 		perror(error);
       exit(2);
    }
+
+	/* Si incrementa NUM_THREADS per considerare anche il thread del bus */
+	NUM_THREADS++;
 
    thread=(pthread_t *) malloc(NUM_THREADS * sizeof(pthread_t));
    if (thread == NULL)
@@ -183,11 +199,14 @@ int main (int argc, char **argv)
 
 	/* ***************************************** */
 
-	/* Si incrementa NUM_THREADS in quanto l'ultimo thread creato e' quello del bus */
-   for (i=0; i < NUM_THREADS + 1; i++)
+
+	/* Il thread BUS parte da una posizione casuale per garantire un comportamento del programma diverso per ogni esecuzione */
+	srand(time(NULL));
+	bus_i = rand() % NUM_THREADS;
+   for (i=0; i < NUM_THREADS; i++)
    {
 		taskids[i] = i;
-		if (i != NUM_THREADS) {
+		if (i != bus_i) {
    		printf("Sto per creare il thread %d-esimo (rider)\n", taskids[i]);
      		if (pthread_create(&thread[i], NULL, eseguiRider, (void *) (&taskids[i])) != 0)
       	{
@@ -208,9 +227,13 @@ int main (int argc, char **argv)
 		}
    }
 
+	/* Si attendono tutti e SOLI i thread dei passeggeri */
    for (i=0; i < NUM_THREADS; i++)
    {
 		int ris;
+		/* se i == bus_i allora si sta considerando il thread del bus -> si passa al thread successivo (se presente) */
+		if (i == bus_i)
+			continue;
 		/* attendiamo la terminazione di tutti i thread generati */
    	pthread_join(thread[i], (void**) & p);
 		ris= *p;
