@@ -1,0 +1,29 @@
+PROBLEMA: C'è il negozio di un barbiere che ha:
+	- Tre sedie;
+	- Tre barbieri.
+E una sala di attesa che può accomodare:
+	- Quattro clienti su un divano;
+	- Una sala di attesa dove i clienti aspettano in piedi.
+Per motivi di sicurezza, non ci possono essere più di 20 clienti nel locale.
+
+Un cliente non entra nel negozio se la capacità di 20 persone è superata.
+Una volta dentro, il cliente prende posto nel divano oppure sta in piedi se il divano è totalmente occupato. Quando un barbiere è libero, il cliente che è da più tempo nel divano viene servito e, se ci sono dei clienti in piedi, colui che è nel negozio da più tempo prende posto nel divano.
+Quando il taglio di capelli di un cliente è finito, qualsiasi barbiere può accettare il pagamento ma, dal momento che vi è un solo registro di cassa, il pagamento può essere accettato per un cliente alla volta.
+I barbieri dividono il loro tempo tra le seguenti attività:
+	- Tagliare i capelli;
+	- Accettare pagamenti;
+	- Dormire sulla sedia in attesa dell'arrivo di un cliente.
+
+Dunque le funzionalità devono essere le seguenti:
+	- I clienti invocano le seguenti funzioni in ordine: enterShop, sitOnSofa, getHairCut, pay;
+	- I barbieri invocano i metodi cutHair e acceptPayment;
+	- I clienti non possono invocare enterShop se il negozio è pieno;
+	- Se il divano è pieno i clienti non possono invocare sitOnSofa;
+	- Quando il cliente invoca getHairCut ci dovrebbe essere un barbiere corrispondente che invoca cutHair concorrentemente, e viceversa;
+	- Dovrebbe essere possibile consentire FINO A 3 CLIENTI l'esecuzione della funzione getHairCut concorrentemente, e fino a tre barbieri di eseguire cutHair concorrentemente;
+	- Il cliente deve invocare la funzione pay prima che il barbiere possa invocare acceptPayment;
+	- Il barbiere deve invocare acceptPayment prima che il cliente possa uscire.
+
+Scelte Personali:
+
+	- Se un cliente non trova posto nel negozio, si addormenta e riprova più avanti 
