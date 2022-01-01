@@ -1,3 +1,4 @@
+//TODO: Con molto clienti (tipo 50) va in deadlock. Sembra che si blocchi nella fase di pagamento. Risolvi
 #include <pthread.h>
 #include <semaphore.h>
 #include <stdio.h>
