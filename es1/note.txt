@@ -27,3 +27,5 @@ Dunque le funzionalità devono essere le seguenti:
 Scelte Personali:
 
 	- Se un cliente non trova posto nel negozio, si addormenta e riprova più avanti 
+	- Si utilizzano due mutex per consentire l'esecuzione di altri thread, dato che nella parte di pagamento si utilizzano variabili che, nelle parti precedenti (mettersi in coda, sedersi nel divano, farsi tagliare i capelli), non vengono utilizzate !!!
+	- Si passa come parametro il numero di thread clienti
