@@ -1,9 +1,10 @@
-// TODO: Scrivere le funzioni per liberare il posto nel divano (quindi shiftare i posti e inserire quello che e' da piu' tempo in piedi sul divano. Poi scrivere il codice per farsi tagliare i capelli e poi per pagare
+// TODO: Scrivere le funzioni per liberare il posto nel divano (quindi shiftare i posti e inserire quello che e' da piu' tempo in piedi sul divano. 
 // TODO: Scrivere codice del barbiere.
 #include <pthread.h>
 #include <semaphore.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <unistd.h>
 
 /* Costante per definire il numero di barbieri (che definisce anche il numero di clienti servibili concorrentemente */
@@ -22,13 +23,21 @@ int clienti_divano[NUM_POSTI_DIVANO];
 /* Array statico per memorizzare la coda di persone in piedi. NOTA: AL MASSIMO IN PIEDI CI POSSONO ESSERE NUM_CLIENTI_MAX - NUM_BARBIERI (che indica anche il numero di clienti che possono essere serviti concorrentemente) - NUM_POSTI_DIVANO, che nelle condizioni specificate dal testo sarebbero: 20 - 3 - 4 = 13.
 */
 int clienti_in_piedi[NUM_CLIENTI_MAX - NUM_BARBIERI - NUM_POSTI_DIVANO];
+/* Variabile booleana per indicare che il cliente e' pronto a pagare */
+bool cliente_pronto_a_pagare = false;
 /* Mutex per l'accesso concorrente alle variabili condivise */
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 /* Variabile condition per bloccare i clienti che non possono sedersi sul divano */
 pthread_cond_t C_DIVANO_OCCUPATO = PTHREAD_COND_INITIALIZER;
+/* Variabile condition per bloccare i barbieri in attesa che i clienti siano pronti a pagare */
+pthread_cond_t C_CLIENTE_PAGA = PTHREAD_COND_INITIALIZER;
 /* Semaforo per regolare i clienti che vengono serviti. (il cui valore di inizializzazione e' uguale al numero delle sedie disponibili) */
 sem_t S_CLIENTI_SERVITI;
-
+/* Semafori per sincronizzare i clienti e i barbieri per il taglio dei capelli */
+sem_t S_CLIENTE_TO_BARBIERE;
+sem_t S_BARBIERE_TO_CLIENTE;
+/* Semaforo per bloccare il cliente in attesa che paghi il conto */
+sem_t S_PAGA_CONTO;
 
 /* Funzione enterShop del cliente che entra nel negozio */
 void enterShop(int indice) {
@@ -74,14 +83,36 @@ void sitOnSofa(int indice) {
 			/* Una volta trovato il cliente libero il suo posto */
 			clienti_in_piedi[i] = -1;
 			/* E shifto all'indietro l'array */
-			for (int j=i; j < (max_num_clienti_coda - 1); i++) {
+			for (int j=i; j < (max_num_clienti_coda - 1); j++) {
 				clienti_in_piedi[j] = clienti_in_piedi[j+1];
 			}
 			/* Una volta shiftato l'array, termino l'esecuzione */
 			return;
 		}
 	}
-	
+}
+
+void liberaPostoDivano(int indice) {
+;
+}
+
+void getHairCut(int indice) {
+	/* NOTA: Anche qui non serve bloccare il mutex perche' e' gia' stato fatto */
+	/* Il cliente invia un segnale al barbiere */
+	sem_post(&S_CLIENTE_TO_BARBIERE);
+	/* Successivamente il cliente si blocca, in attesa che venga risvegliato dal barbiere che invoca la funzione cutHair */
+	sem_wait(&S_BARBIERE_TO_CLIENTE);
+   printf("Il Thread CLIENTE di indice %d partito con identificatore %lu si sta tagliando i capelli.\n", indice, pthread_self());
+}
+
+void pay(int indice) {
+	/* NOTA: Anche qui non serve bloccare il mutex perche' e' gia' stato fatto */
+	/* Viene settata la var condition per indicare che il cliente e' pronto a pagare per evitare che il barbiere invochi getPayment prima che il cliente invochi pay, come da specifica. */
+	cliente_pronto_a_pagare = true;
+	pthread_cond_signal(&C_CLIENTE_PAGA);
+	sem_wait(&S_PAGA_CONTO);
+   printf("Il Thread CLIENTE di indice %d partito con identificatore %lu ha pagato il conto.\n", indice, pthread_self());
+
 }
 
 void *eseguiCliente(void *id)
@@ -115,14 +146,23 @@ void *eseguiCliente(void *id)
 	}
 	/* Se qui allora il cliente puo' sedersi sul divano */
 	sitOnSofa(*ptr);
-	/* Una volta seduto nel divano, il clienti si mette in attesa di essere servito */
+	/* Una volta seduto nel divano, il cliente si mette in attesa di essere servito */
 	pthread_mutex_unlock(&mutex);
 	sem_wait(&S_CLIENTI_SERVITI);	
 	/* Se qui allora il cliente si siede e deve rimpossessarsi del mutex e farsi tagliare i capelli */
 	pthread_mutex_lock(&mutex);
 	/* Prima si libera il posto nel divano */
 	liberaPostoDivano(*ptr);
-	
+	/* Si procede con il taglio di capelli */
+	getHairCut(*ptr);	
+	/* Prima di uscire, il cliente paga il conto */
+	pay(*ptr);
+	/* A questo punto il cliente esce dal negozio -> si decrementa il contatore dei clienti nel negozio */
+	num_clienti_act++;
+	/* Si rilascia il mutex */
+	pthread_mutex_unlock(&mutex);
+	/* Per ultimo Si sveglia il prossimo (eventuale) cliente, che e' stata liberata una sedia */
+	sem_post(&S_CLIENTI_SERVITI);
 	
    pthread_exit((void *) ptr);
 }
