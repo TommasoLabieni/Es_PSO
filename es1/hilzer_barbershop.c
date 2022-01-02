@@ -36,10 +36,10 @@ pthread_mutex_t mutex3 = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t C_DIVANO_OCCUPATO = PTHREAD_COND_INITIALIZER;
 /* Variabile condition per bloccare i barbieri in attesa che i clienti siano pronti a pagare */
 pthread_cond_t C_CLIENTE_PAGA = PTHREAD_COND_INITIALIZER;
+/*Variabile condition per regolare i clienti che vengono serviti */
+pthread_cond_t S_CLIENTI_SERVITI;
 /* Semaforo per regolare i clienti entranti nel negozio */
 sem_t S_CLIENTI_ENTRANTI;
-/* Semaforo per regolare i clienti che vengono serviti. (il cui valore di inizializzazione e' uguale al numero delle sedie disponibili) */
-sem_t S_CLIENTI_SERVITI;
 /* Semafori PRIVATI per sincronizzare i clienti e i barbieri per il taglio dei capelli */
 sem_t S_CLIENTE_TO_BARBIERE;
 sem_t S_BARBIERE_TO_CLIENTE;
@@ -48,6 +48,13 @@ sem_t S_ACCEDI_CASSA;
 /* Semaforo PRIVATO per bloccare il cliente in attesa che paghi il conto */
 sem_t S_CLIENTE_PAGA;
 sem_t S_CONTO_SALDATO;
+
+void printArray(int* v, int n, char* str) {
+	printf("Stampo l'array: %s\n", str);
+	for (int i=0;i<n;i++) {
+		printf("%d:\t %d\n", i, v[i]);
+	}
+}
 
 /* Funzione enterShop del cliente che entra nel negozio */
 void enterShop(int indice) {
@@ -62,6 +69,7 @@ void enterShop(int indice) {
 		if (clienti_in_piedi[i] == -1) {
 			/* Una volta trovato l'indice in cui inserire il cliente, ne inserisco l'indice del thread */
 			clienti_in_piedi[i] = indice;
+			printArray(clienti_in_piedi, max_num_clienti_coda, "IN PIEDI");
 			/* E termino l'esecuzione */
 			return;
 		}
@@ -86,6 +94,7 @@ void sitOnSofa(int indice) {
 		}
 	}
 
+	printArray(clienti_divano, NUM_POSTI_DIVANO, "DIVANO");
 	/* A questo punto bisogna liberare il posto in piedi occupato precedentemente dal cliente */
 
 	for (int i=0 ;i < max_num_clienti_coda; i++) {
@@ -97,6 +106,7 @@ void sitOnSofa(int indice) {
 			}
 			/* Una volta shiftato l'array, libero l'ultimo posto */
 			clienti_in_piedi[j] = -1;
+			printArray(clienti_in_piedi, max_num_clienti_coda, "IN PIEDI");
 			/* E termino l'esecuzione */
 			return;
 		}
@@ -119,6 +129,7 @@ void liberaPostoDivano(int indice) {
 			/* E decremento il contatore di persone sul divano */
 			num_clienti_divano--;
 			/* Segnalo all'eventuale thread in attesa sulla var condition C_DIVANO_OCCUPATO che si e' liberato un posto sul divano. */
+   		printf("Il Thread CLIENTE di indice %d con identificatore %lu si e' seduto nella sedia e attende il taglio dei capelli.\n", indice, pthread_self());
 			pthread_mutex_unlock(&mutex);
 			pthread_cond_signal(&C_DIVANO_OCCUPATO);
 			/* E termino l'esecuzione */
@@ -181,7 +192,7 @@ void *eseguiCliente(void *id)
 	/* E poi il cliente entra all'interno del negozio */
 	enterShop(*ptr);
 	/* Una volta entrato, prova a sedersi nel divano (se libero) */
-	while (num_clienti_divano >= NUM_POSTI_DIVANO) {
+	if (num_clienti_divano >= NUM_POSTI_DIVANO) {
 		/* Se il divano e' pieno, allora il cliente deve aspettare */
 		pthread_cond_wait(&C_DIVANO_OCCUPATO, &mutex);
 	}
@@ -218,9 +229,7 @@ void cutHair(int indice) {
 /* Funzione acceptPayment del barbiere per accettare il pagamento e consentire al cliente di uscire */
 void acceptPayment(int indice) {
 	/* NOTA: Anche qui non serve bloccare il mutex perche' e' gia' stato fatto */
-	/* Sleep per evitare stampe sovrapposte */
-	sleep(0.2);
-   printf("Il Thread BARBIERE di indice %d con identificatore %lu ha riscosso il pagamento.\n", indice, pthread_self());
+//   printf("Il Thread BARBIERE di indice %d con identificatore %lu ha riscosso il pagamento.\n", indice, pthread_self());
 	/* Semaforo per bloccare il cliente in attesa che paghi il conto */
 	sem_post(&S_CONTO_SALDATO);
 	/* Resetto la variabile booleana che indica che il cliente e' pronto a pagare */
@@ -369,7 +378,7 @@ int main (int argc, char **argv)
 	/* Creo i thread dei barbieri */
 	for (i=0; i < NUM_BARBIERI; i++) {
 		taskids[i] = i;
-   	printf("Sto per creare il thread %d-esimo (barbiere)\n", taskids[i]);
+//   	printf("Sto per creare il thread %d-esimo (barbiere)\n", taskids[i]);
      	if (pthread_create(&thread[i], NULL, eseguiBarbiere, (void *) (&taskids[i])) != 0)
       {
       	sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (BARBIERE)\n", taskids[i]);
@@ -382,7 +391,7 @@ int main (int argc, char **argv)
    for (; i < NUM_THREADS; i++)
    {
 		taskids[i] = i;
-   	printf("Sto per creare il thread %d-esimo (cliente)\n", taskids[i]);
+//   	printf("Sto per creare il thread %d-esimo (cliente)\n", taskids[i]);
      	if (pthread_create(&thread[i], NULL, eseguiCliente, (void *) (&taskids[i])) != 0)
       {
       	sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (cliente)\n", taskids[i]);
