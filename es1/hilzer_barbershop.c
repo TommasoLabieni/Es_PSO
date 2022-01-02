@@ -1,4 +1,4 @@
-//TODO: Con molto clienti (tipo 50) va in deadlock. Sembra che si blocchi nella fase di pagamento. Risolvi
+// TODO: Sembra che ora funzioni, riprova con numeri alti. fai un semaforo per regolare l'entrata nel negozio (nel caso di numero di clienti > 0) oppure fai terminare i thread (scelta piu' facile)
 #include <pthread.h>
 #include <semaphore.h>
 #include <stdio.h>
@@ -205,8 +205,6 @@ void cutHair(int indice) {
 	sleep(4);
    printf("Il Thread BARBIERE di indice %d con identificatore %lu HA TERMINATO il taglio di capelli.\n", indice, pthread_self());
 	sem_post(&S_BARBIERE_TO_CLIENTE);
-	/* Resetto la variabile booleana che indica che il cliente e' pronto a pagare */
-	cliente_pronto_a_pagare = false;
 }
 
 /* Funzione acceptPayment del barbiere per accettare il pagamento e consentire al cliente di uscire */
@@ -217,8 +215,8 @@ void acceptPayment(int indice) {
    printf("Il Thread BARBIERE di indice %d con identificatore %lu ha riscosso il pagamento.\n", indice, pthread_self());
 	/* Semaforo per bloccare il cliente in attesa che paghi il conto */
 	sem_post(&S_PAGA_CONTO);
-	/* A questo punto il cliente esce dal negozio -> si decrementa il contatore dei clienti nel negozio */
-	num_clienti_act--;
+	/* Resetto la variabile booleana che indica che il cliente e' pronto a pagare */
+	cliente_pronto_a_pagare = false;
 }
 
 void *eseguiBarbiere(void *id)
@@ -240,19 +238,23 @@ void *eseguiBarbiere(void *id)
 		sem_wait(&S_CLIENTE_TO_BARBIERE);
 		/* Una volta sveglio, il barbiere procede al taglio di capelli */
 		cutHair(*ptr);
-		/* Finito il taglio di capelli, il barbiere deve presentarsi alla cassa e far pagare il cliente. Dal momento che vi e' soltanto una cassa, bisogna verificare che questa non sia gia' utilizzata da altri barbieri */
-		sem_wait(&S_ACCEDI_CASSA);
-		/* Una volta che il barbiere e' alla cassa, fa pagare il cliente. Dato che, come da specifica, il barbiere deve invocare la funzione acceptPayment PRIMA che il cliente invochi la funzione pay, il barbiere si mette in attesa su una variabile condition in attesa che il cliente sia pronto a pagare */
+		/* Una volta terminato il taglio, il barbiere va alla cassa per far pagare il cliente. Dato che, come da specifica, il barbiere deve invocare la funzione acceptPayment PRIMA che il cliente invochi la funzione pay, il barbiere si mette in attesa su una variabile condition in attesa che il cliente sia pronto a pagare */
 		pthread_mutex_lock(&mutex2);
-		while(!cliente_pronto_a_pagare) {
+		if (!cliente_pronto_a_pagare) {
 			pthread_cond_wait(&C_CLIENTE_PAGA, &mutex2);
 		}
+		/* A questo punto il barbiere deve presentarsi alla cassa e far pagare il cliente. Dal momento che vi e' soltanto una cassa, bisogna verificare che questa non sia gia' utilizzata da altri barbieri */
+		sem_wait(&S_ACCEDI_CASSA);
 		/* Se qui, allora il cliente ha pagato e ha SICURAMENTE invocato la funzione pay */
 		acceptPayment(*ptr);
-		/* Si libera il registro di cassa */
-		sem_post(&S_ACCEDI_CASSA);
 		/* Si rilascia il mutex */
 		pthread_mutex_unlock(&mutex2);
+		/* Si libera il registro di cassa */
+		sem_post(&S_ACCEDI_CASSA);
+		/* A questo punto il cliente esce dal negozio -> si decrementa il contatore dei clienti nel negozio */
+		pthread_mutex_lock(&mutex3);
+		num_clienti_act--;
+		pthread_mutex_unlock(&mutex3);
 	}
 }
 
@@ -343,10 +345,11 @@ int main (int argc, char **argv)
 
 	/* Creo i thread dei barbieri */
 	for (i=0; i < NUM_BARBIERI; i++) {
-   	printf("Sto per creare il thread %d-esimo (barbiere)\n", i);
-     	if (pthread_create(&thread[i], NULL, eseguiBarbiere, (void *) (&i)) != 0)
+		taskids[i] = i;
+   	printf("Sto per creare il thread %d-esimo (cliente)\n", taskids[i]);
+     	if (pthread_create(&thread[i], NULL, eseguiBarbiere, (void *) (&taskids[i])) != 0)
       {
-      	sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (BARBIERE)\n", i);
+      	sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (BARBIERE)\n", taskids[i]);
          perror(error);
 			exit(10);
       }
