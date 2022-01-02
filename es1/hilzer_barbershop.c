@@ -1,4 +1,4 @@
-// TODO: Sembra che ora funzioni, riprova con numeri alti. fai un semaforo per regolare l'entrata nel negozio (nel caso di numero di clienti > 0) oppure fai terminare i thread (scelta piu' facile)
+//TODO: Sistemare tutti i mutex / parti di codice commentate
 #include <pthread.h>
 #include <semaphore.h>
 #include <stdio.h>
@@ -36,6 +36,8 @@ pthread_mutex_t mutex3 = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t C_DIVANO_OCCUPATO = PTHREAD_COND_INITIALIZER;
 /* Variabile condition per bloccare i barbieri in attesa che i clienti siano pronti a pagare */
 pthread_cond_t C_CLIENTE_PAGA = PTHREAD_COND_INITIALIZER;
+/* Semaforo per regolare i clienti entranti nel negozio */
+sem_t S_CLIENTI_ENTRANTI;
 /* Semaforo per regolare i clienti che vengono serviti. (il cui valore di inizializzazione e' uguale al numero delle sedie disponibili) */
 sem_t S_CLIENTI_SERVITI;
 /* Semafori PRIVATI per sincronizzare i clienti e i barbieri per il taglio dei capelli */
@@ -44,7 +46,8 @@ sem_t S_BARBIERE_TO_CLIENTE;
 /* Semaforo per bloccare il barbiere che prova ad utilizzare la cassa (il cui valore iniziale e' il numero dei registri di cassa disponibili) */
 sem_t S_ACCEDI_CASSA;
 /* Semaforo PRIVATO per bloccare il cliente in attesa che paghi il conto */
-sem_t S_PAGA_CONTO;
+sem_t S_CLIENTE_PAGA;
+sem_t S_CONTO_SALDATO;
 
 /* Funzione enterShop del cliente che entra nel negozio */
 void enterShop(int indice) {
@@ -136,11 +139,13 @@ void getHairCut(int indice) {
 /* Funzione pay del cliente per pagare il conto */
 void pay(int indice) {
 	/* NOTA: Anche qui non serve bloccare il mutex perche' e' gia' stato fatto */
-	/* Viene settata la var condition per indicare che il cliente e' pronto a pagare per evitare che il barbiere invochi getPayment prima che il cliente invochi pay, come da specifica. */
+	/* Viene settata la var condition per indicare che il cliente e' pronto a pagare per evitare che il barbiere invochi getPayment prima che il cliente invochi pay, come da specifica. 
 	cliente_pronto_a_pagare = true;
+	*/
 	pthread_mutex_unlock(&mutex2);
-	pthread_cond_signal(&C_CLIENTE_PAGA);
-	sem_wait(&S_PAGA_CONTO);
+	//pthread_cond_signal(&C_CLIENTE_PAGA);
+	sem_post(&S_CLIENTE_PAGA);
+	sem_wait(&S_CONTO_SALDATO);
    printf("Il Thread CLIENTE di indice %d con identificatore %lu ha pagato il conto.\n", indice, pthread_self());
 
 }
@@ -160,15 +165,18 @@ void *eseguiCliente(void *id)
 
    printf("Thread CLIENTE di indice %d partito: Ho come identificatore %lu\n", *pi, pthread_self());
 	/* Prima che il cliente possa entrare nel negozio, occorre verificare il numero di clienti dentro il negozio */
+	/* Rilascia il mutex usato per il pagamento e per contare i clienti nel negozio e prendi il mutex per lavorare con gli array condivisi */
+	sem_wait(&S_CLIENTI_ENTRANTI);
+	/*
 	pthread_mutex_lock(&mutex3);
 	while (num_clienti_act >= NUM_CLIENTI_MAX) {
-		/* In tal caso si addormenta per qualche istante sperando di trovare posto piu' avanti */
-		/* Si rilascia il mutex per evitare deadlock */
+		 In tal caso si addormenta per qualche istante sperando di trovare posto piu' avanti 
+		 Si rilascia il mutex per evitare deadlock 
 		pthread_mutex_unlock(&mutex3);
 		sleep(1);
 	}
-	/* Rilascia il mutex usato per il pagamento e per contare i clienti nel negozio e prendi il mutex per lavorare con gli array condivisi */
 	pthread_mutex_unlock(&mutex3);
+	*/
 	pthread_mutex_lock(&mutex);
 	/* E poi il cliente entra all'interno del negozio */
 	enterShop(*ptr);
@@ -214,9 +222,9 @@ void acceptPayment(int indice) {
 	sleep(0.2);
    printf("Il Thread BARBIERE di indice %d con identificatore %lu ha riscosso il pagamento.\n", indice, pthread_self());
 	/* Semaforo per bloccare il cliente in attesa che paghi il conto */
-	sem_post(&S_PAGA_CONTO);
+	sem_post(&S_CONTO_SALDATO);
 	/* Resetto la variabile booleana che indica che il cliente e' pronto a pagare */
-	cliente_pronto_a_pagare = false;
+	//cliente_pronto_a_pagare = false;
 }
 
 void *eseguiBarbiere(void *id)
@@ -238,20 +246,24 @@ void *eseguiBarbiere(void *id)
 		sem_wait(&S_CLIENTE_TO_BARBIERE);
 		/* Una volta sveglio, il barbiere procede al taglio di capelli */
 		cutHair(*ptr);
-		/* Una volta terminato il taglio, il barbiere va alla cassa per far pagare il cliente. Dato che, come da specifica, il barbiere deve invocare la funzione acceptPayment PRIMA che il cliente invochi la funzione pay, il barbiere si mette in attesa su una variabile condition in attesa che il cliente sia pronto a pagare */
+		/* Una volta terminato il taglio, il barbiere va alla cassa per far pagare il cliente. Dato che, come da specifica, il barbiere deve invocare la funzione acceptPayment PRIMA che il cliente invochi la funzione pay, il barbiere si mette in attesa su una variabile condition in attesa che il cliente sia pronto a pagare 
 		pthread_mutex_lock(&mutex2);
 		if (!cliente_pronto_a_pagare) {
 			pthread_cond_wait(&C_CLIENTE_PAGA, &mutex2);
 		}
+		*/
+		/* Attendo che il cliente sia pronto a pagare */
+		sem_wait(&S_CLIENTE_PAGA);
 		/* A questo punto il barbiere deve presentarsi alla cassa e far pagare il cliente. Dal momento che vi e' soltanto una cassa, bisogna verificare che questa non sia gia' utilizzata da altri barbieri */
 		sem_wait(&S_ACCEDI_CASSA);
 		/* Se qui, allora il cliente ha pagato e ha SICURAMENTE invocato la funzione pay */
 		acceptPayment(*ptr);
 		/* Si rilascia il mutex */
-		pthread_mutex_unlock(&mutex2);
+		//pthread_mutex_unlock(&mutex2);
 		/* Si libera il registro di cassa */
 		sem_post(&S_ACCEDI_CASSA);
 		/* A questo punto il cliente esce dal negozio -> si decrementa il contatore dei clienti nel negozio */
+		sem_post(&S_CLIENTI_ENTRANTI);
 		pthread_mutex_lock(&mutex3);
 		num_clienti_act--;
 		pthread_mutex_unlock(&mutex3);
@@ -322,8 +334,19 @@ int main (int argc, char **argv)
 		exit(8);
 	}
 
-	if (sem_init(&S_PAGA_CONTO, 0, 0) != 0) {
+	if (sem_init(&S_CONTO_SALDATO, 0, 0) != 0) {
+		perror("Errore inizializzazione semaforo S_CONTO_SALDATO\n");
+		exit(9);
+	}
+
+	if (sem_init(&S_CLIENTE_PAGA, 0, 0) != 0) {
 		perror("Errore inizializzazione semaforo S_CLIENTE_PAGA\n");
+		exit(9);
+	}
+
+
+	if (sem_init(&S_CLIENTI_ENTRANTI, 0, NUM_CLIENTI_MAX) != 0) {
+		perror("Errore inizializzazione semaforo S_CLIENTI_ENTRANTI\n");
 		exit(9);
 	}
 
@@ -346,7 +369,7 @@ int main (int argc, char **argv)
 	/* Creo i thread dei barbieri */
 	for (i=0; i < NUM_BARBIERI; i++) {
 		taskids[i] = i;
-   	printf("Sto per creare il thread %d-esimo (cliente)\n", taskids[i]);
+   	printf("Sto per creare il thread %d-esimo (barbiere)\n", taskids[i]);
      	if (pthread_create(&thread[i], NULL, eseguiBarbiere, (void *) (&taskids[i])) != 0)
       {
       	sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (BARBIERE)\n", taskids[i]);
