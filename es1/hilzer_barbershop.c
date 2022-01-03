@@ -23,6 +23,10 @@ int num_clienti_divano = 0;
 int num_clienti_serviti_act = 0;
 /* Array statico per memorizzare la coda dei clienti nel divano */
 int clienti_divano[NUM_POSTI_DIVANO];
+/* Array dinamico per memorizzare la coda dei clienti in piedi gia' risvegliati */
+int *clienti_in_piedi_risvegliati;
+/* Array dinamico per memorizzare la coda dei clienti nel divano gia' risvegliati */
+int *clienti_divano_risvegliati;
 /* Array statico per memorizzare la coda di persone in piedi. NOTA: AL MASSIMO IN PIEDI CI POSSONO ESSERE NUM_CLIENTI_MAX - NUM_BARBIERI (che indica anche il numero di clienti che possono essere serviti concorrentemente) - NUM_POSTI_DIVANO, che nelle condizioni specificate dal testo sarebbero: 20 - 3 - 4 = 13.
 */
 int clienti_in_piedi[NUM_CLIENTI_MAX - NUM_BARBIERI - NUM_POSTI_DIVANO];
@@ -152,20 +156,21 @@ void liberaPostoDivano(int indice) {
 	/* NOTA: Anche qui non serve bloccare il mutex perche' e' gia' stato fatto */
 	int j; /* Variabile per scorrere l'array */
 	int index = -1; /* Variabile per recuperare l'indice del prossimo thread IN PIEDI da risvegliare */
-	bool cliente_in_piedi_trovato = false; /* Variabile booleana per evitare di svegliare un thread IN PIEDI che non sia quello da piu' tempo in attesa */
 	/* Come prima cosa occorre ricercare l'indice in cui e' stato inserito il cliente */
 	for (int i=0;i < NUM_POSTI_DIVANO; i++) {
-		if ((clienti_divano[i] != indice) && (!cliente_in_piedi_trovato) && (clienti_divano[i] != -1)) {
-			cliente_in_piedi_trovato = true;
-			index = clienti_divano[i];
-		}
 		if (clienti_divano[i] == indice) {
-			if (!cliente_in_piedi_trovato) {
-				/* Se ancora non ho trovato il cliente in piedi controllo se il prossimo cliente (rispetto a quello da togliere) esiste */
-				if (clienti_divano[i+1] != -1) {
-					index = clienti_divano[i+1];
+			bool trovato = false;
+			while(trovato) {
+				trovato = true;
+				index = getFirstNonFreePosition(clienti_in_piedi, NUM_CLIENTI_MAX - NUM_BARBIERI - NUM_POSTI_DIVANO);
+    			for (j = 0;clienti_in_piedi_risvegliati[j] != -1;j++) {
+       			if (clienti_in_piedi_risvegliati[j] == clienti_in_piedi[index]) {
+            		trovato = false;
+       			}
 				}
-			}
+    		}
+    		clienti_in_piedi_risvegliati[j] = clienti_in_piedi[index];
+			printArray(clienti_in_piedi_risvegliati, 3, "MEM");
 			/* Una volta trovato, shifto l'array che memorizza le persone sedute nel divano */
 			for (j=i; j < (NUM_POSTI_DIVANO-1); j++) {
 				if (clienti_divano[j] == -1)
@@ -181,7 +186,7 @@ void liberaPostoDivano(int indice) {
 			i = getFirstFreePosition(clienti_serviti, NUM_BARBIERI);
 			clienti_serviti[i] = indice;
 			/* Segnalo all'eventuale thread in attesa sulla var condition C_DIVANO_OCCUPATO che si e' liberato un posto sul divano. */
-   			printf("Il Thread CLIENTE di indice %d con identificatore %lu si e' seduto nella sedia e attende il taglio dei capelli.\nATTUALMENTE CI SONO %d CLIENTI SERVITI\n", indice, pthread_self(), num_clienti_serviti_act);
+   		printf("Il Thread CLIENTE di indice %d con identificatore %lu si e' seduto nella sedia e attende il taglio dei capelli.\nATTUALMENTE CI SONO %d CLIENTI SERVITI\n", indice, pthread_self(), num_clienti_serviti_act);
 			char str[255];
 			sprintf(str, "SERVITI %d", indice);
 			printArray(clienti_serviti, NUM_BARBIERI, str);
@@ -269,9 +274,26 @@ void *eseguiCliente(void *id)
 
 	int next_cliente_servito = -1;		/* Variabile che memorizza l'indice del prossimo (eventuale) cliente che andra' ad essere servito */
 	/* Recupero l'indice dell'eventuale cliente in attesa da più tempo */
-	next_cliente_servito = getFirstNonFreePosition(clienti_divano, NUM_POSTI_DIVANO);
+	bool trovato = false;
+	int i;
+	int j = 0;
+	while(!trovato) {
+		trovato = true;
+		next_cliente_servito = getFirstNonFreePosition(clienti_divano+j, NUM_POSTI_DIVANO-j);
+		if (next_cliente_servito != -1) {
+			for (i = 0;clienti_divano_risvegliati[i] != -1;i++) {
+				if (clienti_divano_risvegliati[i] == clienti_divano[next_cliente_servito]) {
+					trovato = false;
+					break;
+				}
+			}
+		}
+	}
+	
 	if (next_cliente_servito != -1)
 	{
+		printf("Risveglio %d\n",clienti_divano[next_cliente_servito]); 
+		clienti_divano_risvegliati[i] = clienti_divano[next_cliente_servito];
 		/* MOLTO IMPORTANTE: IL CONTATORE DEI CLIENTI SERVITI VERRA' INCREMENTATO DOPO DAL CLIENTE RISVEGLIATO, NELLA FUNZIONE liberaPostoDivano!!!!!!! */
 		/* Si sveglia il prossimo cliente in attesa di essere servito (si sottrae NUM_BARBIERI all'indice per il motivo specificato in fase di wait)*/
 		printf("RISVEGLIO SERVITI: %d\n", clienti_divano[next_cliente_servito] - NUM_BARBIERI);
@@ -382,6 +404,21 @@ int main (int argc, char **argv)
 		exit(6);
 	}
 
+	/* Alloco la memoria per gli array che memorizzazno i clienti risvegliati */
+	clienti_in_piedi_risvegliati = (int*) malloc((NUM_THREADS - NUM_BARBIERI) * sizeof(int));
+	clienti_divano_risvegliati = (int*) malloc((NUM_THREADS - NUM_BARBIERI) * sizeof(int));
+
+	if (clienti_in_piedi_risvegliati == NULL) {
+		perror("Problemi con l'allocazione dell'array clienti_in_piedi_risvegliati\n");
+		exit(7);
+	}
+	if (clienti_divano_risvegliati == NULL) {
+		perror("Problemi con l'allocazione dell'array clienti_divano_risvegliati\n");
+		exit(8);
+	}
+
+	
+
 	/* ***** INIZIALIZZAZIONE DEI SEMAFORI E VAR CONDITION ***** */
 	for (i=0; i < NUM_THREADS - NUM_BARBIERI; i++) {
 		if (pthread_cond_init(&C_CLIENTI_SERVITI[i], NULL) != 0) {
@@ -394,6 +431,8 @@ int main (int argc, char **argv)
 			perror(error);
 			exit(6);
 		}
+		clienti_divano_risvegliati[i] = -1;
+		clienti_in_piedi_risvegliati[i] = -1;
 	}
 
 	if (sem_init(&S_CLIENTE_TO_BARBIERE, 0, 0) != 0) {
