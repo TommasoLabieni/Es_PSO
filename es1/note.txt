@@ -29,3 +29,8 @@ Scelte Personali:
 	- Se un cliente non trova posto nel negozio, si addormenta e riprova più avanti 
 	- Si utilizzano due mutex per consentire l'esecuzione di altri thread, dato che nella parte di pagamento si utilizzano variabili che, nelle parti precedenti (mettersi in coda, sedersi nel divano, farsi tagliare i capelli), non vengono utilizzate !!!
 	- Si passa come parametro il numero di thread clienti
+	- Nel thread bariere PRIMA DI RILASCIARE MUTEX (alla fine) occorre svegliare il thread bloccato!! altrimenti si rischia che, nel frattempo che il mutex sia stato rilasciato, 
+		che un altro thread (cliente) prende il mutex, si siede nel divano, arriva al controllo dei clienti serviti e passa SALTANDO LA CODA DEI CLIENTI IN ATTESA SUL DIVANO!!  Discorso IDENTICO nella funzione liberaPostoDivano nelle seguenti righe
+		   	printf("Il Thread CLIENTE di indice %d con identificatore %lu si e' seduto nella sedia e attende il taglio dei capelli.\n", indice, pthread_self());
+			pthread_cond_signal(&C_DIVANO_OCCUPATO);
+			pthread_mutex_unlock(&mutex);
