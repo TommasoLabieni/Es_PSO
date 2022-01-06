@@ -31,7 +31,7 @@ sem_t S_BUS_CAPACITY;
 /* Funzione boardBus del passeggero che sale sul Bus */
 void boardBus(int indice) {
 	pthread_mutex_lock(&mutex);
-   printf("Il thread RIDER di indice %d con identificatore %lu e' salito sul bus.\n", indice, pthread_self());
+   	printf("Il thread RIDER di indice %d con identificatore %lu e' salito sul bus.\n", indice, pthread_self());
 	/* Decremo il numero di passeggeri in attesa */
 	num_rider_attesa--;
 	/* Una volta a bordo, il rider segnala quei rider in attesa per aver colmato la capacita' del bus */
@@ -56,8 +56,8 @@ void *eseguiRider(void *id)
    ptr = (int *) malloc( sizeof(int));
    if (ptr == NULL)
    {
-   	perror("Problemi con l'allocazione di ptr\n");
-      exit(-1);
+	   perror("Problemi con l'allocazione di ptr\n");
+	   exit(-1);
    }
    *ptr = *pi;
 
@@ -75,6 +75,8 @@ void *eseguiRider(void *id)
 	num_rider_attesa++;
 	/* Incremento il numero dei rider saliti sul bus */
 	num_rider_saliti++;
+   	printf("Il thread RIDER di indice %d con identificatore %lu e' in attesa del bus.\n", *pi, pthread_self());
+
 	pthread_mutex_unlock(&mutex);
 	/* Se la capacita' non e' stata colmata, allora il rider aspetta l'arrivo del bus */
 	sem_wait(&S_BUS);
@@ -99,8 +101,6 @@ void depart(int indice) {
 	/* Si risvegliano tutti i rider arrivati in ritardo bloccati */
 	pthread_cond_broadcast(&C_LATE_RIDER);
 	pthread_mutex_unlock(&mutex);
-	/* Si simula il viaggio del bus con una sleep */
-	sleep(0.2);
 }
 
 void *eseguiBus(void *id)
@@ -138,7 +138,7 @@ void *eseguiBus(void *id)
 		pthread_mutex_unlock(&mutex);
 		/* Infine si procede a partire */
 		depart(*ptr);
-		sleep(1);
+		sleep(0.7);
 	}
 }
 
