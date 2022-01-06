@@ -83,15 +83,6 @@ void epilogo_searcher(int indice) {
 		/* Se iniziano ad accodarsi dei deleter, allora viene attivato il trigger per evitare starvation */
 		deleter_trigger = true;
 	}
-	/* else if (searcher_bloccati > 0) {
-		searcher_bloccati--;
-		searcher_attivi++;
-		sem_post(&S_SEARCHER);
-	} else if ((inserter_bloccati > 0) && (!inserter_attivo)) {
-		inserter_bloccati--;
-		inserter_attivo = true;
-		sem_post(&S_INSERTER);
-	}*/
 	pthread_mutex_unlock(&mutex);
 }
 
@@ -371,7 +362,7 @@ int main (int argc, char **argv) {
    {
 		int ris;
 		/* attendiamo la terminazione di tutti i thread generati */
-   	pthread_join(thread[i], (void**) & p);
+		pthread_join(thread[i], (void**) & p);
 		ris = *p;
 		printf("Pthread %d-esimo restituisce %d\n", i, ris);
    }
