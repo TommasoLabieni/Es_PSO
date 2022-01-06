@@ -225,7 +225,7 @@ int main (int argc, char **argv)
 	}
 
 	/* Controllo che il numero di passeggeri (var. n) sia > del numero dei posti disponibili (C*m) */
-	if (n <= C) {
+	if (n <= (C*m)) {
 		sprintf(error, "Errore: La variabile n non e' tale che n > C*m, infatti n=%d e C*m=%d!\n", n, (C*m));
 		perror(error);
 		exit(3);
