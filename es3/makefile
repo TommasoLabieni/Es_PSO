@@ -14,4 +14,4 @@ $(TARGET):	$(TARGET).c list.o
 				$(CC) $(CFLAGS) $@ $^ -lpthread
 
 clean:
-		rm $(OBJ)
+	rm $(OBJ)
