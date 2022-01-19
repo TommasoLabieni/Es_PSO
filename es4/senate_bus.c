@@ -11,29 +11,35 @@
 
 /* Variabile intera per memorizzare il numero dei rider in attesa */
 int num_rider_attesa = 0;
-/* Variabile intera per memorizzare il numero dei rider saliti sul bus (utilizzata solo e unicamente per debug, NON A SCOPO DI FUNZIONAMENTO DEL PROGRAMMA!) */
+/* Variabile intera per memorizzare il numero dei rider saliti sul bus */
 int num_rider_saliti = 0;
+/* Variabile intera per memorizzare il numero dei rider giunti alla fermata del bus */
+int num_rider_bus_stop = 0;
 /* Variabile boolean che indica se l'autobus e' arrivato e sta facendo salire i passeggeri (utilizzata per bloccare i passeggeri che arrivano in ritardo */
 bool bus_pronto = false;
 /* Variabile booleana che indica se l'ultimo rider in attesa e' salito sul bus */
 bool ultimo_rider_salito = false;
 /* Mutex per utilizzare le variabili condivise */
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-/* Variabile condition sulla quale si bloccheranno i riders che arrivano in ritardo */
+/* Variabile condition sulla quale si bloccheranno i riders che arrivano in ritardo (ossia quando l'autobus e' gia' arrivato) */
 pthread_cond_t C_LATE_RIDER = PTHREAD_COND_INITIALIZER;
 /* Variabile condition sulla quale si blocchera' l'autobus in attesa che siano saliti tutti i rider (tranne quelli in ritardo) */
 pthread_cond_t C_LAST_RIDER_ON = PTHREAD_COND_INITIALIZER;
-/* Semaforo per segnalare l'arrivo del bus */
-sem_t S_BUS;
+/* Variabile Condition per segnalare l'arrivo del bus */
+pthread_cond_t C_BUS;
 /* Semaforo per evitare che il numero di rider saliti sul bus superi la capacita' C di quest'ultimo */
-sem_t S_BUS_CAPACITY;
+pthread_cond_t C_BUS_CAPACITY = PTHREAD_COND_INITIALIZER;
 
 /* Funzione boardBus del passeggero che sale sul Bus */
 void boardBus(int indice) {
-	pthread_mutex_lock(&mutex);
-   	printf("Il thread RIDER di indice %d con identificatore %lu e' salito sul bus.\n", indice, pthread_self());
-	/* Decremo il numero di passeggeri in attesa */
+	/* NOTA: Il mutex era gia' stato preso dal thread RIDER corrente. */
+   printf("Il thread RIDER di indice %d con identificatore %lu e' salito sul bus.\n", indice, pthread_self());
+	/* Decremento il numero di passeggeri in attesa del bus */
 	num_rider_attesa--;
+	/* Decremento la variabile che conta il numero di riders alla fermata del bus */
+	num_rider_bus_stop--;
+	/* Incremento il numero dei rider saliti sul bus */
+	num_rider_saliti++;
 	/* Una volta a bordo, il rider segnala quei rider in attesa per aver colmato la capacita' del bus */
 	/* Se questo numero e' = 0 allora e' salito l'ultima persona in attesa -> segnalo all'autobus che puo' partire */
 	if (num_rider_attesa == 0) {
@@ -41,9 +47,6 @@ void boardBus(int indice) {
 		pthread_mutex_unlock(&mutex);
 		pthread_cond_signal(&C_LAST_RIDER_ON);
 		return;
-	} else {
-		/* Se non e' l'ultimo rider a salire, allora segnala al prossimo rider che puo' salire sul bus */
-		sem_post(&S_BUS);
 	}
 	pthread_mutex_unlock(&mutex);
 }
@@ -63,25 +66,26 @@ void *eseguiRider(void *id)
 
    printf("Thread RIDER di indice %d partito: Ho come identificatore %lu\n", *pi, pthread_self());
 
-	/* Se il rider prova a salire sul bus ma la capacita' e' stata colmata, allora il rider si blocchera' sul semaforo S_BUS_CAPACITY */
-	sem_wait(&S_BUS_CAPACITY);
-
+	/* Se il rider prova a salire sul bus ma la capacita' e' stata colmata, allora il rider si blocchera' sulla var condition C_BUS_CAPACITY */
 	pthread_mutex_lock(&mutex);
+	while(num_rider_bus_stop >= C) {
+   	printf("Il thread RIDER di indice %d con identificatore %lu e' bloccato a causa del num dei passeggeri.\n", *ptr, pthread_self());
+		pthread_cond_wait(&C_BUS_CAPACITY, &mutex);
+	}
+	/* A questo punto incremento la variabile che conta il numero di riders alla fermata del bus */
+	num_rider_bus_stop++;
 	/* Prima di mettersi in attesa, occorre verificare se l'autobus sta gia' facendo salire i passeggeri */
 	while(bus_pronto) {
+   	printf("Il thread RIDER di indice %d con identificatore %lu e' bloccato a causa dell'autobus arrivato .\n", *ptr, pthread_self());
 		pthread_cond_wait(&C_LATE_RIDER, &mutex);
 	}
-	/* Se il bus non e' ancora arrivato incremento il numero di rider in attesa */
+	/* A questo punto incremento la variabile che conta il numero di riders in attesa del bus */
 	num_rider_attesa++;
-	/* Incremento il numero dei rider saliti sul bus */
-	num_rider_saliti++;
-   	printf("Il thread RIDER di indice %d con identificatore %lu e' in attesa del bus.\n", *pi, pthread_self());
+	
+   printf("Il thread RIDER di indice %d con identificatore %lu e' in attesa del bus.\n", *pi, pthread_self());
 
-	pthread_mutex_unlock(&mutex);
 	/* Se la capacita' non e' stata colmata, allora il rider aspetta l'arrivo del bus */
-	sem_wait(&S_BUS);
-	/* Si risvegliano i thread bloccati sul semaforo che tiene conto della capacita' dell'autobus */
-	sem_post(&S_BUS_CAPACITY);
+	pthread_cond_wait(&C_BUS, &mutex);
 	/* A questo punto il rider sale sul bus */
 	boardBus(*ptr);
 	
@@ -100,6 +104,8 @@ void depart(int indice) {
 	ultimo_rider_salito = false;
 	/* Si risvegliano tutti i rider arrivati in ritardo bloccati */
 	pthread_cond_broadcast(&C_LATE_RIDER);
+	/* Si risvegliano tutti i rider bloccati a causa della capacita' */
+	pthread_cond_broadcast(&C_BUS_CAPACITY);
 	pthread_mutex_unlock(&mutex);
 }
 
@@ -115,7 +121,6 @@ void *eseguiBus(void *id)
       exit(-1);
    }
    *ptr = *pi;
-
    printf("Thread BUS di indice %d partito: Ho come identificatore %lu\n", *pi, pthread_self());
 
 	while(1) {
@@ -127,7 +132,7 @@ void *eseguiBus(void *id)
 		/* Si controlla se vi sono rider in attesa */
 		if (num_rider_attesa > 0) {
 			/* Si segnala ai rider in attesa l'arrivo del bus */
-			sem_post(&S_BUS);
+			pthread_cond_broadcast(&C_BUS);
 			/* A questo punto il bus aspetta che salga l'ultimo rider */
 			while(!ultimo_rider_salito) {
 				pthread_cond_wait(&C_LAST_RIDER_ON, &mutex);
@@ -138,7 +143,7 @@ void *eseguiBus(void *id)
 		pthread_mutex_unlock(&mutex);
 		/* Infine si procede a partire */
 		depart(*ptr);
-		sleep(0.7);
+		//sleep(1);
 	}
 }
 
@@ -184,21 +189,6 @@ int main (int argc, char **argv)
         perror("Problemi con l'allocazione dell'array taskids\n");
         exit(4);
     }
-
-	/* ***** INIZIALIZZAZIONE DEI SEMAFORI ***** */
-
-	if (sem_init(&S_BUS, 0, 0) != 0) {
-		perror("Errore inizializzazione semaforo S_BUS\n");
-		exit(5);
-	}
-
-	if (sem_init(&S_BUS_CAPACITY, 0, C) != 0) {
-		perror("Errore inizializzazione semaforo S_BUS_CAPACITY\n");
-		exit(6);
-	}
-
-	/* ***************************************** */
-
 
 	/* Il thread BUS parte da una posizione casuale per garantire un comportamento del programma diverso per ogni esecuzione */
 	srand(time(NULL));
