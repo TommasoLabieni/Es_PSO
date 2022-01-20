@@ -20,10 +20,10 @@ pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 sem_t S_CAR_LOAD;
 /* Semaforo Privato per far scendere i passeggeri */
 sem_t S_CAR_UNLOAD;
-/* Variabile Condition per verificare se un'auto contiene il numero esatto di passeggeri per partire */
-pthread_cond_t C_PASSEGGERI_SALITI = PTHREAD_COND_INITIALIZER;
-/* Variabile Condition per verificare se TUTTI i passeggeri sono scesi dall'auto */
-pthread_cond_t C_PASSEGGERI_SCESI = PTHREAD_COND_INITIALIZER;
+/* Semaforo per verificare se un'auto contiene il numero esatto di passeggeri per partire */
+sem_t S_PASSEGGERI_SALITI;
+/* Semaforo per verificare se TUTTI i passeggeri sono scesi dall'auto */
+sem_t S_PASSEGGERI_SCESI;
 /* Variabile intera per memorizzare il numero di passeggeri saliti all'interno di un auto */
 int num_passeggeri_saliti = 0;
 /* Variabile intera per memorizzare il numero di passeggeri scesi da un auto */
@@ -43,7 +43,7 @@ void board(int indice) {
 	if (num_passeggeri_saliti == C) {
 		/* Si risveglia il thread dell'auto */
 		pthread_mutex_unlock(&mutex);
-		pthread_cond_signal(&C_PASSEGGERI_SALITI);
+		sem_post(&S_PASSEGGERI_SALITI);
 		return;
 	} else {
 		/* Altrimenti si risveglia il prossimo passeggero in attesa */
@@ -62,7 +62,7 @@ void unboard(int indice) {
 	if (num_passeggeri_scesi == C) {
 		/* Si risveglia il thread dell'auto */
 		pthread_mutex_unlock(&mutex);
-		pthread_cond_signal(&C_PASSEGGERI_SCESI);
+		sem_post(&S_PASSEGGERI_SCESI);
 		return;
 	} else {
 		/* Altrimenti si risveglia il prossimo passeggero in attesa */
@@ -112,16 +112,16 @@ void load(int indice) {
 	car_act_salita = indice+n;
 
    printf("Thread AUTO di indice %d con identificatore %lu inizia a far salire i passeggeri\n", indice+n, pthread_self());
+	pthread_mutex_unlock(&mutex);
 	/* Risveglio del passeggero in attesa di salire nell'auto */
 	sem_post(&S_CAR_LOAD);
-	/* A questo punto l'auto rimane in attesa sulla variabile condition C_PASSEGGERI_SALITI in attesa che tutti e C i passeggeri siano saliti */
-	while (num_passeggeri_saliti != C) {
-		pthread_cond_wait(&C_PASSEGGERI_SALITI, &mutex);
-	}
+	/* A questo punto l'auto rimane in attesa che tutti e C i passeggeri siano saliti */
+	sem_wait(&S_PASSEGGERI_SALITI);
+	pthread_mutex_lock(&mutex);
+
 	/* Si resetta il numero dei passeggeri saliti per preparare la salita nell'auto successiva */
 	num_passeggeri_saliti = 0;
    printf("Thread AUTO di indice %d con identificatore %lu ha caricato tutti i %d passeggeri\n", indice+n, pthread_self(), C);
-
 
 	/* A questo punto si notifica la prossima auto che puo' caricare i passeggeri */
 	sem_post(&S_LOAD_QUEUE[next_indice]);
@@ -132,7 +132,7 @@ void load(int indice) {
 /* Funzione run dell'auto che simula il giro sul tracciato dell'auto */
 void run(int indice) {
    printf("Thread AUTO di indice %d con identificatore %lu sta girando nel tracciato\n", indice+n, pthread_self());
-	sleep(4);
+	//sleep(4);
 }
 
 void unload(int indice) {
@@ -146,12 +146,14 @@ void unload(int indice) {
 	car_act_uscita = indice+n;
 
    printf("Thread AUTO di indice %d con identificatore %lu inizia a far scendere i passeggeri\n", indice+n, pthread_self());
+	pthread_mutex_unlock(&mutex);
+
 	/* Risveglio del passeggero in attesa di scendere dall'auto */
 	sem_post(&S_CAR_UNLOAD);
-	/* A questo punto l'auto rimane in attesa sulla variabile condition C_PASSEGGERI_SCESI in attesa che tutti e C i passeggeri siano scesi */
-	while (num_passeggeri_scesi != C) {
-		pthread_cond_wait(&C_PASSEGGERI_SCESI, &mutex);
-	}
+	/* A questo punto l'auto rimane in attesa che tutti e C i passeggeri siano scesi */
+	sem_wait(&S_PASSEGGERI_SCESI);
+
+	pthread_mutex_lock(&mutex);
 	/* Si resetta il numero dei passeggeri scesi per preparare l'uscita dall'auto successiva */
 	num_passeggeri_scesi = 0;
    printf("Thread AUTO di indice %d con identificatore %lu ha fatto scendere tutti i %d passeggeri\n", indice+n, pthread_self(), C);
@@ -264,13 +266,22 @@ int main (int argc, char **argv)
 	/* ***** Inizializzo i semafori e le variabilli condition ***** */
 
 	if (sem_init(&S_CAR_LOAD, 0, 0) != 0) {
-		perror("Errore inizializzazione semaforo per consentire ai passeggeri di salire sull'auto\n");
+		perror("Errore inizializzazione semaforo S_CAR_LOAD \n");
 		exit(8);
 	}
 	if (sem_init(&S_CAR_UNLOAD, 0, 0) != 0) {
-		perror("Errore inizializzazione semaforo per consentire ai passeggeri di scendere dall'auto\n");
+		perror("Errore inizializzazione semaforo S_CAR_UNLOAD \n");
 		exit(9);
 	}
+	if (sem_init(&S_PASSEGGERI_SALITI, 0, 0) != 0) {
+		perror("Errore inizializzazione semaforo S_PASSEGGERI_SALITI \n");
+		exit(10);
+	}
+	if (sem_init(&S_PASSEGGERI_SCESI, 0, 0) != 0) {
+		perror("Errore inizializzazione semaforo S_PASSEGGERI_SCESI \n");
+		exit(10);
+	}
+
 	for (i = 0;i < m;i++) {
 		/* L'auto di indice 0 e' la prima auto che carichera' e fara' scendere i passeggeri, e dunque sara' l'unica auto ad avere 
 		 *	i semafori con valore iniziale uguale ad 1, mentre le restanti auto avranno come valore iniziale del semaforo 
@@ -279,20 +290,20 @@ int main (int argc, char **argv)
 		if (i == 0) {
 			if (sem_init(&S_LOAD_QUEUE[i], 0, 1) != 0) {
 				perror("Errore inizializzazione semaforo S_LOAD_QUEUE \n");
-				exit(10);
+				exit(11);
 			}
 			if (sem_init(&S_UNLOAD_QUEUE[i], 0, 1) != 0) {
 				perror("Errore inizializzazione semaforo S_UNLOAD_QUEUE \n");
-				exit(11);
+				exit(12);
 			}
 		} else {
 			if (sem_init(&S_LOAD_QUEUE[i], 0, 0) != 0) {
 				perror("Errore inizializzazione semaforo S_LOAD_QUEUE \n");
-				exit(12);
+				exit(13);
 			}
 			if (sem_init(&S_UNLOAD_QUEUE[i], 0, 0) != 0) {
 				perror("Errore inizializzazione semaforo S_UNLOAD_QUEUE \n");
-				exit(13);
+				exit(14);
 			}
 		}
 	}
@@ -309,7 +320,7 @@ int main (int argc, char **argv)
       	{
       		sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (passeggero)\n", taskids[i]);
       	   perror(error);
-				exit(14);
+				exit(15);
       	}
 			printf("SONO IL MAIN e ho creato il Pthread %i-esimo (passeggero) con id=%lu\n", i, thread[i]);
 		} else {
@@ -320,7 +331,7 @@ int main (int argc, char **argv)
       	{
       		sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (auto)\n", taskids[i]);
       	   perror(error);
-				exit(15);
+				exit(16);
       	}
 			printf("SONO IL MAIN e ho creato il Pthread %i-esimo (auto) con id=%lu\n", i, thread[i]);
 		}
