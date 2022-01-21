@@ -1,3 +1,11 @@
+/* 
+ * PROBLEMA:
+ * I rider arrivano alla fermata dell’autobus in attesa che arrivi. Quando l’autobus giunge alla fermata, tutti i riders in attesa invocano la funzione boardBus tuttavia, 
+ * chiunque arrivi alla fermata mentre l’autobus sta facendo salire i riders che si erano messi in attesa PRIMA dell’arrivo del bus, dovrà aspettare la corsa successiva. 
+ * La capacità del bus è di 50 riders; se ci dovessero essere più di 50 persone in attesa, alcune di esse dovranno aspettare il prossimo bus.
+ * Quanto tutti i riders in attesa sono saliti sul bus, quest’ultimo invocherà la funzione depart. Se l’autobus dovesse arrivare quando non c’è alcun rider in attesa, questo partirà immediatamente.
+*/
+
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,9 +17,9 @@
 /* Costante per indicare la capacita' del bus */
 #define C 50
 
-/* Variabile intera per memorizzare il numero dei rider in attesa */
+/* Variabile intera per memorizzare il numero dei rider in attesa del bus */
 int num_rider_attesa = 0;
-/* Variabile intera per memorizzare il numero dei rider saliti sul bus */
+/* Variabile intera per memorizzare il numero dei rider saliti sul bus NOTA: QUESTA VARIABILE NON HA UNO SCOPO FUNZIONALE PER IL PROGRAMMA, MA E' UTILIZZATA A SCOPO ESCLUSIVAMENTE ILLUSTRATIVO*/
 int num_rider_saliti = 0;
 /* Variabile intera per memorizzare il numero dei rider giunti alla fermata del bus */
 int num_rider_bus_stop = 0;
@@ -27,18 +35,18 @@ pthread_cond_t C_LATE_RIDER = PTHREAD_COND_INITIALIZER;
 pthread_cond_t C_LAST_RIDER_ON = PTHREAD_COND_INITIALIZER;
 /* Variabile Condition per segnalare l'arrivo del bus */
 pthread_cond_t C_BUS = PTHREAD_COND_INITIALIZER;
-/* Semaforo per evitare che il numero di rider saliti sul bus superi la capacita' C di quest'ultimo */
+/* Variabile Condition per evitare che il numero di rider saliti sul bus superi la capacita' C di quest'ultimo */
 pthread_cond_t C_BUS_CAPACITY = PTHREAD_COND_INITIALIZER;
 
 /* Funzione boardBus del passeggero che sale sul Bus */
 void boardBus(int indice) {
 	/* NOTA: Il mutex era gia' stato preso dal thread RIDER corrente. */
    printf("Il thread RIDER di indice %d con identificatore %lu e' salito sul bus.\n", indice, pthread_self());
-	/* Decremento il numero di passeggeri in attesa del bus */
+	/* Decremento il numero di passeggeri in attesa del bus (in quanto  il bus è arrivato)*/
 	num_rider_attesa--;
 	/* Decremento la variabile che conta il numero di riders alla fermata del bus */
 	num_rider_bus_stop--;
-	/* Incremento il numero dei rider saliti sul bus */
+	/* Incremento il numero dei rider saliti sul bus. */
 	num_rider_saliti++;
 	/* Una volta a bordo, il rider segnala quei rider in attesa per aver colmato la capacita' del bus */
 	/* Se questo numero e' = 0 allora e' salito l'ultima persona in attesa -> segnalo all'autobus che puo' partire */
@@ -72,7 +80,7 @@ void *eseguiRider(void *id)
    	printf("Il thread RIDER di indice %d con identificatore %lu e' bloccato a causa del num dei passeggeri.\n", *ptr, pthread_self());
 		pthread_cond_wait(&C_BUS_CAPACITY, &mutex);
 	}
-	/* A questo punto incremento la variabile che conta il numero di riders alla fermata del bus */
+	/* A questo punto incremento la variabile che conta il numero di riders giunti alla fermata del bus */
 	num_rider_bus_stop++;
 	/* Prima di mettersi in attesa, occorre verificare se l'autobus sta gia' facendo salire i passeggeri */
 	while(bus_pronto) {
@@ -84,9 +92,11 @@ void *eseguiRider(void *id)
 	
    printf("Il thread RIDER di indice %d con identificatore %lu e' in attesa del bus.\n", *pi, pthread_self());
 
-	/* Se la capacita' non e' stata colmata, allora il rider aspetta l'arrivo del bus */
-	pthread_cond_wait(&C_BUS, &mutex);
-	/* A questo punto il rider sale sul bus */
+   while (!bus_pronto) {
+	   /* Il rider aspetta l'arrivo del bus */
+	   pthread_cond_wait(&C_BUS, &mutex);
+   } 
+	/* Bus arrivato --> il rider invoca boardBus */
 	boardBus(*ptr);
 	
    pthread_exit((void *) ptr);
@@ -143,7 +153,6 @@ void *eseguiBus(void *id)
 		pthread_mutex_unlock(&mutex);
 		/* Infine si procede a partire */
 		depart(*ptr);
-		//sleep(1);
 	}
 }
 
