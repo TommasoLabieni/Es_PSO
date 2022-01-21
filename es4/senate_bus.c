@@ -26,7 +26,7 @@ pthread_cond_t C_LATE_RIDER = PTHREAD_COND_INITIALIZER;
 /* Variabile condition sulla quale si blocchera' l'autobus in attesa che siano saliti tutti i rider (tranne quelli in ritardo) */
 pthread_cond_t C_LAST_RIDER_ON = PTHREAD_COND_INITIALIZER;
 /* Variabile Condition per segnalare l'arrivo del bus */
-pthread_cond_t C_BUS;
+pthread_cond_t C_BUS = PTHREAD_COND_INITIALIZER;
 /* Semaforo per evitare che il numero di rider saliti sul bus superi la capacita' C di quest'ultimo */
 pthread_cond_t C_BUS_CAPACITY = PTHREAD_COND_INITIALIZER;
 
