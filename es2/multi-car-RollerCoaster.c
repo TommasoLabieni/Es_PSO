@@ -87,11 +87,11 @@ void *eseguiPasseggero(void *id)
    printf("Thread %d PASSEGGERO partito: Ho come identificatore %lu\n", *pi, pthread_self());
 
 	while(1) {
-		/* Prima di chiamare la funzione board() il passeggere deve attendere che un'auto chiami la funzione load() */
+		/* Prima di chiamare la funzione board() il passeggero deve attendere che un'auto chiami la funzione load() */
 		sem_wait(&S_CAR_LOAD);
 		/* il passeggero sale a bordo */
 		board(*ptr);
-		/* Successivamente il passeggero' scende dall'auto, ma prima deve aspettare che l'auto chiami il metodo unload() */
+		/* Successivamente il passeggero scende dall'auto, ma prima deve aspettare che l'auto chiami il metodo unload() */
 		sem_wait(&S_CAR_UNLOAD);
 		/* il passeggero scende dall'auto */
 		unboard(*ptr);
