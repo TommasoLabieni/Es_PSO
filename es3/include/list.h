@@ -39,7 +39,7 @@ void esamina_lista(Lista L, int id);
  *
  *  el: l'elemento da aggiungere in coda
  *
- *  id: Indice del Searcher (utilizzato per effettuare stampe rilevanti)
+ *  id: Indice dell'Inserter (utilizzato per effettuare stampe rilevanti)
  *
  *  ritorno: La funzione ritorna 0 in caso di successo
  *  		 altrimenti -1 (in caso di allocazione FALLITA del nuovo elemento)        
@@ -56,7 +56,7 @@ int aggiungi_elemento(Lista* L, int el, int id);
  *
  *  el: l'elemento da rimuovere
  *
- *  id: Indice del Searcher (utilizzato per effettuare stampe rilevanti)
+ *  id: Indice del Deleter (utilizzato per effettuare stampe rilevanti)
  *
  *  ritorno: Non e' previsto alcun valore di ritorno
  *           

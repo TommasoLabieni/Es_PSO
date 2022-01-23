@@ -50,9 +50,9 @@ void prologo_searcher(int indice) {
 	} else {
 		searcher_bloccati++;
 		if (deleter_attivo)
-   		printf("Il thread Searcher di indice %d con identificatore %lu e' bloccato a causa di del attivo\n", indice, pthread_self());
+   			printf("Il thread Searcher di indice %d con identificatore %lu e' bloccato a causa di deleter attivo\n", indice, pthread_self());
 		if (deleter_trigger)
-   		printf("Il thread Searcher di indice %d con identificatore %lu e' bloccato a causa di del trigger\n", indice, pthread_self());
+   			printf("Il thread Searcher di indice %d con identificatore %lu e' bloccato per evitare starvation dei deleter\n", indice, pthread_self());
 	}
 	pthread_mutex_unlock(&mutex);
 	sem_wait(&S_SEARCHER);
@@ -87,25 +87,25 @@ void epilogo_searcher(int indice) {
 }
 
 void *esegui_searcher(void *id) {
-   int *pi = (int *)id;
-   int *ptr;
+   	int *pi = (int *)id;
+   	int *ptr;
 
-   ptr = (int *) malloc(sizeof(int));
-   if (ptr == NULL)
-   {
-        perror("Problemi con l'allocazione di ptr\n");
+   	ptr = (int *) malloc(sizeof(int));
+   	if (ptr == NULL)
+  	{
+    	perror("Problemi con l'allocazione di ptr\n");
         exit(-1);
-   }
-   *ptr = *pi;
+   	}
+   	*ptr = *pi;
 
-   printf("Thread Searcher di indice %d partito: Ho come identificatore %lu\n", *pi, pthread_self());
+   	printf("Thread Searcher di indice %d partito: Ho come identificatore %lu\n", *pi, pthread_self());
 	prologo_searcher(*ptr);
-   printf("Il thread Searcher di indice %d con identificatore %lu e' nella sua sezione critica\n", *pi, pthread_self());
+   	printf("Il thread Searcher di indice %d con identificatore %lu e' nella sua sezione critica\n", *pi, pthread_self());
 	/* Invocazione della funzione per esaminare la lista */
 	esamina_lista(l, *ptr);
-   printf("Il thread Searcher di indice %d con identificatore %lu terminato. %d rimanenti\n", *pi, pthread_self(), (searcher_attivi-1));
+   	printf("Il thread Searcher di indice %d con identificatore %lu terminato. %d rimanenti\n", *pi, pthread_self(), (searcher_attivi-1));
 	epilogo_searcher(*ptr);
-   pthread_exit((void *) ptr);
+   	pthread_exit((void *) ptr);
 }
 
 void prologo_inserter(int indice) {
@@ -116,70 +116,77 @@ void prologo_inserter(int indice) {
 		sem_post(&S_INSERTER);
 	} else {
 		if (deleter_attivo)
-   		printf("Il thread Inserter di indice %d con identificatore %lu e' bloccato a causa di del attivo\n", indice, pthread_self());
+   			printf("Il thread Inserter di indice %d con identificatore %lu e' bloccato a causa di deleter attivo\n", indice, pthread_self());
 		if (inserter_attivo)
-   		printf("Il thread Inserter di indice %d con identificatore %lu e' bloccato a causa di ins attivo\n", indice, pthread_self());
+   			printf("Il thread Inserter di indice %d con identificatore %lu e' bloccato a causa di inserter attivo\n", indice, pthread_self());
 		inserter_bloccati++;
 	}
 	pthread_mutex_unlock(&mutex);
 	sem_wait(&S_INSERTER);
 }
 
-void epilogo_inserter(int indice) {
+void epilogo_inserter(int indice, int ret) {
 	pthread_mutex_lock(&mutex);
+	/* Controllo se l'aggiunta dell'elemento è andata a buon fine */
+	if (ret != -1)
+		/* In tal caso aggiorno il numero di elementi presenti nella lista */
+		num_elementi++;
+
 	inserter_attivo = false;
+	/* Controllo se vi sono dei deleter bloccati */
 	if (deleter_bloccati != 0) {
-		/* Se il numero di lettori attivi e' > 0, allora il deleter non puo' svegliarsi -> abilito il trigger per evitare la starvation del deleter */
+		/* Se il numero di lettori attivi e' > 0, allora il deleter non puo' svegliarsi -> abilito il trigger per evitare la starvation del/i deleter */
 		if (searcher_attivi > 0)
 			deleter_trigger = true;
 		else {
-			/* dal momento che un deleter e' stato risvegliato, e' possibile disattivare il trigger per evitare starvation */
+			/* Se non ci sono searcher attivi posso risvegliare un deleter bloccato. 
+			 * Dal momento che un deleter verra' risvegliato, e' possibile disattivare il trigger per evitare starvation
+			*/
 			deleter_trigger = false;
 			deleter_bloccati--;
 			deleter_attivo = true;
 			sem_post(&S_DELETER);
 		}
 	} else if (inserter_bloccati > 0) {
+		/* Se non ci sono deleter bloccati e vi e' almeno un inserter bloccato ne risveglio uno */
 		inserter_bloccati--;
 		inserter_attivo = true;
 		sem_post(&S_INSERTER);
-	} 
+	}
+	/* NOTA: Non e' necessario effettuare alcun controllo sui searcher in quanto questi possono eseguire in parallelo agli inserter */
 	pthread_mutex_unlock(&mutex);
 }
 
 void *esegui_inserter(void *id) {
-   int *pi = (int *)id;
-   int *ptr;
+   	int *pi = (int *)id;
+   	int *ptr;
 	int r, ret;
-   ptr = (int *) malloc( sizeof(int));
-   if (ptr == NULL)
-   {
-        perror("Problemi con l'allocazione di ptr\n");
-        exit(-1);
-   }
-   *ptr = *pi;
+   	ptr = (int *) malloc( sizeof(int));
+   	if (ptr == NULL)
+   	{
+   	     perror("Problemi con l'allocazione di ptr\n");
+   	     exit(-1);
+   	}
+   	*ptr = *pi;
 
-   printf("Thread Inserter di indice %d partito: Ho come identificatore %lu\n", *pi, pthread_self());
+   	printf("Thread Inserter di indice %d partito: Ho come identificatore %lu\n", *pi, pthread_self());
 	prologo_inserter(*ptr);
-   printf("Il thread Inserter di indice %d con identificatore %lu e' nella sua sezione critica\n", *pi, pthread_self());
+	printf("Il thread Inserter di indice %d con identificatore %lu e' nella sua sezione critica\n", *pi, pthread_self());
 	/* Generazione Casuale di un elemento (numero) da aggiungere alla lista */
 	r = rand() % 1000;
 	/* Invocazione della funzione per aggiungere un elemento alla lista */
 	ret = aggiungi_elemento(&l, r, *ptr);
-	epilogo_inserter(*ptr);
+	epilogo_inserter(*ptr, ret);
+
 	/* Se e' avvenuto un errore in fase di aggiunta del nuovo elemento, verra' ritornato un valore di ritorno (-1)
 	 * che verra' interpretato come un errore
 	*/
 	if (ret != 0) {
 		*ptr = -1;
-	} else {
-		/* Altrimenti aggiorno in numero di elementi presenti nella lista */
-		pthread_mutex_lock(&mutex);
-		num_elementi++;
-		pthread_mutex_unlock(&mutex);
-	}
-   printf("Il thread Inserter di indice %d con identificatore %lu terminato.\n", *pi, pthread_self());
-   pthread_exit((void *) ptr);
+		printf("Il thread Inserter di indice %d con identificatore %lu terminato CON ERRORI.\n", *pi, pthread_self());
+	} else
+   		printf("Il thread Inserter di indice %d con identificatore %lu terminato.\n", *pi, pthread_self());
+   	pthread_exit((void *) ptr);
 }
 
 void prologo_deleter(int indice) {
@@ -187,17 +194,17 @@ void prologo_deleter(int indice) {
 	/* Se non e' attivo nessun'altro thread, allora l'attuale thread di tipo deleter puo' eseguire */
 	if ((searcher_attivi == 0) && !(inserter_attivo) && !(deleter_attivo)) {
 		deleter_attivo = true;
-		/* La variabile per evitare la starvation dei deleter puo' essere disattiva se un deleter andra' in esecuzione */
+		/* La variabile per evitare la starvation dei deleter puo' essere disattivata (impostata a false) se un deleter andra' in esecuzione */
 		deleter_trigger = false;
 		sem_post(&S_DELETER);
 	} else {
 		deleter_bloccati++;
 		if (searcher_attivi > 0)
-   		printf("Il thread Deleter di indice %d con identificatore %lu e' bloccato a causa di search att\n", indice, pthread_self());
+   			printf("Il thread Deleter di indice %d con identificatore %lu e' bloccato a causa di searcher attivo\n", indice, pthread_self());
 		if (deleter_attivo)
-   		printf("Il thread Deleter di indice %d con identificatore %lu e' bloccato a causa di del attivo\n", indice, pthread_self());
+   			printf("Il thread Deleter di indice %d con identificatore %lu e' bloccato a causa di deleter attivo\n", indice, pthread_self());
 		if (inserter_attivo)
-   		printf("Il thread Deleter di indice %d con identificatore %lu e' bloccato a causa di ins attivo\n", indice, pthread_self());
+   			printf("Il thread Deleter di indice %d con identificatore %lu e' bloccato a causa di inserter attivo\n", indice, pthread_self());
 	}
 	pthread_mutex_unlock(&mutex);
 	sem_wait(&S_DELETER);
@@ -205,19 +212,28 @@ void prologo_deleter(int indice) {
 
 void epilogo_deleter(int indice) {
 	pthread_mutex_lock(&mutex);
+	/* Dopo l'eliminazione occorre aggiornare il numero di elementi presenti nella lista */
+	num_elementi--;
 	deleter_attivo = false;
+	/* Controllo se ci sono deleter bloccati */ 
 	if (deleter_bloccati > 0) {
+		/* In tal caso ne sveglio uno. NOTA: Si puo' effettuare questa operazione senza ulteriori controlli
+		 * in quanto SICURAMENTE in questo punto del programma l'unico thread ad essere attivo e' un deleter!!
+		*/
 		deleter_bloccati--;
 		deleter_trigger = false;
 		deleter_attivo = true;
 		sem_post(&S_DELETER);
 	} else if ((searcher_bloccati > 0) || (inserter_bloccati > 0)) {
+		/* Altrimenti se ci dovessero essere searcher e/o inserter bloccati */
 		while (searcher_bloccati > 0) {
+			/* Sveglio TUTTI i searcher bloccati (se presenti) */
 			searcher_bloccati--;
 			searcher_attivi++;
 			sem_post(&S_SEARCHER);
 		}
 		if (inserter_bloccati > 0) {
+			/* Sveglio un inserter bloccato (se presente)*/
 			inserter_bloccati--;
 			inserter_attivo = true;
 			sem_post(&S_INSERTER);
@@ -227,21 +243,21 @@ void epilogo_deleter(int indice) {
 }
 
 void *esegui_deleter(void *id) {
-   int *pi = (int *)id;
-   int *ptr;
+   	int *pi = (int *)id;
+   	int *ptr;
 	int r;	
 
-   ptr = (int *) malloc( sizeof(int));
-   if (ptr == NULL)
-   {
-        perror("Problemi con l'allocazione di ptr\n");
-        exit(-1);
-   }
-   *ptr = *pi;
+   	ptr = (int *) malloc( sizeof(int));
+   	if (ptr == NULL)
+   	{
+   	     perror("Problemi con l'allocazione di ptr\n");
+   	     exit(-1);
+   	}
+   	*ptr = *pi;
 
-   printf("Thread Deleter di indice %d partito: Ho come identificatore %lu\n", *pi, pthread_self());
+   	printf("Thread Deleter di indice %d partito: Ho come identificatore %lu\n", *pi, pthread_self());
 	prologo_deleter(*ptr);
-   printf("Il thread Deleter di indice %d con identificatore %lu e' nella sua sezione critica\n", *pi, pthread_self());
+   	printf("Il thread Deleter di indice %d con identificatore %lu e' nella sua sezione critica\n", *pi, pthread_self());
 	/* Per l'eliminazione viene generato un numero casuale che sara' l'indice
 	 *	dell'elemento da rimuovere dalla lista. Questo numero di indice va da 0 al
 	 * numero massimo di elementi-1 presenti nella lista (informazione recuperata dalla
@@ -250,58 +266,54 @@ void *esegui_deleter(void *id) {
 	*/
 	if (num_elementi > 0) {
 		r = rand() % num_elementi;
-   	//printf("Il thread Deleter di indice %d con identificatore %lu va a eliminare %d\n", *pi, pthread_self(), r);
+   		//printf("Il thread Deleter di indice %d con identificatore %lu va a eliminare %d\n", *pi, pthread_self(), r);
 		/* Invocazione della funzione per eliminare un elemento dalla lista */
 		elimina_elemento(&l, r, *ptr);
-		/* Dopo l'eliminazione occorre aggiornare il numero di elementi presenti nella lista */
-		pthread_mutex_lock(&mutex);
-		num_elementi--;
-		pthread_mutex_unlock(&mutex);
 	}
 	epilogo_deleter(*ptr);
-   printf("Il thread Deleter di indice %d con identificatore %lu terminato.\n", *pi, pthread_self());
+   	printf("Il thread Deleter di indice %d con identificatore %lu terminato.\n", *pi, pthread_self());
 
-   pthread_exit((void *) ptr);
+   	pthread_exit((void *) ptr);
 }
 
 int main (int argc, char **argv) {
-   pthread_t *thread;
-   int *taskids;
-   int i;
+   	pthread_t *thread;
+   	int *taskids;
+   	int i;
 	int r;
-   int *p;
-   int NUM_THREADS;
-   char error[250];
+   	int *p;
+   	int NUM_THREADS;
+   	char error[250];
 
-   /* Controllo sul numero di parametri */
-   if (argc != 2) /* Deve essere passato esattamente un parametro */
-   {
-   	sprintf(error,"Errore nel numero dei parametri %d\n", argc-1);
+   	/* Controllo sul numero di parametri */
+   	if (argc != 2) /* Deve essere passato esattamente un parametro */
+   	{
+   		sprintf(error,"Errore nel numero dei parametri %d\n", argc-1);
 		perror(error);
-      exit(1);
-   }
+    	exit(1);
+   	}
 
-   /* Calcoliamo il numero passato che sara' il numero di Pthread da creare */
-   NUM_THREADS = atoi(argv[1]);
-   if (NUM_THREADS <= 0) 
-   {
-   	sprintf(error,"Errore: Il primo parametro non e' un numero strettamente maggiore di 0 ma e' %d\n", NUM_THREADS);
-	perror(error);
-      exit(2);
-   }
+   	/* Calcoliamo il numero passato che sara' il numero di Pthread da creare */
+   	NUM_THREADS = atoi(argv[1]);
+   	if (NUM_THREADS <= 0) 
+   	{
+   		sprintf(error,"Errore: Il primo parametro non e' un numero strettamente maggiore di 0 ma e' %d\n", NUM_THREADS);
+		perror(error);
+      	exit(2);
+   	}
 
-   thread=(pthread_t *) malloc(NUM_THREADS * sizeof(pthread_t));
-   if (thread == NULL)
-   {
-      perror("Problemi con l'allocazione dell'array thread\n");
-      exit(3);
-   }
-   taskids = (int *) malloc(NUM_THREADS * sizeof(int));
-   if (taskids == NULL)
-   {
-      perror("Problemi con l'allocazione dell'array taskids\n");
-   	exit(4);
-   }	
+   	thread=(pthread_t *) malloc(NUM_THREADS * sizeof(pthread_t));
+   	if (thread == NULL)
+   	{
+    	perror("Problemi con l'allocazione dell'array thread\n");
+    	exit(3);
+   	}
+   	taskids = (int *) malloc(NUM_THREADS * sizeof(int));
+   	if (taskids == NULL)
+   	{
+    	perror("Problemi con l'allocazione dell'array taskids\n");
+   		exit(4);
+   	}	
 
 	/* ***** INIZIALIZZAZIONE SEMAFORI ***** */
 
@@ -324,36 +336,36 @@ int main (int argc, char **argv) {
 
 	/* Generazione del seme */
 	srand(time(NULL));
-   for (i=0; i < NUM_THREADS; i++)
-   {
-   	taskids[i] = i;
+   	for (i=0; i < NUM_THREADS; i++)
+   	{
+   		taskids[i] = i;
 		r = rand() % 3; 
-		if((r == 0) || (i == (NUM_THREADS-1))) {
-   		//printf("Sto per creare il thread %d-esimo (searcher)\n", taskids[i]);
-      	if (pthread_create(&thread[i], NULL, esegui_searcher, (void *) (&taskids[i])) != 0)
-      	{
-      		sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (searcher)\n", taskids[i]);
-      	   perror(error);
+		if(r == 0) {
+   			//printf("Sto per creare il thread %d-esimo (searcher)\n", taskids[i]);
+      		if (pthread_create(&thread[i], NULL, esegui_searcher, (void *) (&taskids[i])) != 0)
+      		{
+      			sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (searcher)\n", taskids[i]);
+      	   		perror(error);
 				exit(5);
-      	}
+      		}
 			printf("SONO IL MAIN e ho creato il Pthread %i-esimo (searcher) con id=%lu\n", i, thread[i]);
-      }else if (r == 1) {
-   		//printf("Sto per creare il thread %d-esimo (inserter)\n", taskids[i]);
-      	if (pthread_create(&thread[i], NULL, esegui_inserter, (void *) (&taskids[i])) != 0)
-      	{
-      		sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (inserter)\n", taskids[i]);
-      	   perror(error);
+      	}else if (r == 1) {
+   			//printf("Sto per creare il thread %d-esimo (inserter)\n", taskids[i]);
+      		if (pthread_create(&thread[i], NULL, esegui_inserter, (void *) (&taskids[i])) != 0)
+      		{
+      			sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (inserter)\n", taskids[i]);
+      	   		perror(error);
 				exit(5);
-      	}
+     	 	}
 			printf("SONO IL MAIN e ho creato il Pthread %i-esimo (inserter) con id=%lu\n", i, thread[i]);
 		} else {
-   		//printf("Sto per creare il thread %d-esimo (deleter)\n", taskids[i]);
-      	if (pthread_create(&thread[i], NULL, esegui_deleter, (void *) (&taskids[i])) != 0)
-      	{
-      		sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (deleter)\n", taskids[i]);
-      	   perror(error);
+   			//printf("Sto per creare il thread %d-esimo (deleter)\n", taskids[i]);
+      		if (pthread_create(&thread[i], NULL, esegui_deleter, (void *) (&taskids[i])) != 0)
+      		{
+      			sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (deleter)\n", taskids[i]);
+      	   		perror(error);
 				exit(5);
-      	}
+      		}	
 			printf("SONO IL MAIN e ho creato il Pthread %i-esimo (deleter) con id=%lu\n", i, thread[i]);
 		}
    }
