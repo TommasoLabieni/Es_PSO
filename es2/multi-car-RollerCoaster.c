@@ -36,7 +36,7 @@ sem_t* S_UNLOAD_QUEUE;
 /* Funzione board del passeggero per salire nell'auto */
 void board(int indice) {
 	pthread_mutex_lock(&mutex);
-   printf("Il Thread PASSEGGERO di indice %d con identificatore %lu e' salito nell'auto di indice %d.\n", indice, pthread_self(), car_act_salita);
+	printf("Il Thread PASSEGGERO di indice %d con identificatore %lu e' salito nell'auto di indice %d.\n", indice, pthread_self(), car_act_salita);
 	/* il passeggero entra nell'auto -> occorre aggiornare la variabile che memorizza il numero di passeggeri contenuti nell'auto che sta attualmente effetuando il LOADING dei passeggeri */
 	num_passeggeri_saliti++;
 	/* Se e' stata colmata la capienza C dell'auto, occorre notificarla per farla partire */
@@ -55,7 +55,7 @@ void board(int indice) {
 /* Funzione unboard del passeggero per scendere dall'auto */
 void unboard(int indice) {
 	pthread_mutex_lock(&mutex);
-   printf("Il Thread PASSEGGERO di indice %d con identificatore %lu e' sceso dall'auto di indice %d.\n", indice, pthread_self(), car_act_uscita);
+	printf("Il Thread PASSEGGERO di indice %d con identificatore %lu e' sceso dall'auto di indice %d.\n", indice, pthread_self(), car_act_uscita);
 	/* il passeggero esce dall'auto -> occorre aggiornare la variabile che memorizza il numero di passeggeri scesi dall'auto che sta attualmente effetuando l'UNLOADING dei passeggeri */
 	num_passeggeri_scesi++;
 	/* Se il passeggero che sta scendendo dall'auto e' l'ultimo occorre notificare quest'ultima per consentire all'auto successiva di effettuare l'unloading */
@@ -73,18 +73,18 @@ void unboard(int indice) {
 
 void *eseguiPasseggero(void *id)
 {
-   int *pi = (int *)id;
-   int *ptr;
-   
-   ptr = (int *) malloc( sizeof(int));
-   if (ptr == NULL)
-   {
-   	perror("Problemi con l'allocazione di ptr\n");
-      exit(-1);
-   }
-   *ptr = *pi;
+	int *pi = (int *)id;
+   	int *ptr;
+	
+   	ptr = (int *) malloc( sizeof(int));
+   	if (ptr == NULL)
+   	{
+		   perror("Problemi con l'allocazione di ptr\n");
+		   exit(-1);
+   	}
+   	*ptr = *pi;
 
-   printf("Thread %d PASSEGGERO partito: Ho come identificatore %lu\n", *pi, pthread_self());
+	printf("Thread %d PASSEGGERO partito: Ho come identificatore %lu\n", *pi, pthread_self());
 
 	while(1) {
 		/* Prima di chiamare la funzione board() il passeggero deve attendere che un'auto chiami la funzione load() */
@@ -98,20 +98,17 @@ void *eseguiPasseggero(void *id)
 		/* Fermo il thread per un breve periodo di tempo per evitare delle stampe sovrapposte. Nel file log_imp_2.txt vi e' mostrato il comportamento del programma senza questa sleep */
 		sleep(1);
 	}
-   pthread_exit((void *) ptr);
+	pthread_exit((void *) ptr);
 }
 
 /* Funzione load dell'auto per consentire ai passeggeri di salire al suo interno */
 void load(int indice) {
 	int next_indice = (indice + 1) % m;		/* Variabile utilizzata per consentire all'auto successiva di far salire i passeggeri una volta caricati C passeggeri */
-	
-	/* Come prima cosa l'auto deve aspettare il suo turno per far salire i passeggeri */
-	sem_wait(&S_LOAD_QUEUE[indice]);
 	pthread_mutex_lock(&mutex);
-	/* Aggiorno l'indice dell'auto che sta facendo salire i passeggeri (si somma n perchè il thread delle auto parte da n, ossia il numero dei thread di tipo passeggero)*/
+	/* Aggiorno l'indice dell'auto che sta facendo salire i passeggeri (si somma n perchï¿½ il thread delle auto parte da n, ossia il numero dei thread di tipo passeggero)*/
 	car_act_salita = indice+n;
 
-   printf("Thread AUTO di indice %d con identificatore %lu inizia a far salire i passeggeri\n", car_act_salita, pthread_self());
+   	printf("Thread AUTO di indice %d con identificatore %lu inizia a far salire i passeggeri\n", car_act_salita, pthread_self());
 	pthread_mutex_unlock(&mutex);
 	/* Risveglio del passeggero in attesa di salire nell'auto */
 	sem_post(&S_CAR_LOAD);
@@ -121,7 +118,7 @@ void load(int indice) {
 
 	/* Si resetta il numero dei passeggeri saliti per preparare la salita nell'auto successiva */
 	num_passeggeri_saliti = 0;
-   printf("Thread AUTO di indice %d con identificatore %lu ha caricato tutti i %d passeggeri\n", car_act_salita, pthread_self(), C);
+	printf("Thread AUTO di indice %d con identificatore %lu ha caricato tutti i %d passeggeri\n", car_act_salita, pthread_self(), C);
 
 	/* A questo punto si notifica la prossima auto che puo' caricare i passeggeri */
 	sem_post(&S_LOAD_QUEUE[next_indice]);
@@ -131,21 +128,18 @@ void load(int indice) {
 
 /* Funzione run dell'auto che simula il giro sul tracciato dell'auto */
 void run(int indice) {
-   printf("Thread AUTO di indice %d con identificatore %lu sta girando nel tracciato\n", indice+n, pthread_self());
+	printf("Thread AUTO di indice %d con identificatore %lu sta girando nel tracciato\n", indice+n, pthread_self());
 	//sleep(4);
 }
 
 void unload(int indice) {
-	int next_indice = (indice + 1) % m;		/* Variabile utilizzata per consentire all'auto successiva di far scende i passeggeri una volta scesi C passeggeri */
-	
-	/* Come prima cosa l'auto deve aspettare il suo turno per far scendere i passeggeri */
-	sem_wait(&S_UNLOAD_QUEUE[indice]);
+	int next_indice = (indice + 1) % m;		/* Variabile utilizzata per consentire all'auto successiva di far scendere i passeggeri una volta scesi C passeggeri */
 	pthread_mutex_lock(&mutex);
 
 	/* Aggiorno l'indice dell'auto che sta facendo scendere i passeggeri */
 	car_act_uscita = indice+n;
-
-   printf("Thread AUTO di indice %d con identificatore %lu inizia a far scendere i passeggeri\n", car_act_uscita, pthread_self());
+	
+	printf("Thread AUTO di indice %d con identificatore %lu inizia a far scendere i passeggeri\n", car_act_uscita, pthread_self());
 	pthread_mutex_unlock(&mutex);
 
 	/* Risveglio del passeggero in attesa di scendere dall'auto */
@@ -156,59 +150,64 @@ void unload(int indice) {
 	pthread_mutex_lock(&mutex);
 	/* Si resetta il numero dei passeggeri scesi per preparare l'uscita dall'auto successiva */
 	num_passeggeri_scesi = 0;
-   printf("Thread AUTO di indice %d con identificatore %lu ha fatto scendere tutti i %d passeggeri\n", car_act_uscita, pthread_self(), C);
+   	printf("Thread AUTO di indice %d con identificatore %lu ha fatto scendere tutti i %d passeggeri\n", car_act_uscita, pthread_self(), C);
 
-   pthread_mutex_unlock(&mutex);
+   	pthread_mutex_unlock(&mutex);
 
 	/* A questo punto si notifica la prossima auto che puo' far scendere i passeggeri */
 	sem_post(&S_UNLOAD_QUEUE[next_indice]);
 }
 
 void *eseguiAuto(void *id)
-{
-   int *pi = (int *)id;
-   int *ptr;
-   
-   ptr = (int *) malloc( sizeof(int));
-   if (ptr == NULL)
-   {
-   	perror("Problemi con l'allocazione di ptr\n");
-      exit(-1);
-   }
-   *ptr = *pi;
+{	
+   	int *ptr;
+   	int *pi = (int *)id;
+	
+   	ptr = (int *) malloc( sizeof(int));
+   	if (ptr == NULL)
+   	{
+		perror("Problemi con l'allocazione di ptr\n");
+		exit(-1);
+   	}
+   	*ptr = *pi;
 
-   printf("Thread %d AUTO partito: Ho come identificatore %lu\n", *pi+n, pthread_self());
+   	printf("Thread %d AUTO partito: Ho come identificatore %lu\n", *pi+n, pthread_self());
 
 	while(1) {
-		/* Come prima cosa l'auto effettua il load dei passeggeri */
+		/* Come prima cosa l'auto deve aspettare il suo turno per far salire i passeggeri */
+		sem_wait(&S_LOAD_QUEUE[*ptr]);
+
+		/* Una volta che e' giunto il turno di far salire i passeggeri, l'auto puo' invocare la funzione load */
 		load(*ptr);
 		/* Una volta caricati tutti e C i passeggeri, l'auto puo' partire */
 		run(*ptr);
-		/* Terminato il giro, l'auto fa scendere i passeggeri */
+		/* L'auto aspetta il suo turno per far scendere i passeggeri */
+		sem_wait(&S_UNLOAD_QUEUE[*ptr]);
+		/* Una volta che e' giunto il turno di far scendere i passeggeri, l'auto puo' invocare la funzione unload */
 		unload(*ptr);
 	}
 }
 
 int main (int argc, char **argv)
 {
-   pthread_t *thread;
-   int *taskids;
-	int i;
-   int *p;
-   int NUM_THREADS;
-   char error[250];
+   	pthread_t *thread;
+   	int *taskids;
+   	int i;
+   	int *p;
+   	int NUM_THREADS;
+   	char error[250];
 
-   /* Controllo sul numero di parametri */
-   if (argc != 4) /* Deve essere passato esattamente un parametro */
-   {
-   	sprintf(error,"Errore nel numero dei parametri. Inserire:\n \
-	Numero dei passeggeri (n)\n \
-	Numero di posti disponibili in un'auto (C)\n \
-	Numero di auto (m)\n \
-	NOTA: Ricorda che n > C! e che per avere delle situazioni rilevanti occorre inserire n tale che n > (C*m).\n");
+   	/* Controllo sul numero di parametri */
+   	if (argc != 4) /* Deve essere passato esattamente un parametro */
+   	{
+   		sprintf(error,"Errore nel numero dei parametri. Inserire:\n\
+		Numero dei passeggeri (n)\n\
+		Numero di posti disponibili in un'auto (C)\n\
+		Numero di auto (m)\n\
+		NOTA: Ricorda che n > C! e che per avere delle situazioni rilevanti occorre inserire n tale che n > (C*m).\n");
 		perror(error);
-      exit(1);
-   }
+   	   	exit(1);
+   	}
 
 	/* ***** CONTROLLO PARAMETRI ***** */
 
@@ -235,20 +234,20 @@ int main (int argc, char **argv)
 	/* ******************************* */
 
 	/* Assegno alla variabile NUM_THREADS il numero TOTALE di threads da creare, ossia il numero di threads passeggeri e il numero di threads auto */
-   NUM_THREADS = n + m;
+   	NUM_THREADS = n + m;
 
-   thread=(pthread_t *) malloc(NUM_THREADS * sizeof(pthread_t));
-   if (thread == NULL)
-   {
-        perror("Problemi con l'allocazione dell'array thread\n");
-        exit(4);
-   }
-   taskids = (int *) malloc(NUM_THREADS * sizeof(int));
-   if (taskids == NULL)
-   {
-        perror("Problemi con l'allocazione dell'array taskids\n");
-        exit(5);
-    }
+   	thread=(pthread_t *) malloc(NUM_THREADS * sizeof(pthread_t));
+   	if (thread == NULL)
+   	{
+   	     perror("Problemi con l'allocazione dell'array thread\n");
+   	     exit(4);
+   	}
+   	taskids = (int *) malloc(NUM_THREADS * sizeof(int));
+   	if (taskids == NULL)
+   	{
+   	     perror("Problemi con l'allocazione dell'array taskids\n");
+   	     exit(5);
+   	}
 
 	/* Alloco la memoria per gli array dinamici di semafori */
 	S_LOAD_QUEUE = (sem_t*) malloc(m*sizeof(sem_t));
@@ -314,24 +313,24 @@ int main (int argc, char **argv)
 		taskids[i] = i;
 		/* Creo i thread dei PASSEGGERI */
 		if (i < n) {
-   		printf("Sto per creare il thread %d-esimo (passeggero)\n", taskids[i]);
-     		if (pthread_create(&thread[i], NULL, eseguiPasseggero, (void *) (&taskids[i])) != 0)
-      	{
-      		sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (passeggero)\n", taskids[i]);
-      	   perror(error);
-				exit(15);
-      	}
+   			printf("Sto per creare il thread %d-esimo (passeggero)\n", taskids[i]);
+    		if (pthread_create(&thread[i], NULL, eseguiPasseggero, (void *) (&taskids[i])) != 0)
+      		{
+      			sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (passeggero)\n", taskids[i]);
+      		   	perror(error);
+					exit(15);
+      		}
 			printf("SONO IL MAIN e ho creato il Pthread %i-esimo (passeggero) con id=%lu\n", i, thread[i]);
 		} else {
 			/* Creo i thread delle auto */
-   		printf("Sto per creare il thread %d-esimo (auto)\n", taskids[i]);
+   			printf("Sto per creare il thread %d-esimo (auto)\n", taskids[i]);
 			/* Al thread dell'auto occorre passare il suo numero di indice, ossia l'indice i attuale MENO il numero totale dei passeggeri (n) */
-     		if (pthread_create(&thread[i], NULL, eseguiAuto, (void *) (&taskids[i] - n)) != 0)
-      	{
-      		sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (auto)\n", taskids[i]);
-      	   perror(error);
+    		if (pthread_create(&thread[i], NULL, eseguiAuto, (void *) (&taskids[i] - n)) != 0)
+      		{
+      			sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (auto)\n", taskids[i]);
+      		   	perror(error);
 				exit(16);
-      	}
+      		}
 			printf("SONO IL MAIN e ho creato il Pthread %i-esimo (auto) con id=%lu\n", i, thread[i]);
 		}
    }
@@ -340,7 +339,7 @@ int main (int argc, char **argv)
    {
 		int ris;
 		/* attendiamo la terminazione di tutti i thread generati */
-   	pthread_join(thread[i], (void**) & p);
+	   	pthread_join(thread[i], (void**) & p);
 		ris= *p;
 		printf("Pthread %d-esimo restituisce %d\n", i, ris);
    }
