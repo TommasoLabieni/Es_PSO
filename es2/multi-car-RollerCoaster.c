@@ -95,7 +95,7 @@ void *eseguiPasseggero(void *id)
 		sem_wait(&S_CAR_UNLOAD);
 		/* il passeggero scende dall'auto */
 		unboard(*ptr);
-		/* Fermo il thread per un breve periodo di tempo per evitare delle stampe sovrapposte. Nel file log_imp_2.txt vi e' mostrato il comportamento del programma senza questa sleep */
+		/* Fermo il thread per un breve periodo di tempo */
 		sleep(1);
 	}
 	pthread_exit((void *) ptr);
@@ -176,7 +176,6 @@ void *eseguiAuto(void *id)
 	while(1) {
 		/* Come prima cosa l'auto deve aspettare il suo turno per far salire i passeggeri */
 		sem_wait(&S_LOAD_QUEUE[*ptr]);
-
 		/* Una volta che e' giunto il turno di far salire i passeggeri, l'auto puo' invocare la funzione load */
 		load(*ptr);
 		/* Una volta caricati tutti e C i passeggeri, l'auto puo' partire */
