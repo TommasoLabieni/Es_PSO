@@ -48,7 +48,6 @@ void boardBus(int indice) {
 	num_rider_bus_stop--;
 	/* Incremento il numero dei rider saliti sul bus. */
 	num_rider_saliti++;
-	/* Una volta a bordo, il rider segnala quei rider in attesa per aver colmato la capacita' del bus */
 	/* Se questo numero e' = 0 allora e' salito l'ultima persona in attesa -> segnalo all'autobus che puo' partire */
 	if (num_rider_attesa == 0) {
 		ultimo_rider_salito = true;
@@ -148,7 +147,7 @@ void *eseguiBus(void *id)
 				pthread_cond_wait(&C_LAST_RIDER_ON, &mutex);
 			}
 		} else {
-			printf("L'autous fa una corsa senza passeggeri\n");
+			printf("L'autobus fa una corsa senza passeggeri\n");
 		}
 		pthread_mutex_unlock(&mutex);
 		/* Infine si procede a partire */
