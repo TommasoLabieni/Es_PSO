@@ -10,9 +10,9 @@ int n;
 int C;
 /* Variabile per memorizzare il numero delle auto */
 int m;
-/* Variabile per memorizzare l'indice dell'auto che sta facendo salire i passeggeri attualmente */
+/* Variabile per memorizzare l'indice dell'auto che sta facendo salire i passeggeri attualmente (usata esclusivamente per realizzare stampe significative) */
 int car_act_salita = 0;
-/* Variabile per memorizzare l'indice dell'auto che sta facendo scendere i passeggeri attualmente */
+/* Variabile per memorizzare l'indice dell'auto che sta facendo scendere i passeggeri attualmente (usata esclusivamente per realizzare stampe significative) */
 int car_act_uscita = 0;
 /* Mutex per proteggere l'accesso alle variabili condivise */
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -108,10 +108,10 @@ void load(int indice) {
 	/* Come prima cosa l'auto deve aspettare il suo turno per far salire i passeggeri */
 	sem_wait(&S_LOAD_QUEUE[indice]);
 	pthread_mutex_lock(&mutex);
-	/* Aggiorno l'indice dell'auto che sta facendo salire i passeggeri */
+	/* Aggiorno l'indice dell'auto che sta facendo salire i passeggeri (si somma n perchè il thread delle auto parte da n, ossia il numero dei thread di tipo passeggero)*/
 	car_act_salita = indice+n;
 
-   printf("Thread AUTO di indice %d con identificatore %lu inizia a far salire i passeggeri\n", indice+n, pthread_self());
+   printf("Thread AUTO di indice %d con identificatore %lu inizia a far salire i passeggeri\n", car_act_salita, pthread_self());
 	pthread_mutex_unlock(&mutex);
 	/* Risveglio del passeggero in attesa di salire nell'auto */
 	sem_post(&S_CAR_LOAD);
@@ -121,7 +121,7 @@ void load(int indice) {
 
 	/* Si resetta il numero dei passeggeri saliti per preparare la salita nell'auto successiva */
 	num_passeggeri_saliti = 0;
-   printf("Thread AUTO di indice %d con identificatore %lu ha caricato tutti i %d passeggeri\n", indice+n, pthread_self(), C);
+   printf("Thread AUTO di indice %d con identificatore %lu ha caricato tutti i %d passeggeri\n", car_act_salita, pthread_self(), C);
 
 	/* A questo punto si notifica la prossima auto che puo' caricare i passeggeri */
 	sem_post(&S_LOAD_QUEUE[next_indice]);
@@ -145,7 +145,7 @@ void unload(int indice) {
 	/* Aggiorno l'indice dell'auto che sta facendo scendere i passeggeri */
 	car_act_uscita = indice+n;
 
-   printf("Thread AUTO di indice %d con identificatore %lu inizia a far scendere i passeggeri\n", indice+n, pthread_self());
+   printf("Thread AUTO di indice %d con identificatore %lu inizia a far scendere i passeggeri\n", car_act_uscita, pthread_self());
 	pthread_mutex_unlock(&mutex);
 
 	/* Risveglio del passeggero in attesa di scendere dall'auto */
@@ -156,13 +156,12 @@ void unload(int indice) {
 	pthread_mutex_lock(&mutex);
 	/* Si resetta il numero dei passeggeri scesi per preparare l'uscita dall'auto successiva */
 	num_passeggeri_scesi = 0;
-   printf("Thread AUTO di indice %d con identificatore %lu ha fatto scendere tutti i %d passeggeri\n", indice+n, pthread_self(), C);
+   printf("Thread AUTO di indice %d con identificatore %lu ha fatto scendere tutti i %d passeggeri\n", car_act_uscita, pthread_self(), C);
 
+   pthread_mutex_unlock(&mutex);
 
 	/* A questo punto si notifica la prossima auto che puo' far scendere i passeggeri */
 	sem_post(&S_UNLOAD_QUEUE[next_indice]);
-
-	pthread_mutex_unlock(&mutex);
 }
 
 void *eseguiAuto(void *id)
