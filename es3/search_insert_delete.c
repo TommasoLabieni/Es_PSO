@@ -7,19 +7,6 @@
 #include <unistd.h>
 #include <time.h>
 
-/* Semaforo per i searcher */
-sem_t S_SEARCHER;
-/* Semaforo per gli inserter */
-sem_t S_INSERTER;
-/* Semaforo per i deleter */
-sem_t S_DELETER;
-/* mutex per accedere alle variabili globali (ad eccezione della lista) */
-pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-/* mutex per evitare di avere piu' di uno scrittore attivo */
-pthread_mutex_t inserter_mutex = PTHREAD_MUTEX_INITIALIZER;
-
-/* ********** VARIABILI GLOBALI ********** */
-
 /* Singly-Linked List condivisa */
 Lista l = NULL;
 /* Variabile intera che indica il numero di elementi aggiunti nella lista */
@@ -36,10 +23,19 @@ int inserter_bloccati = 0;
 bool deleter_attivo = false;
 /* Variabile intera che indica il numero di deleter bloccati */
 int deleter_bloccati = 0;
-/* Varibiabile booleana per evitare starvation dei deleter */
+/* Variabile booleana per evitare starvation dei deleter */
 bool deleter_trigger = false;
 
-/* *************************************** */
+/* Semaforo Privato per i searcher */
+sem_t S_SEARCHER;
+/* Semaforo Privato per gli inserter */
+sem_t S_INSERTER;
+/* Semaforo Privato per i deleter */
+sem_t S_DELETER;
+/* mutex per accedere alle variabili globali (ad eccezione della lista) */
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+/* mutex per evitare di avere piu' di uno scrittore attivo */
+pthread_mutex_t inserter_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 void prologo_searcher(int indice) {
 	pthread_mutex_lock(&mutex);
@@ -210,10 +206,11 @@ void prologo_deleter(int indice) {
 	sem_wait(&S_DELETER);
 }
 
-void epilogo_deleter(int indice) {
-	pthread_mutex_lock(&mutex);
-	/* Dopo l'eliminazione occorre aggiornare il numero di elementi presenti nella lista */
-	num_elementi--;
+void epilogo_deleter(int indice, bool elemento_eliminato) {
+	/* Nota: Il mutex è stato preso nella sezione critica del thread deleter */
+	if (elemento_eliminato)
+		/* Dopo l'eliminazione occorre aggiornare il numero di elementi presenti nella lista */
+		num_elementi--;
 	deleter_attivo = false;
 	/* Controllo se ci sono deleter bloccati */ 
 	if (deleter_bloccati > 0) {
@@ -264,13 +261,20 @@ void *esegui_deleter(void *id) {
 	 * variabile num_elementi. NOTA: l'eliminazione avviene SOLO E SOLTANTO
 	 *	se la lista NON E' VUOTA! Altrimenti la rand() di num_elementi produrrebbe un errore (floating point exception).
 	*/
+	/* Teoricamente per leggere la variabile num_elementi sarebbe necessario bloccare il mutex,
+	* tuttavia, dal momento che un deleter può eseguire esclusivamente DA SOLO
+	* non c'è il rischio di avere dei valori inconsistenti della variabile num_elementi
+	 */
+	bool elemento_eliminato = false;
+	pthread_mutex_lock(&mutex);
 	if (num_elementi > 0) {
 		r = rand() % num_elementi;
    		//printf("Il thread Deleter di indice %d con identificatore %lu va a eliminare %d\n", *pi, pthread_self(), r);
 		/* Invocazione della funzione per eliminare un elemento dalla lista */
 		elimina_elemento(&l, r, *ptr);
+		elemento_eliminato = true;
 	}
-	epilogo_deleter(*ptr);
+	epilogo_deleter(*ptr, elemento_eliminato);
    	printf("Il thread Deleter di indice %d con identificatore %lu terminato.\n", *pi, pthread_self());
 
    	pthread_exit((void *) ptr);
