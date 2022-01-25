@@ -333,7 +333,7 @@ int main (int argc, char **argv) {
 
 	if (sem_init(&S_DELETER, 0, 0) != 0) {
 		perror("Errore inizializzazione semaforo deleter\n");
-		exit(6);
+		exit(7);
 	}
 
 	/* ************************************************ */
@@ -350,7 +350,7 @@ int main (int argc, char **argv) {
       		{
       			sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (searcher)\n", taskids[i]);
       	   		perror(error);
-				exit(5);
+				exit(8);
       		}
 			printf("SONO IL MAIN e ho creato il Pthread %i-esimo (searcher) con id=%lu\n", i, thread[i]);
       	}else if (r == 1) {
@@ -359,7 +359,7 @@ int main (int argc, char **argv) {
       		{
       			sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (inserter)\n", taskids[i]);
       	   		perror(error);
-				exit(5);
+				exit(9);
      	 	}
 			printf("SONO IL MAIN e ho creato il Pthread %i-esimo (inserter) con id=%lu\n", i, thread[i]);
 		} else {
@@ -368,7 +368,7 @@ int main (int argc, char **argv) {
       		{
       			sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (deleter)\n", taskids[i]);
       	   		perror(error);
-				exit(5);
+				exit(10);
       		}	
 			printf("SONO IL MAIN e ho creato il Pthread %i-esimo (deleter) con id=%lu\n", i, thread[i]);
 		}
