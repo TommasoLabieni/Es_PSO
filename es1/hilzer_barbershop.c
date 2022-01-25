@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include "include/arrayOperation.h"
 
-/* Costante per definire il numero di barbieri (che definisce anche il numero di clienti servibili concorrentemente */
+/* Costante per definire il numero di barbieri (che definisce anche il numero di clienti che possono essere serviti concorrentemente */
 #define NUM_BARBIERI 3
 /* Costante per definire il numero massimo di clienti ammessi all'interno del negozio */
 #define NUM_CLIENTI_MAX 20
@@ -33,7 +33,9 @@ sem_t S_CLIENTI_ENTRANTI;
 sem_t S_DIVANO;
 /* Semafori PRIVATI per sincronizzare i clienti e i barbieri per il taglio dei capelli */
 sem_t S_CLIENTE_TO_BARBIERE_ENTRATO;
+/* Array di semafori per attendere che un cliente si sia seduto nel divano prima di essere servito */
 sem_t *S_CLIENTE_TO_BARBIERE_SERVITO;
+/* Semaforo privato per segnalare al cliente che il taglio di capelli è terminato e che dunque deve pagare il conto */
 sem_t S_BARBIERE_TO_CLIENTE;
 /* Semaforo per bloccare il barbiere che prova ad utilizzare la cassa (il cui valore iniziale e' il numero dei registri di cassa disponibili) */
 sem_t S_ACCEDI_CASSA;
@@ -126,7 +128,7 @@ void *eseguiCliente(void *id)
 	/* Se qui allora il cliente puo' effetivamente sedersi sul divano */
 	sitOnSofa(*ptr);
 	pthread_mutex_unlock(&mutex);
-	/* Il cliente attende di essere servito */
+	/* Il cliente attende di essere servito -> segnala al barbiere che è in attesa */
 	sem_post(&S_CLIENTE_TO_BARBIERE_SERVITO[(*ptr)]);
 	/* Anche qui il cliente si mette in attesa sul semaforo associato per rispettare la politica FIFO richiesta per i clienti 
 	 * che passano dal DIVANO ad ESSERE SERVITI 
@@ -156,7 +158,6 @@ void cutHair(int indice, int indice_cliente) {
 
 /* Funzione acceptPayment del barbiere per accettare il pagamento e consentire al cliente di uscire */
 void acceptPayment(int indice) {
-	/* NOTA: Anche qui non serve bloccare il mutex perche' e' gia' stato fatto */
 	/* Segnalo al cliente che il conto e' stato saldato */
 	sem_post(&S_CONTO_SALDATO);
 }
@@ -201,12 +202,13 @@ void *eseguiBarbiere(void *id)
 		clienti_in_piedi[j] = -1;
 	
 		pthread_mutex_unlock(&mutex);
-		printf("Thread BARBIERE di indice %d partito con identificatore %lu vuole risvegliare DA IN PIEDI il thread di indice %d.\n", *ptr, pthread_self(), next_cliente_divano);
+		printf("Thread BARBIERE di indice %d con identificatore %lu vuole risvegliare il thread cliente di indice %d CHE E' IN PIEDI.\n", *ptr, pthread_self(), next_cliente_divano);
 		/* Risveglio il cliente che potra' ora mettersi a sedere sul divano */
 		sem_post(&S_DIVANO_OCCUPATO[next_cliente_divano]);
-		printf("Thread BARBIERE di indice %d partito con identificatore %lu ha risvegliato DA IN PIEDI il thread di indice %d.\n", *ptr, pthread_self(), next_cliente_divano);
-		sleep(.1);
-		/* Aspetto che il cliente che si e' seduto nel divano sia pronto al servizio */
+		printf("Thread BARBIERE di indice %d con identificatore %lu ha risvegliato il thread cliente di indice %d CHE ERA IN PIEDI.\n", *ptr, pthread_self(), next_cliente_divano);
+		/* Aspetto che il cliente che si e' seduto nel divano sia pronto al servizio. Senza questo passaggio c'è il rischio
+		 * di non avere ancora alcun cliente nel divano e dunque si rischierebbe di non servire i clienti in ordine FIFO!
+		*/
 		sem_wait(&S_CLIENTE_TO_BARBIERE_SERVITO[next_cliente_divano]);
 		pthread_mutex_lock(&mutex);
 		/* Ora sveglio il cliente che e' seduto da piu' tempo */
@@ -305,7 +307,7 @@ int main (int argc, char **argv)
 	}
 	if (S_CLIENTE_TO_BARBIERE_SERVITO == NULL) {
 		perror("Problemi con l'allocazione dell'array S_CLIENTE_TO_BARBIERE_SERVITO");
-		exit(6);
+		exit(7);
 	}
 	
 	/* ***** INIZIALIZZAZIONE DEI SEMAFORI ***** */
@@ -314,54 +316,54 @@ int main (int argc, char **argv)
 		if (sem_init(&S_CLIENTI_SERVITI[i], 0, 0) != 0) {
 			sprintf(error, "Errore inizializzazione semaforo S_CLIENTI_SERVITI %d-esimo", i);
 			perror(error);
-			exit(6);
+			exit(8);
 		}
 		if (sem_init(&S_DIVANO_OCCUPATO[i], 0, 0) != 0) {
 			sprintf(error, "Errore inizializzazione semaforo S_DIVANO_OCCUPATO %d-esimo", i);
 			perror(error);
-			exit(6);
+			exit(9);
 		}
 		if (sem_init(&S_CLIENTE_TO_BARBIERE_SERVITO[i], 0, 0) != 0) {
 			sprintf(error, "Errore inizializzazione semaforo S_CLIENTE_TO_BARBIERE_SERVITO %d-esimo", i);
 			perror(error);
-			exit(6);
+			exit(10);
 		}
 	}
 
 	if (sem_init(&S_CLIENTE_TO_BARBIERE_ENTRATO, 0, 0) != 0) {
 		perror("Errore inizializzazione semaforo S_CLIENTE_TO_BARBIERE_ENTRATO\n");
-		exit(6);
+		exit(11);
 	}
 
 	if (sem_init(&S_BARBIERE_TO_CLIENTE, 0, 0) != 0) {
 		perror("Errore inizializzazione semaforo S_BARBIERE_TO_CLIENTE\n");
-		exit(7);
+		exit(12);
 	}
 
 	if (sem_init(&S_DIVANO, 0, NUM_POSTI_DIVANO) != 0) {
 		perror("Errore inizializzazione semaforo S_CLIENTE_TO_BARBIERE_ENTRATO\n");
-		exit(6);
+		exit(13);
 	}
 
 	if (sem_init(&S_ACCEDI_CASSA, 0, NUM_REGISTRI_CASSA) != 0) {
 		perror("Errore inizializzazione semaforo S_ACCEDI_CASSA\n");
-		exit(8);
+		exit(14);
 	}
 
 	if (sem_init(&S_CONTO_SALDATO, 0, 0) != 0) {
 		perror("Errore inizializzazione semaforo S_CONTO_SALDATO\n");
-		exit(9);
+		exit(15);
 	}
 
 	if (sem_init(&S_CLIENTE_PAGA, 0, 0) != 0) {
 		perror("Errore inizializzazione semaforo S_CLIENTE_PAGA\n");
-		exit(9);
+		exit(16);
 	}
 
 
 	if (sem_init(&S_CLIENTI_ENTRANTI, 0, NUM_CLIENTI_MAX) != 0) {
 		perror("Errore inizializzazione semaforo S_CLIENTI_ENTRANTI\n");
-		exit(9);
+		exit(17);
 	}
 	
 	/* ***************************************** */
@@ -372,17 +374,17 @@ int main (int argc, char **argv)
 	clienti_in_piedi = (int *) malloc(NUM_CLIENTI_MAX * sizeof(int));
 	if (clienti_in_piedi == NULL) {
 		perror("Problemi allocazione memoria array clienti_in_piedi\n");
-		exit(10);
+		exit(18);
 	}
 	clienti_divano = (int *) malloc(NUM_POSTI_DIVANO * sizeof(int));
 	if (clienti_divano == NULL) {
 		perror("Problemi allocazione memoria array clienti_divano\n");
-		exit(10);
+		exit(19);
 	}
 	clienti_serviti = (int *) malloc(NUM_BARBIERI * sizeof(int));
 	if (clienti_serviti == NULL) {
 		perror("Problemi allocazione memoria array clienti_serviti\n");
-		exit(10);
+		exit(20);
 	}
 
 	/* Inizializzo l'array dei clienti in piedi */
@@ -409,7 +411,7 @@ int main (int argc, char **argv)
       	{
       		sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (cliente)\n", taskids[i]);
         	perror(error);
-			exit(11);
+			exit(21);
       	}
 		printf("SONO IL MAIN e ho creato il Pthread %i-esimo con id=%lu (cliente)\n", i, thread[i]);
 	}
@@ -421,7 +423,7 @@ int main (int argc, char **argv)
 		{
     		sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (BARBIERE)\n", taskids[i]);
         	perror(error);
-			exit(10);
+			exit(22);
       	}
 		printf("SONO IL MAIN e ho creato il Pthread %i-esimo con id=%lu (barbiere)\n", i, thread[i]);
 	}	
