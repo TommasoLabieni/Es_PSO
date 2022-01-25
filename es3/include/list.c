@@ -32,7 +32,7 @@ int aggiungi_elemento(Lista* L, int el, int id) {
 	return 0;
 }
 
-void elimina_elemento(Lista* L, int el, int id) {
+void elimina_elemento(Lista* L, int pos, int id) {
 	Lista prev = NULL;	/* Variabile per memorizzare l'elemento precedente della lista */
 	Lista temp = *L;		/* Variabile per scorrere la lista */	
 	int i = 0;				/* Variabile di indice */
@@ -44,7 +44,7 @@ void elimina_elemento(Lista* L, int el, int id) {
 
 
    /* Controllo se devo eliminare la testa */
-   if (el == 0) {
+   if (pos == 0) {
       *L = temp->next; /* Sposto di un elemento la testa della lista */
 		printf("Thread Deleter con indice %d ha rimosso l'elemento %d\n", id, temp->element);
       free(temp); /* Libero la memoria allocata per l'elemento da eliminare */
@@ -52,7 +52,7 @@ void elimina_elemento(Lista* L, int el, int id) {
     }
  
     /* Se non devo eliminare la testa allora mi sposto fino all'elemento precedente di quello da eliminare */
-   for (int i = 0; temp != NULL && i < (el - 1); i++)
+   for (int i = 0; temp != NULL && i < (pos - 1); i++)
    	temp = temp->next;
  
    /* A questo punto il nodo temp->next e' l'elemento da eliminare */

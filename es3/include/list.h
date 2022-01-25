@@ -54,13 +54,13 @@ int aggiungi_elemento(Lista* L, int el, int id);
  *
  *  L: La lista da modificare
  *
- *  el: l'elemento da rimuovere
+ *  pos: La posizione dell'elemento da rimuovere
  *
  *  id: Indice del Deleter (utilizzato per effettuare stampe rilevanti)
  *
  *  ritorno: Non e' previsto alcun valore di ritorno
  *           
 */
-void elimina_elemento(Lista* L, int el, int id);
+void elimina_elemento(Lista* L, int pos, int id);
 
 #endif
