@@ -180,7 +180,7 @@ void *eseguiBarbiere(void *id)
 
    printf("Thread BARBIERE di indice %d partito: Ho come identificatore %lu\n", *ptr, pthread_self());
 	while(true) {
-		/* Il barbiere si mette in attesa che un cliente lo svegli */
+		/* Il barbiere si addormenta in attesa che un cliente lo svegli */
 		sem_wait(&S_CLIENTE_TO_BARBIERE_ENTRATO);
 		pthread_mutex_lock(&mutex);
 		/* Ora sveglio il cliente che e' in piedi da piu' tempo */
