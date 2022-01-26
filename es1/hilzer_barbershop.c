@@ -13,13 +13,13 @@
 /* Costante per definire il numero di registri di cassa disponibili */
 #define NUM_REGISTRI_CASSA 1
 
-/* Variabile intera per memorizzare il numero di clienti seduti nel divano */
+/* Variabile intera per memorizzare il numero di clienti seduti nel divano (utilizzata per motivi di debug)*/
 int num_clienti_divano = 0;
 /* Array dinamico per memorizzare la coda dei clienti nel divano */
 int *clienti_divano;
 /* Array dinamico per memorizzare la coda di persone in piedi. */
 int *clienti_in_piedi;
-/* Array dinamico per memorizzare la coda dei clienti serviti */
+/* Array dinamico per memorizzare la coda dei clienti serviti (utilizzato per motivi di debug)*/
 int *clienti_serviti;
 /* Mutex per l'accesso concorrente alle variabili condivise */
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -207,7 +207,8 @@ void *eseguiBarbiere(void *id)
 		sem_post(&S_DIVANO_OCCUPATO[next_cliente_divano]);
 		printf("Thread BARBIERE di indice %d con identificatore %lu ha risvegliato il thread cliente di indice %d CHE ERA IN PIEDI.\n", *ptr, pthread_self(), next_cliente_divano);
 		/* Aspetto che il cliente che si e' seduto nel divano sia pronto al servizio. Senza questo passaggio c'è il rischio
-		 * di non avere ancora alcun cliente nel divano e dunque si rischierebbe di non servire i clienti in ordine FIFO!
+		 * di non avere ancora alcun cliente nel divano e dunque, dal momento che l'azione successiva è quella di servire un cliente seduto nel divano,
+		 * si rischierebbe di non servire il cliente!
 		*/
 		sem_wait(&S_CLIENTE_TO_BARBIERE_SERVITO[next_cliente_divano]);
 		pthread_mutex_lock(&mutex);
@@ -232,11 +233,11 @@ void *eseguiBarbiere(void *id)
 		num_clienti_divano--;
 		pthread_mutex_unlock(&mutex);
 
-		printf("Thread BARBIERE di indice %d partito con identificatore %lu vuole risvegliare DAL DIVANO il thread di indice %d.\n", *ptr, pthread_self(), next_cliente_da_servire);
+		printf("Thread BARBIERE di indice %d partito con identificatore %lu vuole risvegliare il thread di indice %d CHE E' NEL DIVANO.\n", *ptr, pthread_self(), next_cliente_da_servire);
 		sem_post(&S_CLIENTI_SERVITI[next_cliente_da_servire]);
-		/* Si e' liberato un posto nel divano -> aumento il valore del semaforo che regola il numero di cliente che possono sedersi nel divano */
+		/* Si e' liberato un posto nel divano -> aumento il valore del semaforo che regola il numero di clienti che possono sedersi nel divano */
 		sem_post(&S_DIVANO);
-		printf("Thread BARBIERE di indice %d partito con identificatore %lu ha risvegliato DAL DIVANO il thread di indice %d.\n", *ptr, pthread_self(), next_cliente_da_servire);
+		printf("Thread BARBIERE di indice %d partito con identificatore %lu ha risvegliato il thread di indice %d CHE ERA NEL DIVANO.\n", *ptr, pthread_self(), next_cliente_da_servire);
 		
 		/* Ora il barbiere procede al taglio dei capelli */
 		cutHair(*ptr, next_cliente_da_servire);
