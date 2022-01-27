@@ -1,0 +1,3 @@
+$ ./multi-car-RollerCoaster 4 2 2
+Errore: La variabile n non e' tale che n > C*m, infatti n=4 e C*m=4!
+
