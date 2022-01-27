@@ -85,7 +85,7 @@ void epilogo_searcher(int indice) {
 void *esegui_searcher(void *id) {
    	int *pi = (int *)id;
    	int *ptr;
-
+	sleep(1);		/* Sleep per aspettare la generazione di tutti i thread */
    	ptr = (int *) malloc(sizeof(int));
    	if (ptr == NULL)
   	{
@@ -157,6 +157,7 @@ void *esegui_inserter(void *id) {
    	int *pi = (int *)id;
    	int *ptr;
 	int r, ret;
+	sleep(1);		/* Sleep per aspettare la generazione di tutti i thread */
    	ptr = (int *) malloc( sizeof(int));
    	if (ptr == NULL)
    	{
@@ -243,7 +244,7 @@ void *esegui_deleter(void *id) {
    	int *pi = (int *)id;
    	int *ptr;
 	int r;	
-
+	sleep(1);		/* Sleep per aspettare la generazione di tutti i thread */
    	ptr = (int *) malloc( sizeof(int));
    	if (ptr == NULL)
    	{
@@ -343,7 +344,7 @@ int main (int argc, char **argv) {
    	for (i=0; i < NUM_THREADS; i++)
    	{
    		taskids[i] = i;
-		r = rand() % 3; 
+		r = rand() % 3;
 		if(r == 0) {
    			//printf("Sto per creare il thread %d-esimo (searcher)\n", taskids[i]);
       		if (pthread_create(&thread[i], NULL, esegui_searcher, (void *) (&taskids[i])) != 0)
