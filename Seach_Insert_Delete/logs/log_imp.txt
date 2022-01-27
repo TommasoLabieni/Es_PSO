@@ -1,0 +1,198 @@
+Thread Inserter di indice 1 partito: Ho come identificatore 140708608399104
+Il thread Inserter di indice 1 con identificatore 140708608399104 e' nella sua sezione critica
+Thread Inserter con indice 1 ha aggiunto l'elemento 174
+Thread Inserter di indice 8 partito: Ho come identificatore 140708549650176
+Thread Inserter di indice 6 partito: Ho come identificatore 140708566435584
+Il thread Inserter di indice 6 con identificatore 140708566435584 e' bloccato a causa di inserter attivo
+Thread Searcher di indice 24 partito: Ho come identificatore 140708415366912
+Thread Deleter di indice 13 partito: Ho come identificatore 140708507686656
+Thread Deleter di indice 35 partito: Ho come identificatore 140708323047168
+Il thread Deleter di indice 35 con identificatore 140708323047168 e' bloccato a causa di searcher attivo
+Il thread Deleter di indice 35 con identificatore 140708323047168 e' bloccato a causa di inserter attivo
+Thread Searcher di indice 11 partito: Ho come identificatore 140708524472064
+Thread Searcher di indice 25 partito: Ho come identificatore 140708406974208
+Thread Searcher di indice 20 partito: Ho come identificatore 140708448937728
+Thread Searcher di indice 27 partito: Ho come identificatore 140708390188800
+Il thread Inserter di indice 1 con identificatore 140708608399104 terminato.
+Thread Deleter di indice 14 partito: Ho come identificatore 140708499293952
+Thread Inserter di indice 4 partito: Ho come identificatore 140708583220992
+Thread Deleter di indice 2 partito: Ho come identificatore 140708600006400
+Thread Deleter di indice 29 partito: Ho come identificatore 140708373403392
+Thread Deleter di indice 39 partito: Ho come identificatore 140708289476352
+Thread Inserter di indice 5 partito: Ho come identificatore 140708574828288
+Thread Searcher di indice 37 partito: Ho come identificatore 140708306261760
+Thread Deleter di indice 38 partito: Ho come identificatore 140708297869056
+Thread Searcher di indice 15 partito: Ho come identificatore 140708490901248
+Il thread Searcher di indice 24 con identificatore 140708415366912 e' nella sua sezione critica
+Thread Searcher con indice 24 ha letto l'elemento 174
+Thread Searcher di indice 18 partito: Ho come identificatore 140708465723136
+Thread Deleter di indice 22 partito: Ho come identificatore 140708432152320
+Thread Searcher di indice 36 partito: Ho come identificatore 140708314654464
+Thread Searcher di indice 16 partito: Ho come identificatore 140708482508544
+Il thread Searcher di indice 11 con identificatore 140708524472064 e' nella sua sezione critica
+Thread Searcher con indice 11 ha letto l'elemento 174
+Il thread Searcher di indice 11 con identificatore 140708524472064 terminato. 3 rimanenti
+Il thread Searcher di indice 25 con identificatore 140708406974208 e' nella sua sezione critica
+Thread Searcher con indice 25 ha letto l'elemento 174
+Il thread Searcher di indice 25 con identificatore 140708406974208 terminato. 3 rimanenti
+Thread Deleter di indice 31 partito: Ho come identificatore 140708356617984
+Thread Deleter di indice 17 partito: Ho come identificatore 140708474115840
+Thread Deleter di indice 0 partito: Ho come identificatore 140708616791808
+Thread Deleter di indice 9 partito: Ho come identificatore 140708541257472
+Thread Searcher di indice 28 partito: Ho come identificatore 140708381796096
+Il thread Searcher di indice 20 con identificatore 140708448937728 e' nella sua sezione critica
+Thread Searcher con indice 20 ha letto l'elemento 174
+Il thread Searcher di indice 20 con identificatore 140708448937728 terminato. 3 rimanenti
+Thread Deleter di indice 21 partito: Ho come identificatore 140708440545024
+Il thread Deleter di indice 13 con identificatore 140708507686656 e' bloccato a causa di searcher attivo
+Il thread Deleter di indice 13 con identificatore 140708507686656 e' bloccato a causa di inserter attivo
+Thread Inserter di indice 33 partito: Ho come identificatore 140708339832576
+Il thread Searcher di indice 27 con identificatore 140708390188800 e' nella sua sezione critica
+Thread Searcher con indice 27 ha letto l'elemento 174
+Il thread Searcher di indice 27 con identificatore 140708390188800 terminato. 4 rimanenti
+Thread Searcher di indice 7 partito: Ho come identificatore 140708558042880
+Il thread Inserter di indice 8 con identificatore 140708549650176 e' nella sua sezione critica
+Thread Inserter con indice 8 ha aggiunto l'elemento 608
+Thread Searcher di indice 12 partito: Ho come identificatore 140708516079360
+Il thread Searcher di indice 24 con identificatore 140708415366912 terminato. 3 rimanenti
+Thread Deleter di indice 34 partito: Ho come identificatore 140708331439872
+Thread Deleter di indice 3 partito: Ho come identificatore 140708591613696
+Thread Deleter di indice 10 partito: Ho come identificatore 140708532864768
+Thread Searcher di indice 23 partito: Ho come identificatore 140708423759616
+Thread Inserter di indice 32 partito: Ho come identificatore 140708348225280
+Il thread Inserter di indice 33 con identificatore 140708339832576 e' bloccato a causa di inserter attivo
+Thread Searcher di indice 19 partito: Ho come identificatore 140708457330432
+Il thread Inserter di indice 4 con identificatore 140708583220992 e' bloccato a causa di inserter attivo
+Thread Deleter di indice 30 partito: Ho come identificatore 140708365010688
+Il thread Deleter di indice 2 con identificatore 140708600006400 e' bloccato a causa di searcher attivo
+Il thread Deleter di indice 2 con identificatore 140708600006400 e' bloccato a causa di inserter attivo
+Il thread Deleter di indice 29 con identificatore 140708373403392 e' bloccato a causa di searcher attivo
+Il thread Deleter di indice 29 con identificatore 140708373403392 e' bloccato a causa di inserter attivo
+Thread Searcher di indice 26 partito: Ho come identificatore 140708398581504
+Il thread Deleter di indice 39 con identificatore 140708289476352 e' bloccato a causa di searcher attivo
+Il thread Deleter di indice 39 con identificatore 140708289476352 e' bloccato a causa di inserter attivo
+Il thread Inserter di indice 5 con identificatore 140708574828288 e' bloccato a causa di inserter attivo
+Il thread Searcher di indice 37 con identificatore 140708306261760 e' nella sua sezione critica
+Thread Searcher con indice 37 ha letto l'elemento 174
+Thread Searcher con indice 37 ha letto l'elemento 608
+Il thread Searcher di indice 37 con identificatore 140708306261760 terminato. 5 rimanenti
+Il thread Deleter di indice 38 con identificatore 140708297869056 e' bloccato a causa di searcher attivo
+Il thread Deleter di indice 38 con identificatore 140708297869056 e' bloccato a causa di inserter attivo
+Il thread Searcher di indice 15 con identificatore 140708490901248 e' nella sua sezione critica
+Thread Searcher con indice 15 ha letto l'elemento 174
+Il thread Deleter di indice 22 con identificatore 140708432152320 e' bloccato a causa di searcher attivo
+Il thread Deleter di indice 22 con identificatore 140708432152320 e' bloccato a causa di inserter attivo
+Il thread Searcher di indice 18 con identificatore 140708465723136 e' nella sua sezione critica
+Thread Searcher con indice 18 ha letto l'elemento 174
+Thread Searcher con indice 18 ha letto l'elemento 608
+Il thread Searcher di indice 18 con identificatore 140708465723136 terminato. 8 rimanenti
+Il thread Searcher di indice 36 con identificatore 140708314654464 e' nella sua sezione critica
+Thread Searcher con indice 36 ha letto l'elemento 174
+Thread Searcher con indice 36 ha letto l'elemento 608
+Il thread Searcher di indice 36 con identificatore 140708314654464 terminato. 6 rimanenti
+Il thread Deleter di indice 31 con identificatore 140708356617984 e' bloccato a causa di searcher attivo
+Il thread Deleter di indice 31 con identificatore 140708356617984 e' bloccato a causa di inserter attivo
+Il thread Searcher di indice 16 con identificatore 140708482508544 e' nella sua sezione critica
+Thread Searcher con indice 16 ha letto l'elemento 174
+Thread Searcher con indice 16 ha letto l'elemento 608
+Il thread Searcher di indice 16 con identificatore 140708482508544 terminato. 6 rimanenti
+Il thread Deleter di indice 17 con identificatore 140708474115840 e' bloccato a causa di searcher attivo
+Il thread Deleter di indice 17 con identificatore 140708474115840 e' bloccato a causa di inserter attivo
+Thread Searcher con indice 15 ha letto l'elemento 608
+Il thread Searcher di indice 15 con identificatore 140708490901248 terminato. 6 rimanenti
+Il thread Deleter di indice 0 con identificatore 140708616791808 e' bloccato a causa di searcher attivo
+Il thread Deleter di indice 0 con identificatore 140708616791808 e' bloccato a causa di inserter attivo
+Il thread Deleter di indice 9 con identificatore 140708541257472 e' bloccato a causa di searcher attivo
+Il thread Deleter di indice 9 con identificatore 140708541257472 e' bloccato a causa di inserter attivo
+Il thread Searcher di indice 28 con identificatore 140708381796096 e' bloccato per evitare starvation dei deleter
+Il thread Deleter di indice 21 con identificatore 140708440545024 e' bloccato a causa di searcher attivo
+Il thread Deleter di indice 21 con identificatore 140708440545024 e' bloccato a causa di inserter attivo
+Il thread Deleter di indice 14 con identificatore 140708499293952 e' bloccato a causa di searcher attivo
+Il thread Deleter di indice 14 con identificatore 140708499293952 e' bloccato a causa di inserter attivo
+Il thread Searcher di indice 7 con identificatore 140708558042880 e' bloccato per evitare starvation dei deleter
+Il thread Inserter di indice 8 con identificatore 140708549650176 terminato.
+Il thread Searcher di indice 12 con identificatore 140708516079360 e' bloccato per evitare starvation dei deleter
+Il thread Deleter di indice 34 con identificatore 140708331439872 e' bloccato a causa di searcher attivo
+Il thread Deleter di indice 3 con identificatore 140708591613696 e' bloccato a causa di searcher attivo
+Il thread Deleter di indice 10 con identificatore 140708532864768 e' bloccato a causa di searcher attivo
+Il thread Searcher di indice 23 con identificatore 140708423759616 e' bloccato per evitare starvation dei deleter
+Il thread Inserter di indice 6 con identificatore 140708566435584 e' nella sua sezione critica
+Il thread Searcher di indice 19 con identificatore 140708457330432 e' bloccato per evitare starvation dei deleter
+Thread Inserter con indice 6 ha aggiunto l'elemento 228
+Il thread Deleter di indice 30 con identificatore 140708365010688 e' bloccato a causa di searcher attivo
+Il thread Deleter di indice 30 con identificatore 140708365010688 e' bloccato a causa di inserter attivo
+Il thread Searcher di indice 26 con identificatore 140708398581504 e' bloccato per evitare starvation dei deleter
+Il thread Inserter di indice 6 con identificatore 140708566435584 terminato.
+Il thread Deleter di indice 35 con identificatore 140708323047168 e' nella sua sezione critica
+Thread Deleter con indice 35 ha rimosso l'elemento 174
+Il thread Deleter di indice 35 con identificatore 140708323047168 terminato.
+Il thread Deleter di indice 13 con identificatore 140708507686656 e' nella sua sezione critica
+Thread Deleter con indice 13 ha rimosso l'elemento 174
+Il thread Deleter di indice 13 con identificatore 140708507686656 terminato.
+Il thread Deleter di indice 2 con identificatore 140708600006400 e' nella sua sezione critica
+Thread Deleter con indice 2 ha rimosso l'elemento 228
+Il thread Deleter di indice 2 con identificatore 140708600006400 terminato.
+Il thread Deleter di indice 29 con identificatore 140708373403392 e' nella sua sezione critica
+Il thread Deleter di indice 29 con identificatore 140708373403392 terminato.
+Il thread Deleter di indice 39 con identificatore 140708289476352 e' nella sua sezione critica
+Il thread Deleter di indice 39 con identificatore 140708289476352 terminato.
+Il thread Deleter di indice 38 con identificatore 140708297869056 e' nella sua sezione critica
+Il thread Deleter di indice 38 con identificatore 140708297869056 terminato.
+Il thread Deleter di indice 22 con identificatore 140708432152320 e' nella sua sezione critica
+Il thread Deleter di indice 22 con identificatore 140708432152320 terminato.
+Il thread Deleter di indice 31 con identificatore 140708356617984 e' nella sua sezione critica
+Il thread Deleter di indice 31 con identificatore 140708356617984 terminato.
+Il thread Deleter di indice 17 con identificatore 140708474115840 e' nella sua sezione critica
+Il thread Deleter di indice 17 con identificatore 140708474115840 terminato.
+Il thread Deleter di indice 0 con identificatore 140708616791808 e' nella sua sezione critica
+Il thread Deleter di indice 0 con identificatore 140708616791808 terminato.
+Il thread Deleter di indice 9 con identificatore 140708541257472 e' nella sua sezione critica
+Il thread Deleter di indice 9 con identificatore 140708541257472 terminato.
+Il thread Deleter di indice 21 con identificatore 140708440545024 e' nella sua sezione critica
+Pthread 0-esimo restituisce 0
+Pthread 1-esimo restituisce 1
+Pthread 2-esimo restituisce 2
+Il thread Deleter di indice 21 con identificatore 140708440545024 terminato.
+Il thread Deleter di indice 14 con identificatore 140708499293952 e' nella sua sezione critica
+Il thread Deleter di indice 14 con identificatore 140708499293952 terminato.
+Il thread Deleter di indice 34 con identificatore 140708331439872 e' nella sua sezione critica
+Il thread Deleter di indice 34 con identificatore 140708331439872 terminato.
+Il thread Deleter di indice 3 con identificatore 140708591613696 e' nella sua sezione critica
+Il thread Deleter di indice 3 con identificatore 140708591613696 terminato.
+Il thread Deleter di indice 10 con identificatore 140708532864768 e' nella sua sezione critica
+Il thread Deleter di indice 10 con identificatore 140708532864768 terminato.
+Il thread Deleter di indice 30 con identificatore 140708365010688 e' nella sua sezione critica
+Pthread 3-esimo restituisce 3
+Il thread Searcher di indice 12 con identificatore 140708516079360 e' nella sua sezione critica
+Il thread Deleter di indice 30 con identificatore 140708365010688 terminato.
+Il thread Searcher di indice 7 con identificatore 140708558042880 e' nella sua sezione critica
+Il thread Searcher di indice 7 con identificatore 140708558042880 terminato. 5 rimanenti
+Il thread Searcher di indice 28 con identificatore 140708381796096 e' nella sua sezione critica
+Il thread Searcher di indice 28 con identificatore 140708381796096 terminato. 4 rimanenti
+Il thread Searcher di indice 23 con identificatore 140708423759616 e' nella sua sezione critica
+Il thread Searcher di indice 23 con identificatore 140708423759616 terminato. 3 rimanenti
+Il thread Inserter di indice 33 con identificatore 140708339832576 e' nella sua sezione critica
+Thread Inserter con indice 33 ha aggiunto l'elemento 248
+Il thread Inserter di indice 33 con identificatore 140708339832576 terminato.
+Il thread Searcher di indice 19 con identificatore 140708457330432 e' nella sua sezione critica
+Il thread Searcher di indice 12 con identificatore 140708516079360 terminato. 5 rimanenti
+Il thread Inserter di indice 4 con identificatore 140708583220992 e' nella sua sezione critica
+Thread Inserter con indice 4 ha aggiunto l'elemento 150
+Il thread Inserter di indice 4 con identificatore 140708583220992 terminato.
+Thread Searcher con indice 19 ha letto l'elemento 248
+Thread Searcher con indice 19 ha letto l'elemento 150
+Il thread Searcher di indice 19 con identificatore 140708457330432 terminato. 1 rimanenti
+Il thread Inserter di indice 5 con identificatore 140708574828288 e' nella sua sezione critica
+Thread Inserter con indice 5 ha aggiunto l'elemento 679
+Il thread Searcher di indice 26 con identificatore 140708398581504 e' nella sua sezione critica
+Thread Searcher con indice 26 ha letto l'elemento 248
+Pthread 4-esimo restituisce 4
+Il thread Inserter di indice 32 con identificatore 140708348225280 e' nella sua sezione critica
+Thread Inserter con indice 32 ha aggiunto l'elemento 486
+Il thread Inserter di indice 32 con identificatore 140708348225280 terminato.
+Thread Searcher con indice 26 ha letto l'elemento 150
+Thread Searcher con indice 26 ha letto l'elemento 679
+Thread Searcher con indice 26 ha letto l'elemento 486
+Il thread Searcher di indice 26 con identificatore 140708398581504 terminato. 0 rimanenti
+Il thread Inserter di indice 5 con identificatore 140708574828288 terminato.
+
