@@ -71,22 +71,22 @@ void unboard(int indice) {
 	}
 }
 
-void *eseguiPasseggero(void *id)
+void* eseguiPasseggero(void* id)
 {
-	int *pi = (int *)id;
-   	int *ptr;
-	
-   	ptr = (int *) malloc( sizeof(int));
-   	if (ptr == NULL)
-   	{
-		   perror("Problemi con l'allocazione di ptr\n");
-		   exit(-1);
-   	}
-   	*ptr = *pi;
+	int* pi = (int*)id;
+	int* ptr;
+
+	ptr = (int*)malloc(sizeof(int));
+	if (ptr == NULL)
+	{
+		perror("Problemi con l'allocazione di ptr\n");
+		exit(-1);
+	}
+	*ptr = *pi;
 
 	printf("Thread %d PASSEGGERO partito: Ho come identificatore %lu\n", *pi, pthread_self());
 
-	while(1) {
+	while (1) {
 		/* Prima di chiamare la funzione board() il passeggero deve attendere che un'auto chiami la funzione load() */
 		sem_wait(&S_CAR_LOAD);
 		/* il passeggero sale a bordo */
@@ -98,7 +98,6 @@ void *eseguiPasseggero(void *id)
 		/* Fermo il thread per un breve periodo di tempo */
 		sleep(1);
 	}
-	pthread_exit((void *) ptr);
 }
 
 /* Funzione load dell'auto per consentire ai passeggeri di salire al suo interno */
@@ -334,10 +333,9 @@ int main (int argc, char **argv)
 		}
    }
 
-   for (i=0; i < NUM_THREADS; i++)
+   for (i=0; i < n; i++)
    {
 		int ris;
-		/* attendiamo la terminazione di tutti i thread generati */
 	   	pthread_join(thread[i], (void**) & p);
 		ris= *p;
 		printf("Pthread %d-esimo restituisce %d\n", i, ris);
