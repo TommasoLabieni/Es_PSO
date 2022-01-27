@@ -1,11 +1,3 @@
-/* 
- * PROBLEMA:
- * I rider arrivano alla fermata dell’autobus in attesa che arrivi. Quando l’autobus giunge alla fermata, tutti i riders in attesa invocano la funzione boardBus tuttavia, 
- * chiunque arrivi alla fermata mentre l’autobus sta facendo salire i riders che si erano messi in attesa PRIMA dell’arrivo del bus, dovrà aspettare la corsa successiva. 
- * La capacità del bus è di 50 riders; se ci dovessero essere più di 50 persone in attesa, alcune di esse dovranno aspettare il prossimo bus.
- * Quanto tutti i riders in attesa sono saliti sul bus, quest’ultimo invocherà la funzione depart. Se l’autobus dovesse arrivare quando non c’è alcun rider in attesa, questo partirà immediatamente.
-*/
-
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
