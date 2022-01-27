@@ -118,12 +118,12 @@ void *eseguiCliente(void *id)
 	pthread_mutex_unlock(&mutex);
 	/* Il cliente sveglia il barbiere */
 	sem_post(&S_CLIENTE_TO_BARBIERE_ENTRATO);
-	/* Il cliente attende poi di sedersi nel divano */
-	sem_wait(&S_DIVANO);
-	/* Se qui allora almeno un posto nel divano e' libero. Il cliente si mette in attesa sul semaforo ad esso associato 
+	/* Il cliente si mette in attesa sul semaforo ad esso associato 
 	 * per rispettare la politica FIFO richiesta per i clienti che passano da IN PIEDI al DIVANO
 	*/
 	sem_wait(&S_DIVANO_OCCUPATO[(*ptr)]);
+	/* Il cliente attende che ci sia un posto libero nel divano */
+	sem_wait(&S_DIVANO);
 	pthread_mutex_lock(&mutex);
 	/* Se qui allora il cliente puo' effetivamente sedersi sul divano */
 	sitOnSofa(*ptr);
