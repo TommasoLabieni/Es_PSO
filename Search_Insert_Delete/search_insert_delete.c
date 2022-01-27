@@ -43,6 +43,7 @@ void prologo_searcher(int indice) {
 	if (!deleter_attivo && !deleter_trigger) {
 		searcher_attivi++;
 		sem_post(&S_SEARCHER);
+	   	printf("Il thread Searcher di indice %d con identificatore %lu e' nella sua sezione critica\n", indice, pthread_self());
 	} else {
 		searcher_bloccati++;
 		if (deleter_attivo)
@@ -57,6 +58,8 @@ void prologo_searcher(int indice) {
 void epilogo_searcher(int indice) {
 	pthread_mutex_lock(&mutex);
 	searcher_attivi--;
+  	printf("Il thread Searcher di indice %d con identificatore %lu terminato. %d rimanenti\n", indice, pthread_self(), searcher_attivi);
+
 	/* Se il searcher che ha terminato la propria esecuzione e' L'ULTIMO
 	 *	allora questo andra' a svegliare un deleter (se ve ne e' almeno uno
 	 *	bloccato)
@@ -96,10 +99,8 @@ void *esegui_searcher(void *id) {
 
    	printf("Thread Searcher di indice %d partito: Ho come identificatore %lu\n", *pi, pthread_self());
 	prologo_searcher(*ptr);
-   	printf("Il thread Searcher di indice %d con identificatore %lu e' nella sua sezione critica\n", *pi, pthread_self());
 	/* Invocazione della funzione per esaminare la lista */
 	esamina_lista(l, *ptr);
-   	printf("Il thread Searcher di indice %d con identificatore %lu terminato. %d rimanenti\n", *pi, pthread_self(), (searcher_attivi-1));
 	epilogo_searcher(*ptr);
    	pthread_exit((void *) ptr);
 }
@@ -110,6 +111,7 @@ void prologo_inserter(int indice) {
 	if (!(deleter_attivo) && !(inserter_attivo)) {
 		inserter_attivo = true;
 		sem_post(&S_INSERTER);
+		printf("Il thread Inserter di indice %d con identificatore %lu e' nella sua sezione critica\n", indice, pthread_self());
 	} else {
 		if (deleter_attivo)
    			printf("Il thread Inserter di indice %d con identificatore %lu e' bloccato a causa di deleter attivo\n", indice, pthread_self());
@@ -168,7 +170,6 @@ void *esegui_inserter(void *id) {
 
    	printf("Thread Inserter di indice %d partito: Ho come identificatore %lu\n", *pi, pthread_self());
 	prologo_inserter(*ptr);
-	printf("Il thread Inserter di indice %d con identificatore %lu e' nella sua sezione critica\n", *pi, pthread_self());
 	/* Generazione Casuale di un elemento (numero) da aggiungere alla lista */
 	r = rand() % 1000;
 	/* Invocazione della funzione per aggiungere un elemento alla lista */
@@ -194,6 +195,7 @@ void prologo_deleter(int indice) {
 		/* La variabile per evitare la starvation dei deleter puo' essere disattivata (impostata a false) se un deleter andra' in esecuzione */
 		deleter_trigger = false;
 		sem_post(&S_DELETER);
+	   	printf("Il thread Deleter di indice %d con identificatore %lu e' nella sua sezione critica\n", indice, pthread_self());
 	} else {
 		deleter_bloccati++;
 		if (searcher_attivi > 0)
@@ -255,7 +257,6 @@ void *esegui_deleter(void *id) {
 
    	printf("Thread Deleter di indice %d partito: Ho come identificatore %lu\n", *pi, pthread_self());
 	prologo_deleter(*ptr);
-   	printf("Il thread Deleter di indice %d con identificatore %lu e' nella sua sezione critica\n", *pi, pthread_self());
 	/* Per l'eliminazione viene generato un numero casuale che sara' l'indice
 	 *	dell'elemento da rimuovere dalla lista. Questo numero di indice va da 0 al
 	 * numero massimo di elementi-1 presenti nella lista (informazione recuperata dalla
