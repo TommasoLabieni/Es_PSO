@@ -1,0 +1,1116 @@
+Sto per creare il thread 0-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 0-esimo con id=140516129376000 (rider)
+Sto per creare il thread 1-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 1-esimo con id=140516120983296 (rider)
+Sto per creare il thread 2-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 2-esimo con id=140516112590592 (rider)
+Sto per creare il thread 3-esimo (rider)
+Thread RIDER di indice 0 partito: Ho come identificatore 140516129376000
+Il thread RIDER di indice 0 con identificatore 140516129376000 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 3-esimo con id=140515969980160 (rider)
+Sto per creare il thread 4-esimo (rider)
+Thread RIDER di indice 1 partito: Ho come identificatore 140516120983296
+Il thread RIDER di indice 1 con identificatore 140516120983296 e' in attesa del bus.
+Thread RIDER di indice 2 partito: Ho come identificatore 140516112590592
+Il thread RIDER di indice 2 con identificatore 140516112590592 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 4-esimo con id=140516029101824 (rider)
+Sto per creare il thread 5-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 5-esimo con id=140516020709120 (rider)
+Sto per creare il thread 6-esimo (rider)
+Thread RIDER di indice 4 partito: Ho come identificatore 140516029101824
+Il thread RIDER di indice 4 con identificatore 140516029101824 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 6-esimo con id=140516012316416 (rider)
+Thread RIDER di indice 5 partito: Ho come identificatore 140516020709120
+Sto per creare il thread 7-esimo (rider)
+Il thread RIDER di indice 5 con identificatore 140516020709120 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 7-esimo con id=140516003923712 (rider)
+Sto per creare il thread 8-esimo (rider)
+Thread RIDER di indice 6 partito: Ho come identificatore 140516012316416
+Il thread RIDER di indice 6 con identificatore 140516012316416 e' in attesa del bus.
+Thread RIDER di indice 7 partito: Ho come identificatore 140516003923712
+Il thread RIDER di indice 7 con identificatore 140516003923712 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 8-esimo con id=140515995531008 (rider)
+Sto per creare il thread 9-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 9-esimo con id=140515987138304 (rider)
+Sto per creare il thread 10-esimo (rider)
+Thread RIDER di indice 9 partito: Ho come identificatore 140515987138304
+Il thread RIDER di indice 9 con identificatore 140515987138304 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 10-esimo con id=140515978745600 (rider)
+Sto per creare il thread 11-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 11-esimo con id=140515961587456 (rider)
+Sto per creare il thread 12-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 12-esimo con id=140515953194752 (rider)
+Sto per creare il thread 13-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 13-esimo con id=140515944802048 (rider)
+Sto per creare il thread 14-esimo (rider)
+Thread RIDER di indice 10 partito: Ho come identificatore 140515978745600
+Il thread RIDER di indice 10 con identificatore 140515978745600 e' in attesa del bus.
+Thread RIDER di indice 11 partito: Ho come identificatore 140515961587456
+Il thread RIDER di indice 11 con identificatore 140515961587456 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 14-esimo con id=140515936409344 (rider)
+Sto per creare il thread 15-esimo (rider)
+Thread RIDER di indice 12 partito: Ho come identificatore 140515953194752
+Thread RIDER di indice 3 partito: Ho come identificatore 140515969980160
+Il thread RIDER di indice 3 con identificatore 140515969980160 e' in attesa del bus.
+Thread RIDER di indice 14 partito: Ho come identificatore 140515936409344
+Il thread RIDER di indice 14 con identificatore 140515936409344 e' in attesa del bus.
+Il thread RIDER di indice 12 con identificatore 140515953194752 e' in attesa del bus.
+Thread RIDER di indice 13 partito: Ho come identificatore 140515944802048
+Il thread RIDER di indice 13 con identificatore 140515944802048 e' in attesa del bus.
+Thread RIDER di indice 8 partito: Ho come identificatore 140515995531008
+Il thread RIDER di indice 8 con identificatore 140515995531008 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 15-esimo con id=140515928016640 (rider)
+Sto per creare il thread 16-esimo (rider)
+Thread RIDER di indice 15 partito: Ho come identificatore 140515928016640
+Il thread RIDER di indice 15 con identificatore 140515928016640 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 16-esimo con id=140515919623936 (rider)
+Sto per creare il thread 17-esimo (rider)
+Thread RIDER di indice 16 partito: Ho come identificatore 140515919623936
+Il thread RIDER di indice 16 con identificatore 140515919623936 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 17-esimo con id=140515911231232 (rider)
+Sto per creare il thread 18-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 18-esimo con id=140514821142272 (rider)
+Sto per creare il thread 19-esimo (rider)
+Thread RIDER di indice 18 partito: Ho come identificatore 140514821142272
+Il thread RIDER di indice 18 con identificatore 140514821142272 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 19-esimo con id=140514812749568 (rider)
+Sto per creare il thread 20-esimo (rider)
+Thread RIDER di indice 19 partito: Ho come identificatore 140514812749568
+Il thread RIDER di indice 19 con identificatore 140514812749568 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 20-esimo con id=140514804356864 (rider)
+Sto per creare il thread 21-esimo (rider)
+Thread RIDER di indice 17 partito: Ho come identificatore 140515911231232
+Il thread RIDER di indice 17 con identificatore 140515911231232 e' in attesa del bus.
+Thread RIDER di indice 20 partito: Ho come identificatore 140514804356864
+Il thread RIDER di indice 20 con identificatore 140514804356864 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 21-esimo con id=140514795964160 (rider)
+Sto per creare il thread 22-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 22-esimo con id=140514787571456 (rider)
+Sto per creare il thread 23-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 23-esimo con id=140514779178752 (rider)
+Sto per creare il thread 24-esimo (rider)
+Thread RIDER di indice 23 partito: Ho come identificatore 140514779178752
+Il thread RIDER di indice 23 con identificatore 140514779178752 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 24-esimo con id=140514770786048 (rider)
+Sto per creare il thread 25-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 25-esimo con id=140514418489088 (rider)
+Sto per creare il thread 26-esimo (rider)
+Thread RIDER di indice 22 partito: Ho come identificatore 140514787571456
+Thread RIDER di indice 24 partito: Ho come identificatore 140514770786048
+SONO IL MAIN e ho creato il Pthread 26-esimo con id=140514410096384 (rider)
+Sto per creare il thread 27-esimo (rider)
+Thread RIDER di indice 21 partito: Ho come identificatore 140514795964160
+Il thread RIDER di indice 22 con identificatore 140514787571456 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 27-esimo con id=140514401703680 (rider)
+Sto per creare il thread 28-esimo (rider)
+Il thread RIDER di indice 24 con identificatore 140514770786048 e' in attesa del bus.
+Thread RIDER di indice 26 partito: Ho come identificatore 140514410096384
+Il thread RIDER di indice 26 con identificatore 140514410096384 e' in attesa del bus.
+Il thread RIDER di indice 21 con identificatore 140514795964160 e' in attesa del bus.
+Thread RIDER di indice 25 partito: Ho come identificatore 140514418489088
+Il thread RIDER di indice 25 con identificatore 140514418489088 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 28-esimo con id=140514393310976 (rider)
+Sto per creare il thread 29-esimo (rider)
+Thread RIDER di indice 27 partito: Ho come identificatore 140514401703680
+Il thread RIDER di indice 27 con identificatore 140514401703680 e' in attesa del bus.
+Thread RIDER di indice 28 partito: Ho come identificatore 140514393310976
+Il thread RIDER di indice 28 con identificatore 140514393310976 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 29-esimo con id=140514384918272 (rider)
+Sto per creare il thread 30-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 30-esimo con id=140514376525568 (rider)
+Sto per creare il thread 31-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 31-esimo con id=140514368132864 (rider)
+Sto per creare il thread 32-esimo (rider)
+SONO IL MAIN e ho creato il Pthread 32-esimo con id=140514284271360 (rider)
+Sto per creare il thread 33-esimo (rider)
+Thread RIDER di indice 32 partito: Ho come identificatore 140514284271360
+Il thread RIDER di indice 32 con identificatore 140514284271360 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 33-esimo con id=140514275878656 (rider)
+Sto per creare il thread 34-esimo (rider)
+Thread RIDER di indice 33 partito: Ho come identificatore 140514275878656
+Il thread RIDER di indice 33 con identificatore 140514275878656 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 34-esimo con id=140514267485952 (rider)
+Sto per creare il thread 35-esimo (rider)
+Thread RIDER di indice 31 partito: Ho come identificatore 140514368132864
+Il thread RIDER di indice 31 con identificatore 140514368132864 e' in attesa del bus.
+Thread RIDER di indice 30 partito: Ho come identificatore 140514376525568
+SONO IL MAIN e ho creato il Pthread 35-esimo con id=140514259093248 (rider)
+Il thread RIDER di indice 30 con identificatore 140514376525568 e' in attesa del bus.
+Sto per creare il thread 36-esimo (rider)
+Thread RIDER di indice 29 partito: Ho come identificatore 140514384918272
+Il thread RIDER di indice 29 con identificatore 140514384918272 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 36-esimo con id=140514250700544 (rider)
+Sto per creare il thread 37-esimo (rider)
+Thread RIDER di indice 35 partito: Ho come identificatore 140514259093248
+Il thread RIDER di indice 35 con identificatore 140514259093248 e' in attesa del bus.
+Thread RIDER di indice 36 partito: Ho come identificatore 140514250700544
+Il thread RIDER di indice 36 con identificatore 140514250700544 e' in attesa del bus.
+Thread RIDER di indice 34 partito: Ho come identificatore 140514267485952
+Il thread RIDER di indice 34 con identificatore 140514267485952 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 37-esimo con id=140514242307840 (rider)
+Sto per creare il thread 38-esimo (rider)
+Thread RIDER di indice 37 partito: Ho come identificatore 140514242307840
+Il thread RIDER di indice 37 con identificatore 140514242307840 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 38-esimo con id=140514233915136 (rider)
+Sto per creare il thread 39-esimo (rider)
+Thread RIDER di indice 38 partito: Ho come identificatore 140514233915136
+Il thread RIDER di indice 38 con identificatore 140514233915136 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 39-esimo con id=140513210529536 (rider)
+Sto per creare il thread 40-esimo (rider)
+Thread RIDER di indice 39 partito: Ho come identificatore 140513210529536
+Il thread RIDER di indice 39 con identificatore 140513210529536 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 40-esimo con id=140513202136832 (rider)
+Sto per creare il thread 41-esimo (rider)
+Thread RIDER di indice 40 partito: Ho come identificatore 140513202136832
+Il thread RIDER di indice 40 con identificatore 140513202136832 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 41-esimo con id=140513193744128 (rider)
+Sto per creare il thread 42-esimo (rider)
+Thread RIDER di indice 41 partito: Ho come identificatore 140513193744128
+Il thread RIDER di indice 41 con identificatore 140513193744128 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 42-esimo con id=140513185351424 (rider)
+Sto per creare il thread 43-esimo (rider)
+Thread RIDER di indice 42 partito: Ho come identificatore 140513185351424
+Il thread RIDER di indice 42 con identificatore 140513185351424 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 43-esimo con id=140513176958720 (rider)
+Sto per creare il thread 44-esimo (rider)
+Thread RIDER di indice 43 partito: Ho come identificatore 140513176958720
+Il thread RIDER di indice 43 con identificatore 140513176958720 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 44-esimo con id=140513168566016 (rider)
+Sto per creare il thread 45-esimo (rider)
+Thread RIDER di indice 44 partito: Ho come identificatore 140513168566016
+Il thread RIDER di indice 44 con identificatore 140513168566016 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 45-esimo con id=140513160173312 (rider)
+Sto per creare il thread 46-esimo (rider)
+Thread RIDER di indice 45 partito: Ho come identificatore 140513160173312
+Il thread RIDER di indice 45 con identificatore 140513160173312 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 46-esimo con id=140512673658624 (rider)
+Sto per creare il thread 47-esimo (rider)
+Thread RIDER di indice 46 partito: Ho come identificatore 140512673658624
+Il thread RIDER di indice 46 con identificatore 140512673658624 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 47-esimo con id=140512665265920 (rider)
+Sto per creare il thread 48-esimo (bus)
+Thread RIDER di indice 47 partito: Ho come identificatore 140512665265920
+Il thread RIDER di indice 47 con identificatore 140512665265920 e' in attesa del bus.
+SONO IL MAIN e ho creato il Pthread 48-esimo con id=140512656873216 (bus)
+Sto per creare il thread 49-esimo (rider)
+Thread BUS di indice 48 partito: Ho come identificatore 140512656873216
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+SONO IL MAIN e ho creato il Pthread 49-esimo con id=140512648480512 (rider)
+Sto per creare il thread 50-esimo (rider)
+Thread RIDER di indice 49 partito: Ho come identificatore 140512648480512
+SONO IL MAIN e ho creato il Pthread 50-esimo con id=140512640087808 (rider)
+Thread RIDER di indice 50 partito: Ho come identificatore 140512640087808
+Il thread RIDER di indice 49 con identificatore 140512648480512 e' bloccato a causa dell'autobus arrivato .
+Il thread RIDER di indice 12 con identificatore 140515953194752 e' salito sul bus.
+Il thread RIDER di indice 3 con identificatore 140515969980160 e' salito sul bus.
+Il thread RIDER di indice 16 con identificatore 140515919623936 e' salito sul bus.
+Il thread RIDER di indice 8 con identificatore 140515995531008 e' salito sul bus.
+Il thread RIDER di indice 50 con identificatore 140512640087808 e' bloccato a causa dell'autobus arrivato .
+Il thread RIDER di indice 15 con identificatore 140515928016640 e' salito sul bus.
+Il thread RIDER di indice 18 con identificatore 140514821142272 e' salito sul bus.
+Il thread RIDER di indice 13 con identificatore 140515944802048 e' salito sul bus.
+Il thread RIDER di indice 20 con identificatore 140514804356864 e' salito sul bus.
+Il thread RIDER di indice 1 con identificatore 140516120983296 e' salito sul bus.
+Il thread RIDER di indice 22 con identificatore 140514787571456 e' salito sul bus.
+Il thread RIDER di indice 26 con identificatore 140514410096384 e' salito sul bus.
+Il thread RIDER di indice 10 con identificatore 140515978745600 e' salito sul bus.
+Il thread RIDER di indice 2 con identificatore 140516112590592 e' salito sul bus.
+Il thread RIDER di indice 5 con identificatore 140516020709120 e' salito sul bus.
+Il thread RIDER di indice 0 con identificatore 140516129376000 e' salito sul bus.
+Il thread RIDER di indice 17 con identificatore 140515911231232 e' salito sul bus.
+Il thread RIDER di indice 24 con identificatore 140514770786048 e' salito sul bus.
+Il thread RIDER di indice 9 con identificatore 140515987138304 e' salito sul bus.
+Il thread RIDER di indice 25 con identificatore 140514418489088 e' salito sul bus.
+Il thread RIDER di indice 4 con identificatore 140516029101824 e' salito sul bus.
+Il thread RIDER di indice 7 con identificatore 140516003923712 e' salito sul bus.
+Il thread RIDER di indice 27 con identificatore 140514401703680 e' salito sul bus.
+Pthread 0-esimo restituisce 0
+Il thread RIDER di indice 14 con identificatore 140515936409344 e' salito sul bus.
+Il thread RIDER di indice 28 con identificatore 140514393310976 e' salito sul bus.
+Il thread RIDER di indice 19 con identificatore 140514812749568 e' salito sul bus.
+Il thread RIDER di indice 6 con identificatore 140516012316416 e' salito sul bus.
+Il thread RIDER di indice 33 con identificatore 140514275878656 e' salito sul bus.
+Il thread RIDER di indice 31 con identificatore 140514368132864 e' salito sul bus.
+Il thread RIDER di indice 32 con identificatore 140514284271360 e' salito sul bus.
+Il thread RIDER di indice 11 con identificatore 140515961587456 e' salito sul bus.
+Il thread RIDER di indice 30 con identificatore 140514376525568 e' salito sul bus.
+Pthread 1-esimo restituisce 1
+Il thread RIDER di indice 29 con identificatore 140514384918272 e' salito sul bus.
+Il thread RIDER di indice 36 con identificatore 140514250700544 e' salito sul bus.
+Il thread RIDER di indice 35 con identificatore 140514259093248 e' salito sul bus.
+Il thread RIDER di indice 34 con identificatore 140514267485952 e' salito sul bus.
+Il thread RIDER di indice 38 con identificatore 140514233915136 e' salito sul bus.
+Il thread RIDER di indice 37 con identificatore 140514242307840 e' salito sul bus.
+Il thread RIDER di indice 39 con identificatore 140513210529536 e' salito sul bus.
+Il thread RIDER di indice 40 con identificatore 140513202136832 e' salito sul bus.
+Il thread RIDER di indice 43 con identificatore 140513176958720 e' salito sul bus.
+Il thread RIDER di indice 41 con identificatore 140513193744128 e' salito sul bus.
+Pthread 2-esimo restituisce 2
+Pthread 3-esimo restituisce 3
+Il thread RIDER di indice 42 con identificatore 140513185351424 e' salito sul bus.
+Il thread RIDER di indice 44 con identificatore 140513168566016 e' salito sul bus.
+Il thread RIDER di indice 47 con identificatore 140512665265920 e' salito sul bus.
+Pthread 4-esimo restituisce 4
+Il thread RIDER di indice 23 con identificatore 140514779178752 e' salito sul bus.
+Pthread 5-esimo restituisce 5
+Il thread RIDER di indice 46 con identificatore 140512673658624 e' salito sul bus.
+Il thread RIDER di indice 21 con identificatore 140514795964160 e' salito sul bus.
+Pthread 6-esimo restituisce 6
+Pthread 7-esimo restituisce 7
+Il thread RIDER di indice 45 con identificatore 140513160173312 e' salito sul bus.
+Pthread 8-esimo restituisce 8
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 48
+Il thread RIDER di indice 50 con identificatore 140512640087808 e' in attesa del bus.
+Pthread 9-esimo restituisce 9
+Il thread RIDER di indice 49 con identificatore 140512648480512 e' in attesa del bus.
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+Pthread 10-esimo restituisce 10
+Il thread RIDER di indice 49 con identificatore 140512648480512 e' salito sul bus.
+Pthread 11-esimo restituisce 11
+Il thread RIDER di indice 50 con identificatore 140512640087808 e' salito sul bus.
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Pthread 12-esimo restituisce 12
+Il numero dei rider saliti e': 2
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+Pthread 13-esimo restituisce 13
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+Pthread 14-esimo restituisce 14
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Pthread 15-esimo restituisce 15
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+Pthread 16-esimo restituisce 16
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Pthread 17-esimo restituisce 17
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Pthread 18-esimo restituisce 18
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Pthread 19-esimo restituisce 19
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Pthread 20-esimo restituisce 20
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+Pthread 21-esimo restituisce 21
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Pthread 22-esimo restituisce 22
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Pthread 23-esimo restituisce 23
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Pthread 24-esimo restituisce 24
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Pthread 25-esimo restituisce 25
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+Pthread 26-esimo restituisce 26
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Pthread 27-esimo restituisce 27
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Pthread 28-esimo restituisce 28
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Pthread 29-esimo restituisce 29
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+Pthread 30-esimo restituisce 30
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+Pthread 31-esimo restituisce 31
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Pthread 32-esimo restituisce 32
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+Pthread 33-esimo restituisce 33
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+Pthread 34-esimo restituisce 34
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+Pthread 35-esimo restituisce 35
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+Pthread 36-esimo restituisce 36
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Pthread 37-esimo restituisce 37
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Pthread 38-esimo restituisce 38
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+Pthread 39-esimo restituisce 39
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Pthread 40-esimo restituisce 40
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Pthread 41-esimo restituisce 41
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+Pthread 42-esimo restituisce 42
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Pthread 43-esimo restituisce 43
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Pthread 44-esimo restituisce 44
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Pthread 45-esimo restituisce 45
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+Pthread 46-esimo restituisce 46
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+Pthread 47-esimo restituisce 47
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+Pthread 49-esimo restituisce 49
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+Pthread 50-esimo restituisce 50
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+Pthread 49-esimo restituisce 49
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+Pthread 50-esimo restituisce 50
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
+Il numero dei rider saliti e': 0
+L'autobus e' arrivato. Chiunque arrivi da ora in poi dovra' aspettare la corsa successiva.
+L'autobus fa una corsa senza passeggeri
+Il thread BUS di indice 48 con identificatore 140512656873216 e' partito.
