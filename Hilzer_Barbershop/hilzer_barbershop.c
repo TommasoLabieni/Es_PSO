@@ -19,8 +19,6 @@ int num_clienti_divano = 0;
 int *clienti_divano;
 /* Array dinamico per memorizzare la coda di persone in piedi. */
 int *clienti_in_piedi;
-/* Array dinamico per memorizzare la coda dei clienti serviti (utilizzato per motivi di debug)*/
-int *clienti_serviti;
 /* Mutex per l'accesso concorrente alle variabili condivise */
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 /* Array di semafori per regolare i clienti che possono sedersi sul divano */
@@ -202,7 +200,7 @@ void *eseguiBarbiere(void *id)
 		clienti_in_piedi[j] = -1;
 	
 		pthread_mutex_unlock(&mutex);
-		printf("Thread BARBIERE di indice %d con identificatore %lu vuole risvegliare il thread cliente di indice %d CHE E' IN PIEDI.\n", *ptr, pthread_self(), next_cliente_divano);
+		//printf("Thread BARBIERE di indice %d con identificatore %lu vuole risvegliare il thread cliente di indice %d CHE E' IN PIEDI.\n", *ptr, pthread_self(), next_cliente_divano);
 		/* Risveglio il cliente che potra' ora mettersi a sedere sul divano */
 		sem_post(&S_DIVANO_OCCUPATO[next_cliente_divano]);
 		printf("Thread BARBIERE di indice %d con identificatore %lu ha risvegliato il thread cliente di indice %d CHE ERA IN PIEDI.\n", *ptr, pthread_self(), next_cliente_divano);
@@ -233,7 +231,7 @@ void *eseguiBarbiere(void *id)
 		num_clienti_divano--;
 		pthread_mutex_unlock(&mutex);
 
-		printf("Thread BARBIERE di indice %d partito con identificatore %lu vuole risvegliare il thread di indice %d CHE E' NEL DIVANO.\n", *ptr, pthread_self(), next_cliente_da_servire);
+		//printf("Thread BARBIERE di indice %d partito con identificatore %lu vuole risvegliare il thread di indice %d CHE E' NEL DIVANO.\n", *ptr, pthread_self(), next_cliente_da_servire);
 		sem_post(&S_CLIENTI_SERVITI[next_cliente_da_servire]);
 		/* Si e' liberato un posto nel divano -> aumento il valore del semaforo che regola il numero di clienti che possono sedersi nel divano */
 		sem_post(&S_DIVANO);
@@ -382,12 +380,6 @@ int main (int argc, char **argv)
 		perror("Problemi allocazione memoria array clienti_divano\n");
 		exit(19);
 	}
-	clienti_serviti = (int *) malloc(NUM_BARBIERI * sizeof(int));
-	if (clienti_serviti == NULL) {
-		perror("Problemi allocazione memoria array clienti_serviti\n");
-		exit(20);
-	}
-
 	/* Inizializzo l'array dei clienti in piedi */
 	for (i=0;i < NUM_CLIENTI_MAX; i++) {
 		clienti_in_piedi[i] = -1;
@@ -396,11 +388,6 @@ int main (int argc, char **argv)
 	/* Inizializzo l'array dei clienti nel divano */
 	for (i=0;i < NUM_POSTI_DIVANO; i++) {
 		clienti_divano[i] = -1;
-	}
-
-	/* Inizializzo l'array dei clienti serviti */
-	for (i=0;i < NUM_BARBIERI; i++) {
-		clienti_serviti[i] = -1;
 	}
 
 	/* ************************************************** */
@@ -412,7 +399,7 @@ int main (int argc, char **argv)
       	{
       		sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (cliente)\n", taskids[i]);
         	perror(error);
-			exit(21);
+			exit(20);
       	}
 		printf("SONO IL MAIN e ho creato il Pthread %i-esimo con id=%lu (cliente)\n", i, thread[i]);
 	}
@@ -424,7 +411,7 @@ int main (int argc, char **argv)
 		{
     		sprintf(error,"SONO IL MAIN E CI SONO STATI PROBLEMI DELLA CREAZIONE DEL thread %d-esimo (BARBIERE)\n", taskids[i]);
         	perror(error);
-			exit(22);
+			exit(21);
       	}
 		printf("SONO IL MAIN e ho creato il Pthread %i-esimo con id=%lu (barbiere)\n", i, thread[i]);
 	}	
