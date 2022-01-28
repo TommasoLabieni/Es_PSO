@@ -1,0 +1,229 @@
+Il Thread CLIENTE di indice 0 con identificatore 140704462198528 e' entrato nel negozio.
+Il Thread CLIENTE di indice 1 con identificatore 140704453805824 e' entrato nel negozio.
+Il Thread CLIENTE di indice 2 con identificatore 140704311195392 e' entrato nel negozio.
+Il Thread CLIENTE di indice 3 con identificatore 140704445413120 e' entrato nel negozio.
+Il Thread CLIENTE di indice 4 con identificatore 140704437020416 e' entrato nel negozio.
+Il Thread CLIENTE di indice 5 con identificatore 140704428627712 e' entrato nel negozio.
+Il Thread CLIENTE di indice 7 con identificatore 140704336574208 e' entrato nel negozio.
+Il Thread CLIENTE di indice 6 con identificatore 140704420235008 e' entrato nel negozio.
+Il Thread CLIENTE di indice 8 con identificatore 140704328181504 e' entrato nel negozio.
+Il Thread CLIENTE di indice 9 con identificatore 140704319788800 e' entrato nel negozio.
+Thread BARBIERE di indice 10 partito: Ho come identificatore 140704302802688
+Stampo l'array: IN PIEDI
+0:	 0
+1:	 1
+2:	 2
+3:	 3
+4:	 4
+5:	 5
+6:	 7
+7:	 6
+Thread BARBIERE di indice 11 partito: Ho come identificatore 140704294409984
+8:	 8
+9:	 9
+10:	 -1
+11:	 -1
+12:	 -1
+13:	 -1
+14:	 -1
+15:	 -1
+16:	 -1
+17:	 -1
+18:	 -1
+19:	 -1
+Stampo l'array: IN PIEDI
+Thread BARBIERE di indice 12 partito: Ho come identificatore 140704286017280
+Thread BARBIERE di indice 10 con identificatore 140704302802688 ha risvegliato il thread cliente di indice 0 CHE ERA IN PIEDI.
+0:	 1
+1:	 2
+2:	 3
+3:	 4
+4:	 5
+5:	 7
+6:	 6
+7:	 8
+8:	 9
+9:	 -1
+Il Thread CLIENTE di indice 0 con identificatore 140704462198528 si e' seduto nel divano. Il numero di clienti seduti e': 1
+Stampo l'array: DIVANO
+0:	 0
+1:	 -1
+2:	 -1
+3:	 -1
+Thread BARBIERE di indice 11 con identificatore 140704294409984 ha risvegliato il thread cliente di indice 1 CHE ERA IN PIEDI.
+Stampo l'array: IN PIEDI
+0:	 2
+1:	 3
+2:	 4
+3:	 5
+4:	 7
+5:	 6
+6:	 8
+7:	 9
+Thread BARBIERE di indice 10 partito con identificatore 140704302802688 ha risvegliato il thread di indice 0 CHE ERA NEL DIVANO.
+Il Thread BARBIERE di indice 10 con identificatore 140704302802688 INIZIA il taglio di capelli per il cliente di indice: 0.
+8:	 -1
+Thread BARBIERE di indice 12 con identificatore 140704286017280 ha risvegliato il thread cliente di indice 2 CHE ERA IN PIEDI.
+Il Thread CLIENTE di indice 1 con identificatore 140704453805824 si e' seduto nel divano. Il numero di clienti seduti e': 1
+Il Thread CLIENTE di indice 2 con identificatore 140704311195392 si e' seduto nel divano. Il numero di clienti seduti e': 2
+Stampo l'array: DIVANO
+0:	 1
+1:	 2
+2:	 -1
+3:	 -1
+Thread BARBIERE di indice 11 partito con identificatore 140704294409984 ha risvegliato il thread di indice 1 CHE ERA NEL DIVANO.
+Il Thread BARBIERE di indice 11 con identificatore 140704294409984 INIZIA il taglio di capelli per il cliente di indice: 1.
+Stampo l'array: DIVANO
+0:	 2
+1:	 -1
+2:	 -1
+3:	 -1
+Thread BARBIERE di indice 12 partito con identificatore 140704286017280 ha risvegliato il thread di indice 2 CHE ERA NEL DIVANO.
+Il Thread BARBIERE di indice 12 con identificatore 140704286017280 INIZIA il taglio di capelli per il cliente di indice: 2.
+Il Thread BARBIERE di indice 11 con identificatore 140704294409984 HA TERMINATO il taglio di capelli per il cliente di indice: 1.
+Il Thread BARBIERE di indice 10 con identificatore 140704302802688 HA TERMINATO il taglio di capelli per il cliente di indice: 0.
+Il Thread BARBIERE di indice 12 con identificatore 140704286017280 HA TERMINATO il taglio di capelli per il cliente di indice: 2.
+Taglio dei capelli per il Thread CLIENTE di indice 0 con identificatore 140704462198528 terminato.
+Taglio dei capelli per il Thread CLIENTE di indice 2 con identificatore 140704311195392 terminato.
+Il Thread CLIENTE di indice 0 con identificatore 140704462198528 ha pagato il conto.
+Thread CLIENTE di indice 0 con identificatore 140704462198528 esce dal negozio.
+Stampo l'array: IN PIEDI
+0:	 3
+1:	 4
+2:	 5
+3:	 7
+4:	 6
+5:	 8
+6:	 9
+7:	 -1
+Il Thread CLIENTE di indice 2 con identificatore 140704311195392 ha pagato il conto.
+Thread CLIENTE di indice 2 con identificatore 140704311195392 esce dal negozio.
+Taglio dei capelli per il Thread CLIENTE di indice 1 con identificatore 140704453805824 terminato.
+Thread BARBIERE di indice 11 con identificatore 140704294409984 ha risvegliato il thread cliente di indice 3 CHE ERA IN PIEDI.
+Il Thread CLIENTE di indice 1 con identificatore 140704453805824 ha pagato il conto.
+Thread CLIENTE di indice 1 con identificatore 140704453805824 esce dal negozio.
+Stampo l'array: IN PIEDI
+0:	 4
+1:	 5
+2:	 7
+3:	 6
+4:	 8
+5:	 9
+6:	 -1
+Stampo l'array: IN PIEDI
+0:	 5
+1:	 7
+2:	 6
+3:	 8
+4:	 9
+5:	 -1
+Thread BARBIERE di indice 10 con identificatore 140704302802688 ha risvegliato il thread cliente di indice 4 CHE ERA IN PIEDI.
+Il Thread CLIENTE di indice 3 con identificatore 140704445413120 si e' seduto nel divano. Il numero di clienti seduti e': 1
+Thread BARBIERE di indice 12 con identificatore 140704286017280 ha risvegliato il thread cliente di indice 5 CHE ERA IN PIEDI.
+Stampo l'array: DIVANO
+0:	 3
+1:	 -1
+2:	 -1
+3:	 -1
+Il Thread CLIENTE di indice 4 con identificatore 140704437020416 si e' seduto nel divano. Il numero di clienti seduti e': 1
+Thread BARBIERE di indice 11 partito con identificatore 140704294409984 ha risvegliato il thread di indice 3 CHE ERA NEL DIVANO.
+Il Thread BARBIERE di indice 11 con identificatore 140704294409984 INIZIA il taglio di capelli per il cliente di indice: 3.
+Il Thread CLIENTE di indice 5 con identificatore 140704428627712 si e' seduto nel divano. Il numero di clienti seduti e': 2
+Stampo l'array: DIVANO
+0:	 4
+1:	 5
+2:	 -1
+3:	 -1
+Stampo l'array: DIVANO
+Thread BARBIERE di indice 10 partito con identificatore 140704302802688 ha risvegliato il thread di indice 4 CHE ERA NEL DIVANO.
+Il Thread BARBIERE di indice 10 con identificatore 140704302802688 INIZIA il taglio di capelli per il cliente di indice: 4.
+0:	 5
+1:	 -1
+2:	 -1
+3:	 -1
+Thread BARBIERE di indice 12 partito con identificatore 140704286017280 ha risvegliato il thread di indice 5 CHE ERA NEL DIVANO.
+Il Thread BARBIERE di indice 12 con identificatore 140704286017280 INIZIA il taglio di capelli per il cliente di indice: 5.
+Il Thread BARBIERE di indice 11 con identificatore 140704294409984 HA TERMINATO il taglio di capelli per il cliente di indice: 3.
+Il Thread BARBIERE di indice 10 con identificatore 140704302802688 HA TERMINATO il taglio di capelli per il cliente di indice: 4.
+Il Thread BARBIERE di indice 12 con identificatore 140704286017280 HA TERMINATO il taglio di capelli per il cliente di indice: 5.
+Taglio dei capelli per il Thread CLIENTE di indice 5 con identificatore 140704428627712 terminato.
+Taglio dei capelli per il Thread CLIENTE di indice 4 con identificatore 140704437020416 terminato.
+Taglio dei capelli per il Thread CLIENTE di indice 3 con identificatore 140704445413120 terminato.
+Il Thread CLIENTE di indice 4 con identificatore 140704437020416 ha pagato il conto.
+Thread CLIENTE di indice 4 con identificatore 140704437020416 esce dal negozio.
+Stampo l'array: IN PIEDI
+0:	 7
+1:	 6
+2:	 8
+3:	 9
+4:	 -1
+5:	 -1
+Il Thread CLIENTE di indice 3 con identificatore 140704445413120 ha pagato il conto.
+Thread CLIENTE di indice 3 con identificatore 140704445413120 esce dal negozio.
+Il Thread CLIENTE di indice 5 con identificatore 140704428627712 ha pagato il conto.
+Thread CLIENTE di indice 5 con identificatore 140704428627712 esce dal negozio.
+6:	 -1
+Stampo l'array: IN PIEDI
+0:	 6
+1:	 8
+Thread BARBIERE di indice 11 con identificatore 140704294409984 ha risvegliato il thread cliente di indice 7 CHE ERA IN PIEDI.
+2:	 9
+3:	 -1
+Stampo l'array: IN PIEDI
+0:	 8
+1:	 9
+2:	 -1
+Thread BARBIERE di indice 10 con identificatore 140704302802688 ha risvegliato il thread cliente di indice 6 CHE ERA IN PIEDI.
+Il Thread CLIENTE di indice 7 con identificatore 140704336574208 si e' seduto nel divano. Il numero di clienti seduti e': 1
+Thread BARBIERE di indice 12 con identificatore 140704286017280 ha risvegliato il thread cliente di indice 8 CHE ERA IN PIEDI.
+Il Thread CLIENTE di indice 6 con identificatore 140704420235008 si e' seduto nel divano. Il numero di clienti seduti e': 2
+Stampo l'array: DIVANO
+0:	 7
+1:	 6
+2:	 -1
+3:	 -1
+Il Thread CLIENTE di indice 8 con identificatore 140704328181504 si e' seduto nel divano. Il numero di clienti seduti e': 2
+Stampo l'array: DIVANO
+0:	 6
+1:	 8
+2:	 -1
+3:	 -1
+Thread BARBIERE di indice 11 partito con identificatore 140704294409984 ha risvegliato il thread di indice 7 CHE ERA NEL DIVANO.
+Il Thread BARBIERE di indice 11 con identificatore 140704294409984 INIZIA il taglio di capelli per il cliente di indice: 7.
+Stampo l'array: DIVANO
+0:	 8
+1:	 -1
+2:	 -1
+3:	 -1
+Thread BARBIERE di indice 12 partito con identificatore 140704286017280 ha risvegliato il thread di indice 8 CHE ERA NEL DIVANO.
+Il Thread BARBIERE di indice 12 con identificatore 140704286017280 INIZIA il taglio di capelli per il cliente di indice: 8.
+Thread BARBIERE di indice 10 partito con identificatore 140704302802688 ha risvegliato il thread di indice 6 CHE ERA NEL DIVANO.
+Il Thread BARBIERE di indice 10 con identificatore 140704302802688 INIZIA il taglio di capelli per il cliente di indice: 6.
+Il Thread BARBIERE di indice 12 con identificatore 140704286017280 HA TERMINATO il taglio di capelli per il cliente di indice: 8.
+Il Thread BARBIERE di indice 11 con identificatore 140704294409984 HA TERMINATO il taglio di capelli per il cliente di indice: 7.
+Il Thread BARBIERE di indice 10 con identificatore 140704302802688 HA TERMINATO il taglio di capelli per il cliente di indice: 6.
+Taglio dei capelli per il Thread CLIENTE di indice 7 con identificatore 140704336574208 terminato.
+Taglio dei capelli per il Thread CLIENTE di indice 8 con identificatore 140704328181504 terminato.
+Stampo l'array: IN PIEDI
+0:	 9
+1:	 -1
+Il Thread CLIENTE di indice 8 con identificatore 140704328181504 ha pagato il conto.
+Il Thread CLIENTE di indice 9 con identificatore 140704319788800 si e' seduto nel divano. Il numero di clienti seduti e': 1
+Il Thread CLIENTE di indice 7 con identificatore 140704336574208 ha pagato il conto.
+Taglio dei capelli per il Thread CLIENTE di indice 6 con identificatore 140704420235008 terminato.
+Thread CLIENTE di indice 8 con identificatore 140704328181504 esce dal negozio.
+Il Thread CLIENTE di indice 6 con identificatore 140704420235008 ha pagato il conto.
+Thread CLIENTE di indice 6 con identificatore 140704420235008 esce dal negozio.
+Thread BARBIERE di indice 12 con identificatore 140704286017280 ha risvegliato il thread cliente di indice 9 CHE ERA IN PIEDI.
+Stampo l'array: DIVANO
+0:	 9
+1:	 -1
+2:	 -1
+3:	 -1
+Thread CLIENTE di indice 7 con identificatore 140704336574208 esce dal negozio.
+Thread BARBIERE di indice 12 partito con identificatore 140704286017280 ha risvegliato il thread di indice 9 CHE ERA NEL DIVANO.
+Il Thread BARBIERE di indice 12 con identificatore 140704286017280 INIZIA il taglio di capelli per il cliente di indice: 9.
+Il Thread BARBIERE di indice 12 con identificatore 140704286017280 HA TERMINATO il taglio di capelli per il cliente di indice: 9.
+Taglio dei capelli per il Thread CLIENTE di indice 9 con identificatore 140704319788800 terminato.
+Il Thread CLIENTE di indice 9 con identificatore 140704319788800 ha pagato il conto.
+Thread CLIENTE di indice 9 con identificatore 140704319788800 esce dal negozio.
