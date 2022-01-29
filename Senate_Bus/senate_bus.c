@@ -11,7 +11,7 @@
 
 /* Variabile intera per memorizzare il numero dei rider in attesa del bus */
 int num_rider_attesa = 0;
-/* Variabile intera per memorizzare il numero dei rider saliti sul bus NOTA: QUESTA VARIABILE NON HA UNO SCOPO FUNZIONALE PER IL PROGRAMMA, MA E' UTILIZZATA A SCOPO ESCLUSIVAMENTE ILLUSTRATIVO*/
+/* Variabile intera per memorizzare il numero dei rider saliti sul bus NOTA: QUESTA VARIABILE NON HA UNO SCOPO FUNZIONALE PER IL PROGRAMMA, MA E' UTILIZZATA SOLO PER DEBUG*/
 int num_rider_saliti = 0;
 /* Variabile intera per memorizzare il numero dei rider giunti alla fermata del bus */
 int num_rider_bus_stop = 0;
@@ -44,6 +44,7 @@ void boardBus(int indice) {
 	if (num_rider_attesa == 0) {
 		ultimo_rider_salito = true;
 		pthread_mutex_unlock(&mutex);
+		/* Risveglio il bus */
 		pthread_cond_signal(&C_LAST_RIDER_ON);
 		return;
 	}

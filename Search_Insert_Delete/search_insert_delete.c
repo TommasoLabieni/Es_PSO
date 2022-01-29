@@ -338,7 +338,7 @@ int main (int argc, char **argv) {
 		exit(7);
 	}
 
-	/* ************************************************ */
+	/* ************************************* */
 
 	/* Generazione del seme */
 	srand(time(NULL));
