@@ -1,7 +1,0 @@
-Problema: Ci sono 3 tipi di Thread: Coloro che cercano (searchers), Coloro che inseriscono (inserters) e coloro che eliminano (deleters) da una singly-linked list (solo in avanti).
-
-I Searchers  semplicemente esaminano la lista (dunque non la modificano) e quindi possono eseguire CONCORRENTEMENTE.
-
-Gli Inserters aggiungono nuovi elementi in CODA alla lista; l'aggiunta di elemente deve essere ESCLUSA MUTUALMENTE per evitare che due inserters aggiungano nuovi elementi nello stesso tempo. Tuttavia, un inserter può procedere concorrentemente con molteplici searchers (dunque non sono esclusi mutualmente tra loro).
-
-I Deleters rimuovo elementi da una qualsiasi parte della lista. Vi può essere UN SOLO DELETER che esegue (dunque i Deleters sono esclusi mutualmente tra loro) e inoltre l'eliminazione di elementi dev'essere esclusa mutualmente sia con i Searchers, sia con gli Inserters.
