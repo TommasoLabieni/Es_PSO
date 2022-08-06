@@ -1,5 +1,5 @@
 # PSO_Excercises
-Questorepo contiene gli esercizi per la tesina di PSO
+Questo repo contiene gli esercizi per la tesina di PSO
 
 # Usage
 
