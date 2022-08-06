@@ -3,7 +3,7 @@ Questa repo contiene gli esercizi per la tesina di PSO
 
 # Usage
 
-Prima di tutto occorre scaricare la repository digitando: 
+Prima di tutto occorre scaricare il repository digitando: 
 
 `git clone https://github.com/TommasoLabieni/PSO_Excercises.git`
 
