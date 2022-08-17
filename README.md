@@ -1,5 +1,5 @@
 # Es_PSO
-Questo repo contiene gli esercizi per la tesina di PSO. Il file PDF contiene la tesina vera e propria.
+Questo repo contiene gli esercizi per la tesina di PSO. Il file "Labieni_Tommaso_174065.pdf" contiene la tesina vera e propria.
 
 # Usage
 
