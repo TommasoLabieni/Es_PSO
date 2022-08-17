@@ -1,5 +1,5 @@
 # Es_PSO
-Questo repo contiene gli esercizi per la tesina di PSO
+Questo repo contiene gli esercizi per la tesina di PSO. Il file PDF contiene la tesina vera e propria.
 
 # Usage
 
